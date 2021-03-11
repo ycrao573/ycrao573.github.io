@@ -1,0 +1,114 @@
+{
+  "main": {
+    "name":"Yuchen Rao",
+    "occupation":"Software Engineer Intern in Autodesk",
+    "description":"I'm currently a penultimate year student studying in Nanyang Technological University and will graduate in 2022. ",
+    "image":"profilepic.jpg",
+    "bio":"A penultimate year NTU student major in Information Engineering & Media. Proficient in different programming languages and web frameworks, Quality-oriented and have good command of problem analysing and solving skills. Also interested in Deep Learning and Artificial Intelligence field.",
+    "contactmessage":"Here is where you should write your message to readers to have them get in contact with you.",
+    "email": "raoyuchenom@gmail.com",
+    "phone": "(65) 8348 7085",
+    "address":{
+      "street":"22 Nanyang Avenue",
+      "city":"Singapore",
+      "state":"",
+      "zip": "639810"
+    },
+    "website": "https://ycrao573.github.io",
+    "resumedownload":"https://github.com/ycrao573/ycrao573.github.io/public/doc/resume.pdf",
+    "social":[
+      {
+        "name":"linkedin",
+        "url":"https://www.linkedin.com/in/yuchen-rao-a249b6180/",
+        "className":"fa fa-linkedin"
+      },
+      {
+        "name":"instagram",
+        "url":"http://instagram.com/tbaker_x",
+        "className":"fa fa-instagram"
+      },
+      {
+        "name":"github",
+        "url":"http://github.com/ycrao573",
+        "className":"fa fa-github"
+      }
+    ]
+  },
+  "resume":{
+    "skillmessage":"Here is my technology tree!",
+    "education":[
+      {
+        "school":"Nanyang Technological University",
+        "degree":"Bachelor of Information Engineering & Media",
+        "graduated":"June 2022 (Expected)",
+        "description":"School of Electrical and Electronic Engineering\nHonours (Highest Distinction) (Expected); current CGPA: 4.59 / 5.00\nNTU Science and Engineering Scholarship\nRelevant Modules:\n (1) Software Engineering (2) Computer Vision (3) Web Application Design (4) DataStructure and Algorithms\nNTU Design and Innovation Project: Goal Tracking Mobile Application\nNTU URECA (Undergraduate Research Experience on Campus): Security Study on Interest Flooding Attacking in Named-Data Network",
+        "image": "https://media-exp1.licdn.com/dms/image/C4D0BAQG0nfM0ZH4emA/company-logo_200_200/0/1519882861949?e=2159024400&v=beta&t=1GpuSdhI8qvHfLImi_ihJDHkfBmgWWhbx_Hn0vNXkIU"
+      },
+      {
+        "school":"University of Strathclyde",
+        "degree":"Overseas University Exchange",
+        "graduated":"June 2020",
+        "description":"",
+        "image": "https://www.strath.ac.uk/media/1newwebsite/documents/brand/strath_main.jpg"
+      },
+      {
+        "school":"Korea University",
+        "degree":"International Summer Campus",
+        "graduated":"June 2020",
+        "description":"",
+        "image": "https://i.pinimg.com/originals/7c/67/00/7c67000ce2be2e535960037a3080f849.png"
+      }
+    ],
+    "work":[
+      {
+        "company":"Autodesk Asia Pte Ltd",
+        "title":"Software Engineer Intern (Identity)",
+        "years":"Jan 2021 - Present",
+        "description":
+          "I am working with DPE-SPG Identity team and partnering with engineers in developing and optimizing identity process on current web product. I am also doing necessary feasibility research on introducing better workflow on UI and front-end development. Here I have chance to expose on the identity workflow of real-world product (authentication and authorization) and decision-making in Agile process. \nPROJECT 1：AWS secret manager Integration on SSOAdmin Application\nIntegrated one enterprise SSO application (.NET framework) and migrated the secrets to the AWS Cloud. Executed and re-designed the related unit tests. \nPROJECT 2: Security Settings Containerization with Access Token Injection\nDockerising the security settings page (ReactJS) and implement PAT (personal access token) injection based on different processing environment",
+        "image": "https://www.mac-group.com/wp-content/uploads/2018/11/autodesk-logo.png"
+      },
+      {
+        "company":"Nanyang Technopreneurship Center, NTU",
+        "title":"Digital Marketing Design Intern (Part-Time)",
+        "years":"Aug 2020 - Dec 2020",
+        "description":
+          "In NTC, I was working on digital materials design for programmes' publicity and marketing purpose. I performed maintenance to websites and optimization/modernization on UI. Meanwhile, I developed publicity materials (website, video, poster, banner) based on corporate guidelines and applied to enhanced user experience. I was commended by the senior project director for my efficiency and work excellence in providing design and IT support.",
+        "image": "https://media-exp1.licdn.com/dms/image/C4D0BAQG0nfM0ZH4emA/company-logo_200_200/0/1519882861949?e=2159024400&v=beta&t=1GpuSdhI8qvHfLImi_ihJDHkfBmgWWhbx_Hn0vNXkIU"
+        }
+    ],
+    "skills":[
+    ]
+  },
+  "portfolio":{
+    "projects": [
+      {
+        "title":"Resume Website",
+        "category":"A ReactJS based resume website",
+        "image":"resume-website.png",
+        "url":"https://ycrao573.github.io"
+      },
+      {
+        "title":"DIP - Goal Tracking App",
+        "category":"An Intelligent Goal Tracking Mobile Application",
+        "image":"dip.jpeg",
+        "url":"https://github.com/NTU-AY2020-DIP-Group-8/gogogoals"
+      },
+
+      {
+        "title":"Web Application Design",
+        "category":"A ReactJS based resume website",
+        "image":"vapaors.png",
+        "url":"https://github.com/ycrao573/4717-VAPORS"
+      }
+    ]
+  },
+  "testimonials":{
+    "testimonials":[
+      {
+        "text":"I have managed to visit these countries, and this list will keep going on...",
+        "user":""
+      }
+    ]
+  }
+}
