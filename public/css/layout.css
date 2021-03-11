@@ -929,6 +929,10 @@ call-to-action .button {
   color: #fff;
 }
 
+.me{
+  margin-left: 10%;
+}
+
 #contact h1 {
   font: 18px/24px "opensans-bold", sans-serif;
   text-transform: uppercase;
@@ -951,7 +955,7 @@ call-to-action .button {
 }
 
 #contact h4 {
-  font: 16px/24px "opensans-bold", sans-serif;
+  font: 19px/28px "opensans-bold", sans-serif;
   color: #ebeeee;
   margin-bottom: 6px;
 }
@@ -965,7 +969,7 @@ call-to-action .button {
 
 /* contact form */
 #contact form {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 #contact label {
   font: 15px/24px "opensans-bold", sans-serif;

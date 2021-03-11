@@ -17,13 +17,15 @@ class Contact extends Component {
     return (
       <section id="contact">
         <div className="row">
+          <div className="me">
           <h4>Contact Me!</h4>
           <p className="address">
           <span className="fa fa-envelope"></span>&nbsp;&nbsp;
-          <a href = "mailto:raoyuchenom@gmail.com">raoyuchenom@gmail.com</a><br/>
+          <a href = "mailto:raoyuchenom@gmail.com">raoyuchenom@gmail.com |</a>
+          <a href = "mailto:raoy0003@e.ntu.edu.sg"> raoy0003@e.ntu.edu.sg</a><br/>
           <span className="fa fa-phone"></span>&nbsp;&nbsp;
           (+65) 8348 7085
-          </p><br />
+          </p><br /></div>
         </div>
       </section >
     );
