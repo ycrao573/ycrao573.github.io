@@ -4,7 +4,7 @@
     "occupation":"Software Engineer Intern in Autodesk",
     "description":"I'm currently a penultimate year student studying in Nanyang Technological University and will graduate in 2022. ",
     "image":"profilepic.jpg",
-    "bio":"A penultimate year NTU student major in Information Engineering & Media. Proficient in different programming languages and web frameworks, Quality-oriented and have good command of problem analysing and solving skills. Also interested in Deep Learning and Artificial Intelligence field.",
+    "bio":"A penultimate year NTU student major in Information Engineering & Media. Proficient in several programming languages, software frameworks and development methodology. Quality-oriented and have good command of problem analysing and solving skills. Also interested in Deep Learning and Artificial Intelligence field.",
     "contactmessage":"Here is where you should write your message to readers to have them get in contact with you.",
     "email": "raoyuchenom@gmail.com",
     "phone": "(65) 8348 7085",
@@ -47,14 +47,14 @@
       {
         "school":"University of Strathclyde",
         "degree":"Overseas University Exchange",
-        "graduated":"June 2020",
+        "graduated":"May 2020",
         "description":"",
         "image": "https://www.strath.ac.uk/media/1newwebsite/documents/brand/strath_main.jpg"
       },
       {
         "school":"Korea University",
         "degree":"International Summer Campus",
-        "graduated":"June 2020",
+        "graduated":"Aug 2019",
         "description":"",
         "image": "https://i.pinimg.com/originals/7c/67/00/7c67000ce2be2e535960037a3080f849.png"
       }

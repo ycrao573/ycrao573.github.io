@@ -46,8 +46,8 @@ class Header extends Component {
          </div>
       </div>
       
-      <p>The picture was shot in Reykjavík, Iceland<span role="img" aria-label="iceland">🌨️</span></p>
 
+      <p className="img-description">Photo Taken in March 2020, Reykjavík<span role="img" aria-label="ice">🏔️</span>, Iceland<span role="img" aria-label="iceland"> 🇮🇸</span></p>
       <p className="scrolldown">
          <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
       </p>
