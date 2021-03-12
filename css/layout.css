@@ -135,6 +135,13 @@ header .scrolldown a {
 header .scrolldown a:hover {
   color: #11abb0;
 }
+.img-description {
+  font-size: 80%;
+  color:rgba(255, 255, 255, 0.77);
+  position: absolute;
+  bottom: 2px;
+  right: 18px;
+}
 
 /* primary navigation
 --------------------------------------------------------------------- */
@@ -929,7 +936,7 @@ call-to-action .button {
   color: #fff;
 }
 
-.me{
+.me {
   margin-left: 10%;
 }
 
