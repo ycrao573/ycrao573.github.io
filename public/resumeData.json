@@ -40,21 +40,21 @@
       {
         "school":"Nanyang Technological University",
         "degree":"Bachelor of Information Engineering & Media",
-        "graduated":"June 2022 (Expected)",
+        "graduated":"Aug 2018 - June 2022 (Expected)",
         "description":"School of Electrical and Electronic Engineering\nHonours (Highest Distinction) (Expected); current CGPA: 4.59 / 5.00\nNTU Science and Engineering Scholarship\nRelevant Modules:\n (1) Software Engineering (2) Computer Vision (3) Web Application Design (4) DataStructure and Algorithms\nNTU Design and Innovation Project: Goal Tracking Mobile Application\nNTU URECA (Undergraduate Research Experience on Campus): Security Study on Interest Flooding Attacking in Named-Data Network",
         "image": "https://media-exp1.licdn.com/dms/image/C4D0BAQG0nfM0ZH4emA/company-logo_200_200/0/1519882861949?e=2159024400&v=beta&t=1GpuSdhI8qvHfLImi_ihJDHkfBmgWWhbx_Hn0vNXkIU"
       },
       {
         "school":"University of Strathclyde",
         "degree":"Overseas University Exchange",
-        "graduated":"May 2020",
+        "graduated":"Jan - May 2020",
         "description":"",
         "image": "https://www.strath.ac.uk/media/1newwebsite/documents/brand/strath_main.jpg"
       },
       {
         "school":"Korea University",
         "degree":"International Summer Campus",
-        "graduated":"Aug 2019",
+        "graduated":"Jun - Aug 2019",
         "description":"",
         "image": "https://i.pinimg.com/originals/7c/67/00/7c67000ce2be2e535960037a3080f849.png"
       }
@@ -65,7 +65,7 @@
         "title":"Software Engineer Intern (Identity)",
         "years":"Jan 2021 - Present",
         "description":
-          "I am working with DPE-SPG Identity team and partnering with engineers in developing and optimizing identity process on current web product. I am also doing necessary feasibility research on introducing better workflow on UI and front-end development. Here I have chance to expose on the identity workflow of real-world product (authentication and authorization) and decision-making in Agile process. \nPROJECT 1：AWS secret manager Integration on SSOAdmin Application\nIntegrated one enterprise SSO application (.NET framework) and migrated the secrets to the AWS Cloud. Executed and re-designed the related unit tests. \nPROJECT 2: Security Settings Containerization with Access Token Injection\nDockerising the security settings page (ReactJS) and implement PAT (personal access token) injection based on different processing environment",
+          "I am working with DPE-SPG Identity team and partnering with engineers in developing and optimizing identity process on current web product. I am also doing necessary feasibility research on introducing better workflow on UI and front-end development. Here I have chance to expose on the identity workflow of real-world product (authentication and authorization) and decision-making in Agile process. \nPROJECT 1：AWS secret manager Integration on SSOAdmin Application\nIntegrated one enterprise SSO application (.NET framework) and migrated the secrets to the AWS Cloud. Executed and re-designed the related unit tests. \nPROJECT 2: Security Settings Containerization with Chassis \nIntegrate and dockerise the security settings app (ReactJS) with chassis \nPerform the optimization on Jenkins pipeline and deploy the container to the EC2 instance \nOptimize the development workflow and enable UI result peeking through the GitHub link",
         "image": "https://www.mac-group.com/wp-content/uploads/2018/11/autodesk-logo.png"
       },
       {
