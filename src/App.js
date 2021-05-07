@@ -9,6 +9,7 @@ import Resume from './Components/Resume';
 import Contact from './Components/Contact';
 import Testimonials from './Components/Testimonials';
 import Portfolio from './Components/Portfolio';
+import LoadingScreen from 'react-loading-screen';
 
 class App extends Component {
 
@@ -16,7 +17,8 @@ class App extends Component {
     super(props);
     this.state = {
       foo: 'bar',
-      resumeData: {}
+      resumeData: {},
+      isLoading: true
     };
 
     ReactGA.initialize('UA-110570651-1');
@@ -40,11 +42,23 @@ class App extends Component {
   }
 
   componentDidMount(){
+    setTimeout(function() {
+      this.setState({isLoading: false}) 
+    }.bind(this), 600);
     this.getResumeData();
   }
 
   render() {
     return (
+      this.state.isLoading ? 
+      <LoadingScreen
+        loading={true}
+        bgColor='#0C2D48'
+        spinnerColor='#B1D4E0'
+        textColor='#B1D4E0'
+        text='Loading...'
+      /> 
+      : 
       <div className="App">
         <Header data={this.state.resumeData.main}/>
         <About data={this.state.resumeData.main}/>
