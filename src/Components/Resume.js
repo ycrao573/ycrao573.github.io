@@ -121,7 +121,7 @@ class Resume extends Component {
             <div className="columns feature-item">
               <img className="skill" alt="ReactJS" src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" />
                 <h5>ReactJS</h5>
-                <p>several web projects and <a href="https://www.yuchen-rao.ml/">THIS WEBSITE</a></p>
+                <p>several web projects and <a href="https://www.yuchen-rao.ml/">THIS WEBSITE</a>4</p>
             </div>
             <div className="columns feature-item">
               <img className="skill" alt="Docker" src="https://avatars.githubusercontent.com/u/11618900?s=460&u=4094ca922dc10a0476cd0eaf37aa78d3c7a91eb2&v=4" />

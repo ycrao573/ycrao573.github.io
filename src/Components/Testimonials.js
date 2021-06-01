@@ -8,7 +8,7 @@ class Testimonials extends Component {
         return  <li key={testimonials.user}>
             <blockquote>
                <p>{testimonials.text}</p>
-               <p><span role="img" aria-label="countries">🇨🇳 🇸🇬 🇫🇷 🇬🇧 🇮🇹 🇮🇸 🇦🇪 🇶🇦 🇳🇱 🇭🇰 🇲🇴 🇯🇵 🇰🇷 🇻🇦</span></p>
+               <p><span role="img" aria-label="countries">🇨🇳 🇸🇬 🇫🇷 🇬🇧 🇮🇹 🇮🇸 🇦🇪 🇶🇦 🇳🇱 🇹🇭 🇭🇰 🇲🇴 🇯🇵 🇰🇷 🇻🇦 ...</span></p>
             </blockquote>
          </li>
       })

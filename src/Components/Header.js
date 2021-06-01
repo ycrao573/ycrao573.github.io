@@ -32,13 +32,15 @@ class Header extends Component {
         <br />
          <div className="banner-text">
             <h1 className="responsive-headline">I'm {name} <span role="img" aria-label="orange">🍊</span></h1>
-            <h3 className="new-line">I'm a <span>{occupation}<span role="img" aria-label="laptop">💻</span></span> based in {city}. {"\n"} {description}
-            {"\n"}Love travelling <span role="img" aria-label="plane">✈️</span>
-            , hiking <span role="img" aria-label="mountain">🏔️</span>
-            , eating <span role="img" aria-label="eat">🍝</span>
-            and cooking <span role="img" aria-label="cook">👨‍🍳️</span>{"\n"}
-            Searching for part-time internship opportunities for my final year of study!
+            <h3 className="new-line">I'm a <span>{occupation}</span> in {city}. {"\n"} {description}
+            {"\n"}<b>Programmer<span role="img" aria-label="laptop">💻</span>
+            , Traveller<span role="img" aria-label="plane">✈️</span>
+            , Cook<span role="img" aria-label="cook">👨‍🍳️</span>
+            , Eater<span role="img" aria-label="eat">🍝</span>
+            {"\n"}</b>
             </h3>
+            <hr />
+            <h3 className="new-line">Currently I am serving quarantine in Shenzhen... <span role="img" aria-label="mask">😷</span></h3>
             <hr />
             <ul className="social">
                {networks}
@@ -47,7 +49,7 @@ class Header extends Component {
       </div>
       
 
-      <p className="img-description">Photo Taken in March 2020, Reykjavík<span role="img" aria-label="ice">🏔️</span>, Iceland<span role="img" aria-label="iceland"> 🇮🇸</span></p>
+      <p className="img-description">Photo Taken in January 2020, Paris<span role="img" aria-label="tower">🗼</span>, Paris<span role="img" aria-label="france"> 🇫🇷</span></p>
       <p className="scrolldown">
          <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
       </p>

@@ -1,11 +1,11 @@
 {
   "main": {
     "name":"Yuchen Rao",
-    "occupation":"Software Engineer Intern in Autodesk",
-    "description":"I'm currently a penultimate year student studying in Nanyang Technological University and will graduate in 2022. ",
+    "occupation":"Final Year NTU Student",
+    "description":"Major in Information Engineering & Media, Graduate in 2022. ",
     "image":"profilepic.jpg",
-    "bio":"A penultimate year NTU student major in Information Engineering & Media. Proficient in several programming languages, software frameworks and development methodology. Quality-oriented and have good command of problem analysing and solving skills. Also interested in Deep Learning and Artificial Intelligence field.",
-    "contactmessage":"Here is where you should write your message to readers to have them get in contact with you.",
+    "bio":"Final Year NTU student major in Information Engineering & Media. Proficient in several programming languages, software frameworks and development methodology. Quality-oriented and have good command of problem analysing and solving skills. Also interested in Deep Learning and Artificial Intelligence field.",
+    "contactmessage":"",
     "email": "raoyuchenom@gmail.com",
     "phone": "(65) 8348 7085",
     "address":{
@@ -24,7 +24,7 @@
       },
       {
         "name":"instagram",
-        "url":"https://instagram.com/rrato_yc",
+        "url":"https://instagram.com/ycrao573",
         "className":"fa fa-instagram"
       },
       {

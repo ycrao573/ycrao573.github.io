@@ -103,7 +103,7 @@ ins {
 
 mark {
    background-color: #A7F4F6;
-   color: rgb(68, 68, 68);
+   color: rgb(158, 158, 158);
 }
 
 del { text-decoration: line-through; }
@@ -147,7 +147,7 @@ body {
    font-weight: normal;
    font-size: 15px;
    line-height: 30px;
-	color: #45484b;
+	color: #929292;
 
    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 	-webkit-text-size-adjust: 100%;
@@ -158,7 +158,7 @@ body {
 --------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
-   color: #313131;
+   color: #3a3a3a;
 	font-family: 'opensans-bold', sans-serif;
    font-weight: normal;
 }
@@ -346,7 +346,7 @@ li p { }
 	font-size: 22px;
 	font-family: 'opensans-bold', sans-serif;
    border: none;
-   color: #313131;
+   color: #5a5a5a;
 }
 .stats-tabs li a:hover {
    color:#11ABB0;
