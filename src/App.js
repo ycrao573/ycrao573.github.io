@@ -53,7 +53,7 @@ class App extends Component {
       this.state.isLoading ? 
       <LoadingScreen
         loading={true}
-        bgColor='#00808A'
+        bgColor='#008080'
         spinnerColor='#66CDAA'
         textColor='#F0FFFF'
         text='Loading...'
