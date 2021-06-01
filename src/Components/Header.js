@@ -49,7 +49,7 @@ class Header extends Component {
       </div>
       
 
-      <p className="img-description">Photo Taken in January 2020, Paris<span role="img" aria-label="tower">🗼</span>, Paris<span role="img" aria-label="france"> 🇫🇷</span></p>
+      <p className="img-description">Photo Taken in January 2020, Paris<span role="img" aria-label="tower">🗼</span>, France<span role="img" aria-label="france"> 🇫🇷</span></p>
       <p className="scrolldown">
          <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
       </p>
