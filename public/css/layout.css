@@ -109,7 +109,7 @@ header .social li a {
   color: #fff;
 }
 header .social li a:hover {
-  color: #11abb0;
+  color: #0f6366;
 }
 
 /* scrolldown link */
@@ -133,7 +133,7 @@ header .scrolldown a {
   transition: all 0.3s ease-in-out;
 }
 header .scrolldown a:hover {
-  color: #11abb0;
+  color: #0f6063;
 }
 .img-description {
   font-size: 80%;
@@ -211,7 +211,7 @@ ul#nav li a:active {
   background-color: transparent !important;
 }
 ul#nav li.current a {
-  color: skyblue;
+  color: #dbba00;
 }
 ul#nav li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
@@ -236,7 +236,7 @@ ul#nav li a:hover {
 }
 #about a:hover,
 #about a:focus {
-  color: #11abb0;
+  color: #0f6063;
 }
 
 #about h2 {
@@ -308,7 +308,7 @@ ul#nav li a:hover {
 
 #resume a,
 #resume a:visited {
-  color: #11abb0;
+  color: #0f6063;
 }
 #resume a:hover,
 #resume a:focus {
@@ -321,7 +321,7 @@ ul#nav li a:hover {
   letter-spacing: 1px;
 }
 #resume h1 span {
-  border-bottom: 3px solid #11abb0;
+  border-bottom: 3px solid #0f6063;
   padding-bottom: 6px;
 }
 #resume h3 {
@@ -929,7 +929,7 @@ call-to-action .button {
 
 #contact a,
 #contact a:visited {
-  color: #11abb0;
+  color: #0f6063;
 }
 #contact a:hover,
 #contact a:focus {
@@ -1003,7 +1003,7 @@ call-to-action .button {
 #contact textarea:focus,
 #contact select:focus {
   color: #fff;
-  background-color: #11abb0;
+  background-color: #0f6063;
 }
 #contact button.submit {
   text-transform: uppercase;
@@ -1022,7 +1022,7 @@ call-to-action .button {
   background: #fff;
 }
 #contact span.required {
-  color: #11abb0;
+  color: #0e6063;
   font-size: 13px;
 }
 #message-warning,
@@ -1038,7 +1038,7 @@ call-to-action .button {
   color: #d72828;
 }
 #message-success {
-  color: #11abb0;
+  color: #0f6063;
 }
 
 #message-warning i,

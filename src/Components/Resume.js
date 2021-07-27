@@ -104,7 +104,7 @@ class Resume extends Component {
                 <p>JAVA 8 and JAVAFX in my desktop GUI Sudoku project</p>
             </div>
             <div className="columns feature-item">
-              <img className="skill" alt="cpp" src="https://ih1.redbubble.net/image.1091701842.0422/st,small,845x845-pad,1000x1000,f8f8f8.jpg" />
+              <img className="skill" alt="cpp" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" />
                 <h5>C++</h5>
                 <p>mostly in algorithm coding and OOP project</p>
             </div>
