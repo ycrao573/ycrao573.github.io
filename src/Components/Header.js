@@ -32,16 +32,18 @@ class Header extends Component {
         <br />
          <div className="banner-text">
             <h1 className="responsive-headline">I'm {name} <span role="img" aria-label="orange">🍊</span></h1>
-            <h3 className="new-line">I'm a <span>{occupation}</span> in {city} <span role="img" aria-label="sg">🇸🇬</span>. {"\n"} {description}
-            {"\n"}<b>Programmer<span role="img" aria-label="laptop">💻</span>
+            <h3 className="new-line"><span>{occupation}</span> in {city} <span role="img" aria-label="sg">🇸🇬</span>, {description}
+            <h3 className="new-line">A part-time software engineer intern in Autodesk</h3>
+            <hr />
+            Programmer<span role="img" aria-label="laptop">💻</span>
             , Traveller<span role="img" aria-label="plane">✈️</span>
             , Cook<span role="img" aria-label="cook">👨‍🍳️</span>
             , Eater<span role="img" aria-label="eat">🍝</span>
             , Musician<span role="img" aria-label="music">🎹</span>
-            {"\n"}</b>
+            {"\n"}
             </h3>
             <hr />
-            <h3 className="new-line">Currently I am in Nanchang, Jiangxi, China <span role="img" aria-label="china">🇨🇳</span></h3>
+            <h3 className="new-line">I am currently searching a full-time graduate job for software-related positions (e.g. Software Engineer, Frontend/Backend Engineer))</h3>
             <hr />
             <ul className="social">
                {networks}

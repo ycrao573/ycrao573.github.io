@@ -2,17 +2,17 @@
   "main": {
     "name":"Yuchen Rao",
     "occupation":"Final Year NTU Student",
-    "description":"Major in Information Engineering & Media, Graduate in 2022. ",
+    "description":"Major in Information Engineering & Media, Graduate in June 2022. ",
     "image":"profilepic.jpg",
     "bio":"Final Year NTU student major in Information Engineering & Media. Proficient in several programming languages, software frameworks and development methodology. Quality-oriented and have good command of problem analysing and solving skills. Also interested in Deep Learning and Artificial Intelligence field.",
     "contactmessage":"",
     "email": "raoyuchenom@gmail.com",
     "phone": "(65) 8348 7085",
     "address":{
-      "street":"22 Nanyang Avenue",
+      "street":"8 Nanyang Drive",
       "city":"Singapore",
       "state":"",
-      "zip": "639810"
+      "zip": "637719"
     },
     "website": "https://www.yuchen-rao.ml",
     "resumedownload":"https://github.com/ycrao573/ycrao573.github.io/raw/master/public/doc/resume.pdf",
