@@ -89,7 +89,10 @@ class About extends Component {
                     <br />
                     <br />
                     <div>
-                      <Button variant="contained" style={{fontSize: "96%", float: "right"}} startIcon={<DownloadIcon />}>
+                      <Button onClick={(e) => {
+      e.preventDefault();
+                        window.open("https://github.com/ycrao573/ycrao573.github.io/raw/master/public/images/Rao%20Yuchen_Resume.pdf", "_blank");
+      }} variant="contained" style={{fontSize: "96%", float: "right"}} startIcon={<DownloadIcon />}>
                         Download Resume
                       </Button>
                     </div>
