@@ -1,63 +1,96 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Typical from "react-typical";
+import Switch from "react-switch";
 
 class Header extends Component {
+  titles = [];
+
+  constructor() {
+    super();
+    this.state = { checked: false };
+    this.onThemeSwitchChange = this.onThemeSwitchChange.bind(this);
+  }
+
+  onThemeSwitchChange(checked) {
+    this.setState({ checked });
+    this.setTheme();
+  }
+
+  setTheme() {
+    var dataThemeAttribute = "data-theme";
+    var body = document.body;
+    var newTheme =
+      body.getAttribute(dataThemeAttribute) === "dark" ? "light" : "dark";
+    body.setAttribute(dataThemeAttribute, newTheme);
+  }
+
   render() {
-    if(this.props.data){
-      var name = this.props.data.name;
-      var occupation= this.props.data.occupation;
-      var description= this.props.data.description;
-      var city= this.props.data.address.city;
-      var networks= this.props.data.social.map(function(network){
-        return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
-      })
+    if (this.props.sharedData) {
+      var name = this.props.sharedData.name;
+      this.titles = this.props.sharedData.titles.map(x => [ x.toUpperCase(), 1500 ] ).flat();
     }
 
+    const HeaderTitleTypeAnimation = React.memo( () => {
+      return <Typical className="title-styles" steps={this.titles} loop={50} />
+    }, (props, prevProp) => true);
+
     return (
-      <header id="home">
-
-      <nav id="nav-wrap">
-         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
-
-         <ul id="nav" className="nav">
-            <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-            <li><a className="smoothscroll" href="#about">About</a></li>
-	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
-            <li><a className="smoothscroll" href="#portfolio">Portfolio</a></li>
-            <li><a className="smoothscroll" href="#contact">Contact</a></li>
-         </ul>
-      </nav>
-
-      <div className="row banner dark-overlay">
-        <br />
-         <div className="banner-text">
-            <h1 className="responsive-headline">I'm {name} <span role="img" aria-label="orange">🍊</span></h1>
-            <h3 className="new-line"><span>{occupation}</span> in {city} <span role="img" aria-label="sg">🇸🇬</span>, {description}
-            <h3 className="new-line">A part-time software engineer intern in Autodesk</h3>
-            <hr />
-            Programmer<span role="img" aria-label="laptop">💻</span>
-            , Traveller<span role="img" aria-label="plane">✈️</span>
-            , Cook<span role="img" aria-label="cook">👨‍🍳️</span>
-            , Eater<span role="img" aria-label="eat">🍝</span>
-            , Musician<span role="img" aria-label="music">🎹</span>
-            {"\n"}
-            </h3>
-            <hr />
-            <h3 className="new-line">I am currently searching a full-time graduate job for software-related positions (e.g. Software Engineer, Frontend/Backend Engineer))</h3>
-            <hr />
-            <ul className="social">
-               {networks}
-            </ul>
-         </div>
-      </div>
-      
-
-      <p className="img-description">Photo Taken in January 2020, Paris<span role="img" aria-label="tower">🗼</span>, France<span role="img" aria-label="france"> 🇫🇷</span></p>
-      <p className="scrolldown">
-         <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
-      </p>
-
-   </header>
+      <header id="home" style={{ height: window.innerHeight - 140, display: 'block' }}>
+        <div className="row aligner" style={{height: '100%'}}>
+          <div className="col-md-12">
+            <div>
+              <span className="iconify header-icon" data-icon="la:laptop-code" data-inline="false"></span>
+              <br/>
+              <h1 className="mb-0">
+                <Typical steps={[name]} wrapper="p" />
+              </h1>
+              <div className="title-container">
+                <HeaderTitleTypeAnimation />
+              </div>
+              <Switch
+                checked={this.state.checked}
+                onChange={this.onThemeSwitchChange}
+                offColor="#baaa80"
+                onColor="#353535"
+                className="react-switch mx-auto"
+                width={90}
+                height={40}
+                uncheckedIcon={
+                  <span
+                    className="iconify"
+                    data-icon="twemoji:owl"
+                    data-inline="false"
+                    style={{
+                      display: "block",
+                      height: "100%",
+                      fontSize: 25,
+                      textAlign: "end",
+                      marginLeft: "20px",
+                      color: "#353239",
+                    }}
+                  ></span>
+                }
+                checkedIcon={
+                  <span
+                    className="iconify"
+                    data-icon="noto-v1:sun-with-face"
+                    data-inline="false"
+                    style={{
+                      display: "block",
+                      height: "100%",
+                      fontSize: 25,
+                      textAlign: "end",
+                      marginLeft: "10px",
+                      color: "#353239",
+                    }}
+                  ></span>
+                }
+                id="icon-switch"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
     );
   }
 }

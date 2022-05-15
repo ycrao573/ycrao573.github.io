@@ -1,53 +1,105 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
+import DownloadIcon from "@mui/icons-material/Download";
+import { Icon } from "@iconify/react";
+import reactIcon from "@iconify/icons-logos/react";
+import javascriptIcon from "@iconify/icons-logos/javascript";
+import pythonIcon from "@iconify/icons-logos/python";
 class About extends Component {
   render() {
-
-    if(this.props.data){
-      var name = this.props.data.name;
-      var profilepic= "images/"+this.props.data.image;
-      var bio = this.props.data.bio;
-      var street = this.props.data.address.street;
-      var city = this.props.data.address.city;
-      var state = this.props.data.address.state;
-      var zip = this.props.data.address.zip;
-      var phone= this.props.data.phone;
-      var email = this.props.data.email;
-      var resumeDownload = this.props.data.resumedownload;
+    if (this.props.sharedBasicInfo) {
+      var profilepic = "images/" + this.props.sharedBasicInfo.image;
+    }
+    if (this.props.resumeBasicInfo) {
+      var sectionName = this.props.resumeBasicInfo.section_name.about;
+      var hello = this.props.resumeBasicInfo.description_header;
+      var about = this.props.resumeBasicInfo.description;
     }
 
     return (
       <section id="about">
-      <div className="row">
-         <div className="three columns">
-            <img className="profile-pic"  src={profilepic} alt="Yuchen's Profile Pic" />
-         </div>
-         <div className="nine columns main-col">
-            <h2>About Me</h2>
-
-            <p>{bio}</p>
-            <div className="row">
-               <div className="columns contact-details">
-                  <h2>Contact Details</h2>
-                  <p className="address">
-						   <span>{name}</span><br />
-						   <span>{street}<br />
-						         {city} {state}, {zip}
-                   </span><br />
-						   <span>{phone}</span><br />
-                     <span>{email}</span>
-					   </p>
-               </div>
-               <div className="columns download">
-                  <p>
-                     <a href={resumeDownload} className="button"><i className="fa fa-download"></i>Download Resume</a>
-                  </p>
-               </div>
+        <div className="col-md-12">
+          <h1 style={{ color: "black" }}>
+            <span>{sectionName}</span>
+          </h1>
+          <div className="row center mx-auto mb-5">
+            <div className="col-md-4 mb-5 center">
+              <div className="polaroid">
+                <span style={{ cursor: "auto" }}>
+                  <img src={profilepic} alt="Avatar placeholder" />
+                  <Icon
+                    icon={reactIcon}
+                    style={{ fontSize: "400%", margin: "9% 5% 0 5%" }}
+                  />
+                  <Icon
+                    icon={javascriptIcon}
+                    style={{ fontSize: "400%", margin: "9% 5% 0 5%" }}
+                  />
+                  <Icon
+                    icon={pythonIcon}
+                    style={{ fontSize: "400%", margin: "9% 5% 0 5%" }}
+                  />
+                  <hr />
+                  <div style={{fontSize: "130%"}}>
+                    Phone: (+65) 83487085
+                  <br/>
+                    Email: raoyuchenom@gmail.com
+                  </div>
+                  
+                </span>
+              </div>
             </div>
-         </div>
-      </div>
 
-   </section>
+            <div className="col-md-8 center">
+              <div className="col-md-10">
+                <div className="card">
+                  <div className="card-header">
+                    <span
+                      className="iconify"
+                      data-icon="emojione:red-circle"
+                      data-inline="false"
+                    ></span>{" "}
+                    &nbsp;{" "}
+                    <span
+                      className="iconify"
+                      data-icon="twemoji:yellow-circle"
+                      data-inline="false"
+                    ></span>{" "}
+                    &nbsp;{" "}
+                    <span
+                      className="iconify"
+                      data-icon="twemoji:green-circle"
+                      data-inline="false"
+                    ></span>
+                  </div>
+                  <div
+                    className="card-body text-justify ml-3 mr-3"
+                    style={{
+                      height: "auto",
+                      fontSize: "150%",
+                      lineHeight: "200%",
+                    }}
+                  >
+                    <br />
+                    <span className="wave">{hello} :) </span>
+                    <br />
+                    <br />
+                    {about}
+                    <br />
+                    <br />
+                    <div>
+                      <Button variant="contained" style={{fontSize: "96%", float: "right"}} startIcon={<DownloadIcon />}>
+                        Download Resume
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     );
   }
 }
