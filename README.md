@@ -1,7 +1,7 @@
 # Personal Page
-This is my React-based personal page.
+This is my simple React-based personal page.
 
-## Visit here: [I am Yuchen Rao 🍊!](https://www.yuchen-rao.ml)
+## Visit here: [I am Yuchen Rao 🍊!](https://ycrao573.github.io)
 
 #### Final Year NTU Student in Singapore 🇸🇬, Major in Information Engineering & Media, Graduate in June 2022.
 #### A part-time software engineer intern in Autodesk
