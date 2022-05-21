@@ -38,7 +38,7 @@ header {
 	-webkit-background-size: cover;
 	text-align: center;
 	overflow: hidden;
-	background-color: #80c0c0;
+	background-color: #99cccc;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -75,7 +75,7 @@ header {
 
 .language {
 	font-size: 25px;
-	background-color: #80c0c0;
+	background-color: #99cccc;
 	padding-bottom: 10px;
 	padding-top: 80px;
 }
@@ -220,7 +220,7 @@ header h1 {
 }
 
 #resume {
-	background: #80c0c0;
+	background: #99cccc;
 }
 
 .experience-icon {
@@ -252,6 +252,7 @@ header h1 {
 }
 
 .vertical-timeline-element-date {
+	font-size: 105% !important;
 	padding: 0 !important;
 	margin: 0 !important;
 }
@@ -342,7 +343,7 @@ header h1 {
 }
 
 #portfolio {
-	background: #80c0c0;
+	background: #99cccc;
 	padding-bottom: 5%;
 }
 

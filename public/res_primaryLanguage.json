@@ -106,6 +106,36 @@
           "Jenkins",
           "Linux"
         ]
+      },
+      {
+        "company": "Nanyang Technological University, Singapore",
+        "title": "Bachelor Degree",
+        "years": "Aug 2018 - Jun 2022",
+        "mainTech": [
+          "Bachelor of Information Engineering & Media"
+        ],
+        "technologies": [
+          "NTU Science & Engineering Scholarship (CN)",
+          "MOE Senior Middle 2 Scholarship"
+        ]
+      },
+      {
+        "company": "University of Strathclyde, Glasgow",
+        "title": "Overseas Exchange (Electrical Engineering)",
+        "years": "Jan 2020 - May 2020",
+        "mainTech": [
+        ],
+        "technologies": [
+        ]
+      },
+      {
+        "company": "Korea University, Seoul",
+        "title": "International Summer Campus",
+        "years": "Jun 2019 - Aug 2019",
+        "mainTech": [
+        ],
+        "technologies": [
+        ]
       }
     ]
   }

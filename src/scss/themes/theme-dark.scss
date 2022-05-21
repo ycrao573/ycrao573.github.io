@@ -83,6 +83,7 @@ body[data-theme="dark"] {
       }
 
       .vertical-timeline-element-date {
+         font-size: 105% !important;
          color: white;
       }
 
@@ -91,6 +92,7 @@ body[data-theme="dark"] {
       }
       @media only screen and (max-width: 1169px) { 
          .vertical-timeline-element-date {
+            font-size: 105% !important;
             color: black;
          }
       }

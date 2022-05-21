@@ -41,6 +41,12 @@ class About extends Component {
                     style={{ fontSize: "400%", margin: "9% 5% 0 5%" }}
                   />
                   <hr />
+                  <div style={{fontSize: "165%", fontWeight: "bold"}}>
+                    Rao Yuchen
+                  </div>
+                  <div style={{fontSize: "165%"}}>
+                    （饶宇晨）
+                  </div>
                   <div style={{fontSize: "130%"}}>
                     Phone: (+65) 83487085
                   <br/>
