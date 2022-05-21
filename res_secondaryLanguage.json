@@ -12,7 +12,7 @@
     "projects": [
       {
         "title": "毕业设计：Travelee",
-        "startDate": "2021",
+        "startDate": "二〇二一年",
         "description": "这是我的毕业设计项目：一个全栈的移动应用程序开发项目，主要是设计和开发一个安卓应用程序，通过应用增强现实和计算机视觉在内的一些先进技术为旅行者创造现代旅行体验。",
         "images": [
           "images/portfolio/animal-shelter/p1.png",
@@ -52,7 +52,7 @@
       },
       {
         "title": "设计与创新项目：GoGoGoals",
-        "startDate": "2020",
+        "startDate": "二〇二〇年",
         "description": "这是一个设计和创新项目，旨在创建美观、智能的用户体验，以跟踪目标和管理个人生产力。我们的目标是开发一个灵活、快速、模块化的移动应用程序，让用户可以轻松地按类别管理和查看目标，并智能地推荐待办事项。 gogoGoals 适用于 Android 和 iOS，并且是免费和开源的。",
         "images": [
           "images/portfolio/photography/p1.jpeg",
@@ -75,7 +75,7 @@
       {
         "company": "Lazada， 新加坡",
         "title": "前端开发者",
-        "years": "七月 2022 - 现在",
+        "years": "二〇二二年 七月 - 现在",
         "mainTech": [
           "Front End"
         ],
@@ -88,7 +88,7 @@
       {
         "company": "Autodesk 亚洲",
         "title": "软件工程师实习",
-        "years": "一月 2021 - 十二月 2021",
+        "years": "二〇二一年 一月 - 十二月",
         "mainTech": [
           ".NET Core",
           "ReactJS",
@@ -105,6 +105,36 @@
           "LookerML",
           "Jenkins",
           "Linux"
+        ]
+      },
+      {
+        "company": "新加坡南洋理工大学",
+        "title": "工程学士学位",
+        "years": "二〇一八年 八月 - 二〇二二年 六月",
+        "mainTech": [
+          "信息工程与媒体 本科"
+        ],
+        "technologies": [
+          "NTU科学与工程奖学金",
+          "新加坡教育部SM2奖学金"
+        ]
+      },
+      {
+        "company": "斯克莱德大学，格拉斯哥",
+        "title": "海外交换（电子工程）",
+        "years": "二〇二〇年 一月 - 五月",
+        "mainTech": [
+        ],
+        "technologies": [
+        ]
+      },
+      {
+        "company": "高丽大学，首尔",
+        "title": "国际暑校",
+        "years": "二〇一九年 六月 - 八月",
+        "mainTech": [
+        ],
+        "technologies": [
         ]
       }
     ]
