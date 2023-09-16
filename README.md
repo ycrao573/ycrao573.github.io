@@ -1,9 +1,9 @@
-# Personal Page
-This is my simple React-based personal page.
+# Getting Started with Create React App
 
-## Visit here: [I am Yuchen Rao 🍊!](https://ycrao573.github.io)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#### Final Year NTU Student in Singapore 🇸🇬, Major in Information Engineering & Media, Graduate in June 2022.
-#### A part-time software engineer intern in Autodesk
-#### Programmer💻, Traveller✈️, Cook👨‍🍳️, Eater🍝, Musician🎹
-#### I am currently searching a full-time graduate job for software-related positions from August 2022 Onwards (e.g. Software Engineer, Frontend/Backend Engineer)
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
