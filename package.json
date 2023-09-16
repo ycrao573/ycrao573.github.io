@@ -1,5 +1,5 @@
 {
-  "name": "my-personal-website",
+  "name": "my-portfolio",
   "version": "0.0.1",
   "homepage": "https://ycrao573.github.io",
   "private": true,
@@ -48,7 +48,7 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
