@@ -67,8 +67,11 @@ const Map: React.FC = () => {
           backgroundColor="#383f47"
           zoomOnScroll
           zoomAnimate
+          zoomMax={6}
+          zoomMin={1}
+          focusOn={{ scale: 2, x: 0, y: 0, lat: 1.35, lng: 103.82 }}
           onRegionClick={handleClick}
-          style={{ width: '100%', height: '60vh' }}
+          style={{ width: '100%', height: '55vh' }}
           regionStyle={{
             initial: {
               fill: '#2e3346',
