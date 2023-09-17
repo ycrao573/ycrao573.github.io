@@ -1,0 +1,36 @@
+.footer {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+
+  .contact-info {
+    margin-bottom: 10px;
+
+    span {
+      display: block;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 8px;
+
+      a {
+        color: #fff;
+      }
+
+      .anticon {
+        font-size: 26px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .anticon {
+    font-size: 28px;
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+
+  .anticon:hover {
+    color: #1890ff; /* Change the color on hover if desired */
+  }
+}

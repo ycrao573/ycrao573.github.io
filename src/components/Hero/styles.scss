@@ -1,0 +1,27 @@
+.hero {
+  background-image: url('https://images3.alphacoders.com/132/1320717.png'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  height: 95vh;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hero-content {
+    max-width: 800px;
+    min-width: 360px;
+    padding: 40px 80px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 10px; /* Add some rounded corners */
+  
+    h1, p, div {
+      color: #fff; /* Override title and paragraph color */
+    }
+  }
+  .ant-btn {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,26 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+}
+
+.custom-button {
+  background-color: #000; /* Set your desired background color */
+  border: none;
+  color: #fff; /* Set your desired text color */
+}
+
+.custom-button:hover {
+  background-color: #333; /* Set a different color on hover if desired */
+}
