@@ -5,7 +5,8 @@
 
 .map {
   height: 60vh;
-  margin: 10px 0;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .flag {
@@ -14,4 +15,9 @@
   justify-content: center;
   height: 30px;
   margin: 6px;
+}
+
+.flag-container {
+  max-width: 980px;
+  margin: 0 auto;
 }

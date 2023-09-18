@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Menu, Drawer, Button } from 'antd';
+import { Menu, Drawer, Button, Switch } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faBars } from '@fortawesome/free-solid-svg-icons';
 import './styles.scss';
 
-const Header: React.FC = () => {
+interface Props {
+  onChange?: () => void;
+}
+
+const Header = (props: Props) => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const [drawerVisible, setDrawerVisible] = useState(false);
 
@@ -29,7 +33,16 @@ const Header: React.FC = () => {
           />
         </div>
       )}
-      <div className="logo">🍊</div>
+      <div className="logo">
+        🍊
+        <Switch
+          checkedChildren="Dark"
+          unCheckedChildren="Light"
+          className="switch"
+          defaultChecked
+          onChange={props.onChange}
+        />
+      </div>
       {isMobile ? (
         <Drawer
           placement="left"
@@ -37,13 +50,9 @@ const Header: React.FC = () => {
           onClose={closeDrawer}
           open={drawerVisible}
           width="60%"
-          drawerStyle={{ background: '#101010' }} // Set the background color of the drawer
-          maskStyle={{ background: 'rgba(0, 0, 0, 0.7)' }}
-          closeIcon={
-            <FontAwesomeIcon icon={faArrowLeft} style={{ color: 'white' }} />
-          }
+          closeIcon={<FontAwesomeIcon icon={faArrowLeft} />}
         >
-          <Menu mode="vertical" theme="dark">
+          <Menu mode="vertical">
             <Menu.Item key="about" onClick={closeDrawer}>
               About Me
             </Menu.Item>
@@ -59,7 +68,7 @@ const Header: React.FC = () => {
           </Menu>
         </Drawer>
       ) : (
-        <Menu mode="horizontal" theme="dark">
+        <Menu mode="horizontal">
           <Menu.Item key="about">About Me</Menu.Item>
           <Menu.Item key="skills">Skills</Menu.Item>
           <Menu.Item key="projects">Projects</Menu.Item>

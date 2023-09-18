@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { VectorMap } from '@react-jvectormap/core';
 import { worldMill } from '@react-jvectormap/world';
 import ReactCountryFlag from 'react-country-flag';
-import { Typography, Row, Col } from 'antd';
+import { Typography, Row, Col, theme } from 'antd';
 import './styles.scss';
 
 const { Title, Paragraph } = Typography;
@@ -54,31 +54,30 @@ const visitedCountries = [
 ];
 
 const Map: React.FC = () => {
-  const handleClick = (event: any, code: string) => {
-    // Handle region click event
-  };
+  const { useToken } = theme;
+  const { token } = useToken();
 
   return (
     <div className="map-container">
       <Title level={3}>My Travel Map</Title>
       <div className="map">
         <VectorMap
+          key={token.colorBgContainer}
           map={worldMill}
-          backgroundColor="#383f47"
+          backgroundColor={token.colorInfoBg}
           zoomOnScroll
           zoomAnimate
           zoomMax={6}
           zoomMin={1}
           focusOn={{ scale: 2, x: 0, y: 0, lat: 1.35, lng: 103.82 }}
-          onRegionClick={handleClick}
           style={{ width: '100%', height: '55vh' }}
           regionStyle={{
             initial: {
-              fill: '#2e3346',
+              fill: token.colorInfoBgHover,
               stroke: 'none',
             },
             hover: {
-              fill: '#bf9b30',
+              fill: token.colorInfoHover,
               cursor: 'pointer',
             },
             selected: {
@@ -117,25 +116,27 @@ const Map: React.FC = () => {
           }}
         />
       </div>
-      <Paragraph>
-        Here are the places I have visited. I'm excited to explore more!
-      </Paragraph>
-      <Row gutter={4}>
-        {visitedPlaces.map((country) => (
-          <Col key={country} xs={4} sm={3} md={2} lg={1}>
-            <div className="flag">
-              <ReactCountryFlag
-                countryCode={country}
-                svg
-                style={{
-                  width: '2em',
-                  height: '2em',
-                }}
-              />
-            </div>
-          </Col>
-        ))}
-      </Row>
+      <div className="flag-container">
+        <Paragraph>
+          Here are the places I have visited. I'm excited to explore more!
+        </Paragraph>
+        <Row gutter={4}>
+          {visitedPlaces.map((country) => (
+            <Col key={country} xs={4} sm={3} md={2} lg={1}>
+              <div className="flag">
+                <ReactCountryFlag
+                  countryCode={country}
+                  svg
+                  style={{
+                    width: '2em',
+                    height: '2em',
+                  }}
+                />
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </div>
     </div>
   );
 };

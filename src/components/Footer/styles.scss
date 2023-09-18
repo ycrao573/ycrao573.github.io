@@ -9,11 +9,11 @@
     span {
       display: block;
       font-size: 14px;
-      color: #fff;
       margin-bottom: 8px;
 
       a {
-        color: #fff;
+        text-decoration: underline;
+
       }
 
       .anticon {
@@ -25,12 +25,11 @@
 
   .anticon {
     font-size: 28px;
-    color: #fff;
     margin: 0 10px;
     transition: color 0.3s;
   }
 
-  .anticon:hover {
-    color: #1890ff; /* Change the color on hover if desired */
+  .copyright {
+    padding: 24px 0;
   }
 }

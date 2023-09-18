@@ -1,13 +1,24 @@
-import React from 'react';
-import { Typography, Button } from 'antd';
+import React, { useContext } from 'react';
+import { Typography, Button, theme } from 'antd';
 import './styles.scss'; // Add a corresponding SCSS file
+import { ThemeContext } from '../HomePage';
 
 const { Title, Paragraph } = Typography;
 
 const Hero: React.FC = () => {
+  const { useToken } = theme;
+  const { token } = useToken();
+  const value = useContext(ThemeContext);
+
   return (
     <div className="hero">
-      <div className="hero-content">
+      <div
+        className="hero-content"
+        style={{
+          background:
+            value === 'dark' ? token.colorBgMask : 'rgba(255, 255, 255, 0.75)',
+        }}
+      >
         <Title level={1}>RAO YUCHEN</Title>
         <Paragraph>Self Introduction</Paragraph>
         <Button
