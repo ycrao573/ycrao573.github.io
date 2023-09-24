@@ -1,0 +1,15 @@
+.aboutme-container {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  .header {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .content {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+}
