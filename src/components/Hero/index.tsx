@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Typography, Button, theme } from 'antd';
-import './styles.scss'; // Add a corresponding SCSS file
 import { ThemeContext } from '../HomePage';
+import './styles.scss'; // Add a corresponding SCSS file
 
 const { Title, Paragraph } = Typography;
 
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
         }}
       >
         <Title level={1}>RAO YUCHEN</Title>
-        <Paragraph>Self Introduction</Paragraph>
+        <Paragraph>Bridging Creativity and Technology!</Paragraph>
         <Button
           type="primary"
           onClick={() => document.getElementById('footer')?.scrollIntoView()}

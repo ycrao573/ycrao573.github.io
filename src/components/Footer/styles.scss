@@ -1,35 +1,48 @@
 .footer {
-  background-color: #000;
   padding: 20px;
   text-align: center;
 
-  .contact-info {
-    margin-bottom: 10px;
+  .upper-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-    span {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 8px;
-
-      a {
-        text-decoration: underline;
-
-      }
-
-      .anticon {
-        font-size: 26px;
-        margin-right: 8px;
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      .contact-item {
+        display: flex;
+        flex-direction: row;
       }
     }
-  }
 
-  .anticon {
-    font-size: 28px;
-    margin: 0 10px;
-    transition: color 0.3s;
+    @media (max-width: 600px) {
+      .contact-info {
+        flex-direction: row;
+      }
+
+      .contact-text {
+        display: none;
+      }
+
+      .footer-divider {
+        display: none;
+      }
+    }
+    .social-icons {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   .copyright {
     padding: 24px 0;
+  }
+
+  .anticon {
+    font-size: 28px;
+    margin: 6px;
+    transition: color 0.3s;
   }
 }
