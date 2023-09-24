@@ -11,6 +11,7 @@ export default function Experience() {
         My Experience
       </Title>
       <Timeline
+        className='timeline-container'
         mode="alternate"
         items={timelineItems}
       />

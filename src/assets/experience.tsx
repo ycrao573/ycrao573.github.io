@@ -1,23 +1,50 @@
 import { ClockCircleOutlined } from '@ant-design/icons';
+import { faSchool, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Badge, Typography } from 'antd';
+
+const { Title, Paragraph, Text } = Typography;
 
 export const timelineItems = [
   {
-    children: 'Create a services site 2015-09-01',
-  },
-  {
-    children: 'Solve initial network problems 2015-09-01',
-    color: 'green',
-  },
-  {
-    dot: <ClockCircleOutlined style={{ fontSize: '16px' }} />,
-    children: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`,
-  },
-  {
+    dot: <FontAwesomeIcon icon={faSchool} size="lg" />,
+    children: (
+      <>
+        <Title level={5}>
+          Korea University, Seoul (International Summer Campus)
+        </Title>
+        <Paragraph>Jun 2019 - Aug 2019</Paragraph>
+      </>
+    ),
     color: 'red',
-    children: 'Network problems being solved 2015-09-01',
   },
   {
-    children: 'Create a services site 2015-09-01',
+    dot: <FontAwesomeIcon icon={faSchool} size="lg" />,
+    children: (
+      <>
+        <Title level={5}>
+          University of Strathclyde, Glasgow (Overseas Exchange)
+        </Title>
+        <Paragraph>Jan 2020 - May 2020</Paragraph>
+      </>
+    ),
+    color: '#005eb8',
+  },
+  {
+    dot: <FontAwesomeIcon icon={faUserGraduate} size="lg" />,
+    children: (
+      <>
+        <Title level={5}>Nanyang Technological University, Singapore</Title>
+        <Paragraph>
+          <Text strong>
+            Bachelor of Information Engineering & Media (Highest Distinction)
+          </Text>
+        </Paragraph>
+        <Paragraph>Aug 2018 - May 2022</Paragraph>
+        <Badge color="#faad14e6" count="NTU S&E Scholarship"></Badge>
+        <Badge color="#faad14e6" count="MOE SM2 Scholarship"></Badge>
+      </>
+    ),
   },
   {
     dot: <ClockCircleOutlined style={{ fontSize: '16px' }} />,

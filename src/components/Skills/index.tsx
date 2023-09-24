@@ -16,9 +16,9 @@ const Skills: React.FC = () => {
         className="skills-carousel"
         dots={false}
         infinite
-        speed={1500}
+        speed={2500}
         autoplay
-        autoplaySpeed={2000} // Adjust the auto-scroll speed in milliseconds
+        autoplaySpeed={2500} // Adjust the auto-scroll speed in milliseconds
         slidesToShow={8} // Adjust the number of items visible on screen
         pauseOnHover // Pause autoplay on hover
       >

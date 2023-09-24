@@ -1,8 +1,12 @@
 header {
   display: flex;
+  width: 100vw;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 10px 20px;
+  position: fixed;
+  z-index: 100;
+  top: 0;
 }
 
 .logo {
@@ -20,4 +24,10 @@ header {
 
 .switch {
   margin: 0 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.horizontal-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

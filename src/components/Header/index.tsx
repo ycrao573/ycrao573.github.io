@@ -68,7 +68,7 @@ const Header = (props: Props) => {
           </Menu>
         </Drawer>
       ) : (
-        <Menu mode="horizontal">
+        <Menu mode="horizontal" className='horizontal-menu'>
           <Menu.Item key="about">About Me</Menu.Item>
           <Menu.Item key="skills">Skills</Menu.Item>
           <Menu.Item key="projects">Projects</Menu.Item>
