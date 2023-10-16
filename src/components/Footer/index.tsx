@@ -6,14 +6,27 @@ import {
   WechatOutlined,
   PhoneOutlined,
   MailOutlined,
+  SmileOutlined,
 } from '@ant-design/icons';
-import { Divider, theme } from 'antd';
+import { Divider, theme, notification } from 'antd';
 import './styles.scss';
 import { Typography } from 'antd';
+import { NotificationPlacement } from 'antd/es/notification/interface';
 
 const { Paragraph } = Typography;
 
 const Footer: React.FC = () => {
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = (placement: NotificationPlacement) => {
+    api.info({
+      message: `Well, for WeChat wise...`,
+      description:
+        'Please reach out to me on Instagram or LinkedIn first! Thank you :)',
+      placement,
+      icon: <WechatOutlined />,
+    });
+  };
   const { useToken } = theme;
   const { token } = useToken();
   const iconStyle = { color: token.colorPrimary };
@@ -45,18 +58,34 @@ const Footer: React.FC = () => {
           style={{ height: '5em' }}
         />
         <div className="social-icons">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/ycrao573"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <GithubOutlined style={iconStyle} />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.instagram.com/ycrao573/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <InstagramOutlined style={iconStyle} />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com/in/yuchen-rao-a249b6180/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedinOutlined style={iconStyle} />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <WechatOutlined style={iconStyle} />
-          </a>
+          {contextHolder}
+          <WechatOutlined
+            style={iconStyle}
+            onClick={() => {
+              openNotification('topRight');
+            }}
+          />
         </div>
       </div>
       <div className="copyright">

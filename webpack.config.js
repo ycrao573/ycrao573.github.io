@@ -4,8 +4,8 @@ const path = require("path");
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js',
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -22,13 +22,8 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {},
-          },
-        ],
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
       },
     ],
   },

@@ -1,19 +1,24 @@
 import { Typography } from 'antd';
 import './styles.scss';
-const { Title } = Typography;
 import { Timeline } from 'antd';
-import { timelineItems } from '../../assets/experience';
+import { timelineItems } from './experience';
+import { useMediaQuery } from 'react-responsive';
+const { Title } = Typography;
 
 export default function Experience() {
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+
   return (
-    <div className="experience-container">
+    <div className="experience-container" id="experience">
       <Title level={3} className="header">
         My Experience
       </Title>
       <Timeline
-        className='timeline-container'
-        mode="alternate"
+        className="timeline-container"
+        mode={isMobile ? 'left' : 'alternate'}
         items={timelineItems}
+        style={{ maxWidth: '90%' }}
+        reverse={true}
       />
     </div>
   );

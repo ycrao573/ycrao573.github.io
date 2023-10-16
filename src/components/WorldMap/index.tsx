@@ -9,6 +9,7 @@ import {
   visitedPlaces,
 } from '../../assets/travel_data';
 import './styles.scss';
+import { TypeAnimation } from 'react-type-animation';
 
 const { Title, Paragraph } = Typography;
 
@@ -17,7 +18,7 @@ const Map: React.FC = () => {
   const { token } = useToken();
 
   return (
-    <div className="map-container">
+    <div className="map-container" id="map">
       <Title level={3}>My Travel Map</Title>
       <div className="map">
         <VectorMap
@@ -60,7 +61,18 @@ const Map: React.FC = () => {
       </div>
       <div className="flag-container">
         <Paragraph>
-          Here are the places I have visited. I'm excited to explore more!
+          <TypeAnimation
+            sequence={[
+              "Here are the places I have visited and I'm excited to explore more!",
+              3000,
+              'Life is short, and the world is wide.',
+              1500,
+              "Once a year, go someplace you've never been before.",
+              2000,
+            ]}
+            speed={40}
+            repeat={Infinity}
+          />
         </Paragraph>
         <Row gutter={4}>
           {visitedPlaces.map((place) => (

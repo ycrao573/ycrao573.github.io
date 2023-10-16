@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { Divider, Layout } from 'antd';
+import { Divider, FloatButton, Layout } from 'antd';
 import Header from '../Header';
 import Footer from '../Footer';
 import Hero from '../Hero';
@@ -8,6 +8,8 @@ import { ConfigProvider, theme } from 'antd';
 import Experience from '../Experience';
 import AboutMe from '../AboutMe';
 import Skills from '../Skills';
+import { VerticalAlignTopOutlined } from '@ant-design/icons';
+import Projects from '../Projects';
 
 export const ThemeContext = createContext<string | null>(null);
 
@@ -35,9 +37,22 @@ const HomePage: React.FC = () => {
           <Divider />
           <Experience />
           <Divider />
+          <Projects />
+          <Divider />
           <WorldMap />
           <Divider />
           <Footer />
+          <FloatButton
+            shape="circle"
+            type="primary"
+            style={{ right: 30 }}
+            onClick={() =>
+              document
+                .getElementById('hero')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }
+            icon={<VerticalAlignTopOutlined />}
+          />
         </Layout>
       </ThemeContext.Provider>
     </ConfigProvider>

@@ -5,6 +5,12 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
   visible,
   onClose,
 }) => {
+  const handleDownload = () => {
+    const fileUrl =
+      'https://github.com/ycrao573/ycrao573.github.io/blob/master/src/assets/Rao_Yuchen_Resume.pdf'; // Replace with your file URL
+    window.open(fileUrl, '_blank');
+  };
+
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
 
@@ -15,6 +21,7 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
     // Simulate download process
     setTimeout(() => {
       setLoading(false);
+      handleDownload();
       onClose();
     }, 2000);
   };

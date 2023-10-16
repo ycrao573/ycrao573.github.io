@@ -8,7 +8,7 @@ import { skillsData } from '../../assets/skills_data';
 
 const Skills: React.FC = () => {
   return (
-    <div className="skills-container">
+    <div className="skills-container" id="skills">
       <Title level={3} className="header">
         My Skills
       </Title>

@@ -17,8 +17,17 @@ const Header = (props: Props) => {
     setDrawerVisible(true);
   };
 
-  const closeDrawer = () => {
-    setDrawerVisible(false);
+  const closeDrawer = (id?: string) => {
+    return () => {
+      setDrawerVisible(false);
+      id && jumpToSection(id);
+    };
+  };
+
+  const jumpToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -47,32 +56,43 @@ const Header = (props: Props) => {
         <Drawer
           placement="left"
           closable={true}
-          onClose={closeDrawer}
+          onClose={closeDrawer('')}
           open={drawerVisible}
           width="60%"
           closeIcon={<FontAwesomeIcon icon={faArrowLeft} />}
         >
           <Menu mode="vertical">
-            <Menu.Item key="about" onClick={closeDrawer}>
+            <Menu.Item key="about" onClick={closeDrawer('aboutme')}>
               About Me
             </Menu.Item>
-            <Menu.Item key="skills" onClick={closeDrawer}>
+            <Menu.Item key="skills" onClick={closeDrawer('skills')}>
               Skills
             </Menu.Item>
-            <Menu.Item key="projects" onClick={closeDrawer}>
-              Projects
-            </Menu.Item>
-            <Menu.Item key="experience" onClick={closeDrawer}>
+            <Menu.Item key="experience" onClick={closeDrawer('experience')}>
               Experience
+            </Menu.Item>
+            <Menu.Item key="projects" onClick={closeDrawer('projects')}>
+              Projects
             </Menu.Item>
           </Menu>
         </Drawer>
       ) : (
-        <Menu mode="horizontal" className='horizontal-menu'>
-          <Menu.Item key="about">About Me</Menu.Item>
-          <Menu.Item key="skills">Skills</Menu.Item>
-          <Menu.Item key="projects">Projects</Menu.Item>
-          <Menu.Item key="experience">Experience</Menu.Item>
+        <Menu mode="horizontal" className="horizontal-menu">
+          <Menu.Item key="about" onClick={() => jumpToSection('aboutme')}>
+            About Me
+          </Menu.Item>
+          <Menu.Item key="skills" onClick={() => jumpToSection('skills')}>
+            Skills
+          </Menu.Item>
+          <Menu.Item
+            key="experience"
+            onClick={() => jumpToSection('experience')}
+          >
+            Experience
+          </Menu.Item>
+          <Menu.Item key="projects" onClick={() => jumpToSection('projects')}>
+            Projects
+          </Menu.Item>
         </Menu>
       )}
     </header>
