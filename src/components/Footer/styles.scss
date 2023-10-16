@@ -1,0 +1,48 @@
+.footer {
+  padding: 20px;
+  text-align: center;
+
+  .upper-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      .contact-item {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-info {
+        flex-direction: row;
+      }
+
+      .contact-text {
+        display: none;
+      }
+
+      .footer-divider {
+        display: none;
+      }
+    }
+    .social-icons {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .copyright {
+    padding: 24px 0;
+  }
+
+  .anticon {
+    font-size: 28px;
+    margin: 6px;
+    transition: color 0.3s;
+  }
+}

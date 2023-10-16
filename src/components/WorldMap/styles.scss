@@ -1,0 +1,23 @@
+.map-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.map {
+  height: 60vh;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  margin: 6px;
+}
+
+.flag-container {
+  max-width: 980px;
+  margin: 0 auto;
+}

@@ -1,0 +1,26 @@
+.skills-container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+
+  .skills-carousel {
+    padding: 1.2em;
+    .skill-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .skill-name {
+        font-size: 13px; /* Default font size for all screen sizes */
+      }
+
+      @media (max-width: 600px) {
+        .skill-name {
+          display: none; /* Adjust font size for smaller screens */
+        }
+      }
+    }
+  }
+}
