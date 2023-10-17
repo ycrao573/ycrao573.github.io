@@ -7,7 +7,7 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
 }) => {
   const handleDownload = () => {
     const fileUrl =
-      'https://github.com/ycrao573/ycrao573.github.io/blob/master/src/assets/Rao_Yuchen_Resume.pdf'; // Replace with your file URL
+      'https://raw.githubusercontent.com/ycrao573/ycrao573.github.io/master/Rao_Yuchen_Resume.pdf';
     window.open(fileUrl, '_blank');
   };
 
