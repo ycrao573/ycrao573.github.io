@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         <Image
           width={200}
           style={{ padding: '0 15px' }}
-          src={'src/assets/avatar_6.png'}
+          src={new URL('../../assets/avatar_6.png', import.meta.url).href}
         ></Image>
         <div
           className="hero-content"
