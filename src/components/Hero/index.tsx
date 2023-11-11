@@ -3,7 +3,6 @@ import { Image, Typography, Button, theme } from 'antd';
 import { ThemeContext } from '../HomePage';
 import './styles.scss'; // Add a corresponding SCSS file
 import { TypeAnimation } from 'react-type-animation';
-const avatar6Image = require('../../assets/avatar_6.png');
 const { Title, Paragraph } = Typography;
 
 const Hero: React.FC = () => {
@@ -24,7 +23,7 @@ const Hero: React.FC = () => {
         <Image
           width={200}
           style={{ padding: '0 15px' }}
-          src={avatar6Image}
+          src={new URL('../../assets/avatar_6.png', import.meta.url).href}
         ></Image>
         <div
           className="hero-content"
