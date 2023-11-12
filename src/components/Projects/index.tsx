@@ -64,6 +64,7 @@ const Projects: React.FC = () => {
           badges={
             <>
               <Badge color="orange" count="Flutter"></Badge>
+              <Badge color="orange" count="Node.js"></Badge>
               <Badge color="orange" count="Firebase"></Badge>
             </>
           }

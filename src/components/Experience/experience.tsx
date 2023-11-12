@@ -55,13 +55,13 @@ export const timelineItems = [
               Autodesk's web products.
             </li>
             <li>
-              Migrated admin SSO application (.NET) with AWS secret manager and
-              enhanced codebase security
+              Migrated admin SSO app (.NET) with AWS secret manager to enhance
+              codebase security
             </li>
             <li>
               Automated and optimized frontend CI/CD process for an account
-              management website (React), streamlining UI testing in staging
-              through Jenkins and Docker.
+              management website (React), streamlining UI visualization in
+              staging through Jenkins and Docker.
             </li>
           </ul>
         </Paragraph>
@@ -104,37 +104,33 @@ export const timelineItems = [
         <Paragraph>
           <ul>
             <li>
-              Supported daily operations of RedMart/LazMallOne’s Buyer Service
-              across diverse markets (SG, ID, and PH) with strategic excellence.
+              Responsible for RedMart's front-end development work across
+              PC/mobile web, and native app. Successfully managed and delivered
+              major projects including RedMart B2B and Add-on Deals.
             </li>
             <li>
-              Managed or participated in key business projects, such as RedMart
-              B2B, Add-on Deals, consistently delivering precise execution and
-              timely delivery.
+              Designed the popup/dialog component for Native and web platforms,
+              widely adopted during promotions, feature announcements, and
+              voucher distributions.
             </li>
             <li>
-              Contributed to Frontend monitoring with integration of RedMart's
-              own business logic. It is a highly customizable, automated alerts
-              that enhances issue targeting and resolution process across the
-              domains.
+              Integrated iTrace platform, enhancing front-end monitoring, and
+              automated alert system, leading to improved issue identification
+              and resolution processes.
             </li>
           </ul>
         </Paragraph>
         <Paragraph ellipsis={{ rows: 2, expandable: true, symbol: 'more' }}>
           <ul>
             <li>
-              Designed and implemented a versatile popup component for RedMart,
-              supporting both Native and H5 popups, widely used in campaigns,
-              new feature announcements, and voucher distribution.
+              Contributed to low-code BI app for comprehensive business insights
+              and streamlined A/B testing, facilitating efficient departmental
+              operations.
             </li>
             <li>
-              Led tech team's growth hacking initiatives, overseeing idea
-              formulation and progress tracking
-            </li>
-            <li>
-              Continuous support on a internal business data insight web
-              application built with a low-code platform. Provided crucial data
-              insights and experimental features for departmental operations.
+              Led growth hacking project, executing 11 tech-driven concepts in 6
+              months, with over half deployed into production, driving
+              technological innovation.
             </li>
           </ul>
         </Paragraph>
