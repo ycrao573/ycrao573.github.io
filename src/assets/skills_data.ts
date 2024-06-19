@@ -5,6 +5,7 @@ export const skillsData = [
   { icon: 'typescript', title: 'TypeScript', proficiency: 'Advanced' },
   { icon: 'python', title: 'Python', proficiency: 'Advanced' },
   { icon: 'css3', title: 'CSS3', proficiency: 'Advanced' },
+  { icon: 'nodejs', title: 'NodeJS', proficiency: 'Advanced' },
   { icon: 'webpack', title: 'Webpack', proficiency: 'Intermediate' },
   {
     icon: 'amazonwebservices',
