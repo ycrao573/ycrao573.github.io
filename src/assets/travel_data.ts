@@ -21,6 +21,7 @@ export const visitedPlaces = [
   'CH',
   'ID',
   'AU',
+  'TR',
 ];
 
 export const visitedCountries = [
@@ -42,6 +43,7 @@ export const visitedCountries = [
   'AU',
   'AE',
   'QA',
+  'TR',
 ];
 
 export const extraMarkers = [

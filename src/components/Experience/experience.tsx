@@ -104,33 +104,30 @@ export const timelineItems = [
         <Paragraph>
           <ul>
             <li>
-              Responsible for RedMart's front-end development work across
-              PC/mobile web, and native app. Successfully managed and delivered
-              major projects including RedMart B2B and Add-on Deals.
+              Continuously contributed to the development of cross-platform
+              front-end features (React) for Lazada's online groceries business
+              - RedMart; successfully delivered multiple major projects such as{' '}
+              <b>RedMart+ Membership, B2B (Corporate Pantry), and Group Buy </b>
+              .
             </li>
             <li>
-              Designed the popup/dialog component for Native and web platforms,
-              widely adopted during promotions, feature announcements, and
-              voucher distributions.
+              Designed and implemented a multi-functional popup component with
+              cross-platform support, featured with alert fatigue settings and
+              user targeting; widely used across RedMart for promotion
+              campaigns, feature announcements and voucher distribution.
             </li>
             <li>
-              Integrated iTrace platform, enhancing front-end monitoring, and
-              automated alert system, leading to improved issue identification
-              and resolution processes.
-            </li>
-          </ul>
-        </Paragraph>
-        <Paragraph ellipsis={{ rows: 2, expandable: true, symbol: 'more' }}>
-          <ul>
-            <li>
-              Contributed to low-code BI app for comprehensive business insights
-              and streamlined A/B testing, facilitating efficient departmental
-              operations.
+              Integrated a front-end monitoring system for RedMart web pages
+              using iTrace platform, enabling comprehensive performance metrics
+              analysis, custom error reporting, real-time analysis, and
+              automated alerts for more efficient issue detection and
+              resolution.
             </li>
             <li>
-              Led growth hacking project, executing 11 tech-driven concepts in 6
-              months, with over half deployed into production, driving
-              technological innovation.
+              Collaborated in constructing an internal business data platform
+              using a low-code approach, facilitating A/B experiments and user
+              behavior analysis, and providing customizable dashboards for
+              departmental operations.
             </li>
           </ul>
         </Paragraph>
