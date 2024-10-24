@@ -19,6 +19,7 @@ export const skillsData = [
   { icon: 'c', title: 'C', proficiency: 'Intermediate' },
   { icon: 'mysql', title: 'MySQL', proficiency: 'Intermediate' },
   { icon: 'flutter', title: 'Flutter', proficiency: 'Intermediate' },
+  { icon: 'go', title: 'Go', proficiency: 'Beginner' },
   { icon: 'docker', title: 'Docker', proficiency: 'Beginner' },
   { icon: 'csharp', title: 'C#', proficiency: 'Beginner' },
   { icon: 'php', title: 'PHP', proficiency: 'Beginner' },

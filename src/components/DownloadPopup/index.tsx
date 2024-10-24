@@ -47,7 +47,12 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
           <Input placeholder="Email" />
         </Form.Item>
         <Form.Item style={{ marginBottom: 12 }}>
-          <Button type="primary" htmlType="submit" loading={loading}>
+          <Button
+            type="primary"
+            className="gradient-btn"
+            htmlType="submit"
+            loading={loading}
+          >
             Download
           </Button>
         </Form.Item>

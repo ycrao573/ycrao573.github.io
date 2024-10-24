@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
       theme={{
         ...{ ...(darkMode ? { algorithm: theme.darkAlgorithm } : {}) },
         token: {
-          colorPrimary: '#F4801A',
+          colorPrimary: '#62c1e5',
           borderRadius: 6,
         },
       }}

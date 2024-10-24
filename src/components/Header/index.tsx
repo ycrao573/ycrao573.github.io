@@ -58,7 +58,7 @@ const Header = (props: Props) => {
           closable={true}
           onClose={closeDrawer('')}
           open={drawerVisible}
-          width="60%"
+          width="55%"
           closeIcon={<FontAwesomeIcon icon={faArrowLeft} />}
         >
           <Menu mode="vertical">
