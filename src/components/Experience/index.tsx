@@ -15,9 +15,9 @@ export default function Experience() {
       </Title>
       <Timeline
         className="timeline-container"
-        mode={isMobile ? 'left' : 'alternate'}
+        mode={'left'}
         items={timelineItems}
-        style={{ maxWidth: '90%' }}
+        style={{ maxWidth: 800 }}
         reverse={true}
       />
     </div>

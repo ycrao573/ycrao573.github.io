@@ -19,50 +19,43 @@ const Hero: React.FC = () => {
         backgroundColor: value === 'dark' ? '#00000030' : '#FFFFFF09',
       }}
     >
-      <div>
-        <Image
-          width={200}
-          style={{ padding: '0 15px' }}
-          src={new URL('../../assets/avatar_6.png', import.meta.url).href}
-        ></Image>
-        <div
-          className="hero-content"
-          style={{
-            background:
-              value === 'dark'
-                ? token.colorBgMask
-                : 'rgba(255, 255, 255, 0.75)',
-          }}
+      <div
+        className="hero-content"
+        style={{
+          background:
+            value === 'dark' ? token.colorBgMask : 'rgba(255, 255, 255, 0.75)',
+        }}
+      >
+        <Title level={1}>
+          <TypeAnimation
+            sequence={[
+              'Rao Yuchen',
+              2000,
+              '饶宇晨',
+              1500,
+              'Ryan',
+              1500,
+              '饒宇晨',
+              1500,
+            ]}
+            speed={20}
+            repeat={Infinity}
+          />
+        </Title>
+        <Paragraph>Bridging Creativity and Technology!</Paragraph>
+        <Button
+          className="gradient-btn"
+          type="primary"
+          onClick={() =>
+            document.getElementById('footer')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'end',
+              inline: 'nearest',
+            })
+          }
         >
-          <Title level={1}>
-            <TypeAnimation
-              sequence={[
-                // Same substring at the start will only be typed once, initially
-                'Rao Yuchen',
-                2000,
-                'Ryan',
-                2000,
-                '饶宇晨 :)',
-                2000,
-              ]}
-              speed={20}
-              repeat={Infinity}
-            />
-          </Title>
-          <Paragraph>Bridging Creativity and Technology!</Paragraph>
-          <Button
-            type="primary"
-            onClick={() =>
-              document.getElementById('footer')?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'end',
-                inline: 'nearest',
-              })
-            }
-          >
-            Contact Me
-          </Button>
-        </div>
+          Contact Me
+        </Button>
       </div>
     </div>
   );

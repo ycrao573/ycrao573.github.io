@@ -44,6 +44,7 @@ export const visitedCountries = [
   'AE',
   'QA',
   'TR',
+  'TW',
 ];
 
 export const extraMarkers = [

@@ -2,7 +2,7 @@ import React from 'react';
 import { VectorMap } from '@react-jvectormap/core';
 import { worldMill } from '@react-jvectormap/world';
 import ReactCountryFlag from 'react-country-flag';
-import { Typography, Row, Col, theme } from 'antd';
+import { Typography, Row, Col, theme, Carousel } from 'antd';
 import {
   extraMarkers,
   visitedCountries,
@@ -17,6 +17,13 @@ const Map: React.FC = () => {
   const { useToken } = theme;
   const { token } = useToken();
 
+  const contentStyle: React.CSSProperties = {
+    margin: 0,
+    height: '260px',
+    color: '#fff',
+    lineHeight: '260px',
+  };
+
   return (
     <div className="map-container" id="map">
       <Title level={3}>My Travel Map</Title>
@@ -27,7 +34,7 @@ const Map: React.FC = () => {
           backgroundColor={token.colorInfoBg}
           zoomOnScroll
           zoomAnimate
-          zoomMax={6}
+          zoomMax={7}
           zoomMin={1}
           focusOn={{ scale: 2, x: 0, y: 0, lat: 1.35, lng: 103.82 }}
           style={{ width: '100%', height: '55vh' }}
@@ -41,19 +48,19 @@ const Map: React.FC = () => {
               cursor: 'pointer',
             },
             selected: {
-              fill: '#ffbf00',
+              fill: '#09B1EC',
             },
-            selectedHover: { fill: '#ffcf40' },
+            selectedHover: { fill: '#65C2F5' },
           }}
           selectedRegions={visitedCountries}
           markers={extraMarkers}
           markerStyle={{
             initial: {
-              fill: '#ffcf40',
+              fill: '#09B1EC',
               stroke: '#383f47',
             },
             hover: {
-              fill: '#bf9b30',
+              fill: '#65C2F5',
               cursor: 'pointer',
             },
           }}

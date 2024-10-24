@@ -23,3 +23,25 @@ html {
   overflow-x: hidden;
   scrollbar-gutter: stable;
 }
+
+.gradient-btn {
+  border-width: 0;
+
+  > span {
+    position: relative;
+  }
+
+  &::before {
+    content: '';
+    background: linear-gradient(135deg, #6253e1, #04befe);
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    transition: all 0.3s;
+    border-radius: inherit;
+  }
+
+  &:hover::before {
+    opacity: 0;
+  }
+}
