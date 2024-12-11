@@ -20,6 +20,8 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const snowflakes = new Snowflakes({
       color: darkMode ? '#5ECDEF' : 'white',
+      speed: 0.8,
+      count: 40,
     });
     snowflakes.start();
 
@@ -31,7 +33,7 @@ const HomePage: React.FC = () => {
       theme={{
         ...{ ...(darkMode ? { algorithm: theme.darkAlgorithm } : {}) },
         token: {
-          colorPrimary: '#0b1a28',
+          colorPrimary: darkMode ? '#4572AB' : '#D49888',
           borderRadius: 6,
         },
       }}
