@@ -17,13 +17,6 @@ const Map: React.FC = () => {
   const { useToken } = theme;
   const { token } = useToken();
 
-  const contentStyle: React.CSSProperties = {
-    margin: 0,
-    height: '260px',
-    color: '#fff',
-    lineHeight: '260px',
-  };
-
   return (
     <div className="map-container" id="map">
       <Title level={3}>My Travel Map</Title>

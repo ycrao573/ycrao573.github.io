@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { Divider, FloatButton, Layout } from 'antd';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -10,18 +10,28 @@ import AboutMe from '../AboutMe';
 import Skills from '../Skills';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import Projects from '../Projects';
+import Snowflakes from 'magic-snowflakes';
 
 export const ThemeContext = createContext<string | null>(null);
 
 const HomePage: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
 
+  useEffect(() => {
+    const snowflakes = new Snowflakes({
+      color: darkMode ? '#5ECDEF' : 'white',
+    });
+    snowflakes.start();
+
+    return () => snowflakes.destroy();
+  }, [darkMode]);
+
   return (
     <ConfigProvider
       theme={{
         ...{ ...(darkMode ? { algorithm: theme.darkAlgorithm } : {}) },
         token: {
-          colorPrimary: '#62c1e5',
+          colorPrimary: '#0b1a28',
           borderRadius: 6,
         },
       }}

@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
 
   return (
     <div
-      className="hero"
+      className={value === 'dark' ? 'hero hero-dark' : 'hero'}
       id="hero"
       style={{
         backgroundBlendMode: 'multiply',
