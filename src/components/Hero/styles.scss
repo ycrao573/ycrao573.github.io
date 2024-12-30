@@ -1,5 +1,9 @@
 .hero {
-  background-image: linear-gradient(to bottom, #62c1e5, #87ceeb, #b0e0e6);
+  &-dark {
+    background-image: linear-gradient(to bottom, #0B1A28, #102E47, #273B5C);
+  }
+
+  background-image: linear-gradient(to bottom, #D7877E, #D49888, #E0B7AD);
   background-size: cover;
   background-position: center;
   height: 100vh;
