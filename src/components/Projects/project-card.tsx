@@ -4,7 +4,7 @@ import {
   VerticalAlignMiddleOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { Badge, Card, Image, Typography } from 'antd';
+import { Card, Image, Typography } from 'antd';
 
 const { Title } = Typography;
 const { Meta } = Card;

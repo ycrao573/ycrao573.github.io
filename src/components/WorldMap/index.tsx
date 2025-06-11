@@ -2,7 +2,7 @@ import React from 'react';
 import { VectorMap } from '@react-jvectormap/core';
 import { worldMill } from '@react-jvectormap/world';
 import ReactCountryFlag from 'react-country-flag';
-import { Typography, Row, Col, theme, Carousel } from 'antd';
+import { Typography, Row, Col, theme } from 'antd';
 import {
   extraMarkers,
   visitedCountries,
