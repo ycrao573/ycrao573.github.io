@@ -1,5 +1,4 @@
 import { Avatar, Badge, Typography } from 'antd';
-import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 const { Title, Paragraph, Text } = Typography;
