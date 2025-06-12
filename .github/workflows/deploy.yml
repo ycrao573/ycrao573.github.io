@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - test-ci
   workflow_dispatch: # allow manual trigger
 
 jobs:
@@ -25,6 +26,11 @@ jobs:
 
       - name: Build with Vite
         run: yarn build
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Deploy to GitHub Pages
         run: yarn deploy
