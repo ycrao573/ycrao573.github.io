@@ -4,9 +4,7 @@ import {
   LinkedinOutlined,
   InstagramOutlined,
   WechatOutlined,
-  PhoneOutlined,
   MailOutlined,
-  SmileOutlined,
 } from '@ant-design/icons';
 import { Divider, theme, notification } from 'antd';
 import './styles.scss';
@@ -35,12 +33,6 @@ const Footer: React.FC = () => {
     <footer className="footer" id="footer">
       <div className="upper-section">
         <div className="contact-info">
-          <a className="contact-item" style={textStyle} href="tel:65-83487085">
-            <PhoneOutlined style={iconStyle} />
-            <Paragraph className="contact-text" style={{ marginTop: 8 }}>
-              +65 83487085
-            </Paragraph>
-          </a>
           <a
             style={textStyle}
             className="contact-item"
@@ -89,7 +81,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="copyright">
-        <Paragraph>© RYC, 2024</Paragraph>
+        <Paragraph>© RYC, 2025</Paragraph>
       </div>
     </footer>
   );

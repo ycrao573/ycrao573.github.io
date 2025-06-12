@@ -1,18 +1,7 @@
-import {
-  faBriefcase,
-  faSchool,
-  faUserGraduate,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Avatar, Badge, Typography } from 'antd';
-import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 const { Title, Paragraph, Text } = Typography;
-
-interface EllipsisTextProps {
-  children: ReactNode;
-}
 
 export const timelineItems = [
   {
@@ -21,7 +10,7 @@ export const timelineItems = [
         icon={
           <img
             src={
-              'https://media.licdn.com/dms/image/v2/C4E0BAQGlk-jTN4pzzQ/company-logo_200_200/company-logo_200_200/0/1631338821198?e=1737590400&v=beta&t=vJ7zs4dO7kvWZHvVr_GVWzORPTGhU60dpGoHlv-ic18'
+              'https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Korea_University_Global_Symbol.svg/1200px-Korea_University_Global_Symbol.svg.png'
             }
             alt="KU"
           />
@@ -44,7 +33,7 @@ export const timelineItems = [
         icon={
           <img
             src={
-              'https://media.licdn.com/dms/image/v2/D4E0BAQGNXcrM2lW4Vg/company-logo_200_200/company-logo_200_200/0/1720082239808/university_of_strathclyde_logo?e=1737590400&v=beta&t=pQXW9Mjk9T-RHP7UxTDKA5jU_uWZxznjXU3mbIHkTzI'
+              'https://upload.wikimedia.org/wikipedia/en/thumb/2/21/University_of_Strathclyde_Coat_of_Arms.svg/1200px-University_of_Strathclyde_Coat_of_Arms.svg.png'
             }
             alt="USG"
           />
@@ -100,15 +89,15 @@ export const timelineItems = [
           </ul>
         </Paragraph>
         <Paragraph>Jan 2021 - Dec 2021</Paragraph>
-        <Badge color="lightgrey" count="ASP.NET"></Badge>
-        <Badge color="lightgrey" count="C#"></Badge>
-        <Badge color="lightgrey" count="React"></Badge>
-        <Badge color="lightgrey" count="Jenkins"></Badge>
-        <Badge color="lightgrey" count="Docker"></Badge>
-        <Badge color="lightgrey" count="LookerML"></Badge>
+        <Badge color="grey" count="ASP.NET"></Badge>
+        <Badge color="grey" count="C#"></Badge>
+        <Badge color="grey" count="React"></Badge>
+        <Badge color="grey" count="Jenkins"></Badge>
+        <Badge color="grey" count="Docker"></Badge>
+        <Badge color="grey" count="LookerML"></Badge>
       </>
     ),
-    color: 'lightgrey',
+    color: 'grey',
   },
   {
     dot: (
@@ -116,7 +105,7 @@ export const timelineItems = [
         icon={
           <img
             src={
-              'https://media.licdn.com/dms/image/v2/C4D0BAQE9ISNDKYUaAw/company-logo_200_200/company-logo_200_200/0/1656682216282/ntusg_logo?e=1737590400&v=beta&t=Afwa6tJAOekabvt9IzZJ1WteEQZZdQoe3FVdZM2-WBI'
+              'https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Nanyang_Technological_University_coat_of_arms_vector.svg/1200px-Nanyang_Technological_University_coat_of_arms_vector.svg.png'
             }
             alt="NTU"
           />
@@ -191,7 +180,7 @@ export const timelineItems = [
           <Badge
             color="#ee4054"
             count="IceJS"
-            style={{ textDecoration: 'underline', color: '#1668dc' }}
+            style={{ textDecoration: 'underline', color: 'white' }}
           ></Badge>
         </Link>
         <Badge color="#ee4054" count="TS/JS"></Badge>
@@ -199,7 +188,7 @@ export const timelineItems = [
           <Badge
             color="#ee4054"
             count="Rax"
-            style={{ textDecoration: 'underline', color: '#1668dc' }}
+            style={{ textDecoration: 'underline', color: 'white' }}
           ></Badge>
         </Link>
         <Badge color="#ee4054" count="CSS/SCSS"></Badge>
@@ -224,13 +213,21 @@ export const timelineItems = [
       <>
         <Title level={5}>Sea Limited</Title>
         <Paragraph>
-          <Text strong>Frontend Engineer (Finance)</Text>
+          <Text strong>Frontend Engineer</Text>
         </Paragraph>
         <Paragraph>Sep 2024 - current</Paragraph>
         <Badge color="#468ef7" count="React"></Badge>
         <Badge color="#468ef7" count="TS/JS"></Badge>
         <Badge color="#468ef7" count="Rush"></Badge>
         <Badge color="#468ef7" count="Antd"></Badge>
+        <Badge color="#468ef7" count="React Native"></Badge>
+        <Link to={'https://module-federation.io/'}>
+          <Badge
+            color="#468ef7"
+            count="Module Federation"
+            style={{ textDecoration: 'underline', color: 'white' }}
+          ></Badge>
+        </Link>
       </>
     ),
     color: '#468ef7',

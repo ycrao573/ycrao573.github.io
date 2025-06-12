@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Image, Typography, Button, theme } from 'antd';
+import { Typography, Button, theme } from 'antd';
 import { ThemeContext } from '../HomePage';
 import './styles.scss'; // Add a corresponding SCSS file
 import { TypeAnimation } from 'react-type-animation';
@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
       id="hero"
       style={{
         backgroundBlendMode: 'multiply',
-        backgroundColor: value === 'dark' ? '#00000030' : '#FFFFFF09',
+        backgroundColor: value === 'dark' ? '#00000008' : '#FFFFFF04',
       }}
     >
       <div

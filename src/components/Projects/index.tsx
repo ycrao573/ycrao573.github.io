@@ -1,16 +1,10 @@
-import React, { useContext } from 'react';
-import { Badge, Card, Typography, theme } from 'antd';
-import { ThemeContext } from '../HomePage';
+import React from 'react';
+import { Badge, Typography } from 'antd';
 import { ProjectCard } from './project-card';
 import './styles.scss';
-const { Meta } = Card;
 const { Title } = Typography;
 
 const Projects: React.FC = () => {
-  const { useToken } = theme;
-  const { token } = useToken();
-  const value = useContext(ThemeContext);
-
   return (
     <div className="projects" id="projects">
       <Title level={3} className="header">
@@ -24,7 +18,6 @@ const Projects: React.FC = () => {
           extraStyles={{ padding: '15%' }}
           prodLink="https://redmart.lazada.sg/"
           title={'RedMart by Lazada'}
-          description={'Coming Soon'}
           badges={
             <>
               <Badge color="#ee4054" count="React"></Badge>
@@ -33,6 +26,7 @@ const Projects: React.FC = () => {
               <Badge color="#ee4054" count="Rax"></Badge>
             </>
           }
+          description={''}
         />
         <ProjectCard
           imgUrl={

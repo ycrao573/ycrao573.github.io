@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-const { Title, Paragraph } = Typography;
-// Import the Devicon CSS file
+import React from 'react';
+const { Title } = Typography;
 import 'devicon/devicon.min.css';
-import { Carousel, Tooltip, Typography, theme } from 'antd';
+import { Carousel, Tooltip, Typography } from 'antd';
 import './styles.scss';
 import { skillsData } from '../../assets/skills_data';
 
