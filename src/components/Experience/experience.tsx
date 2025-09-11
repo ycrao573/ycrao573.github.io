@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const { Title, Paragraph, Text } = Typography;
 
-export const timelineItems = [
+export const createTimelineItems = (t: (key: string) => string) => [
   {
     dot: (
       <Avatar
@@ -19,10 +19,8 @@ export const timelineItems = [
     ),
     children: (
       <>
-        <Title level={5}>
-          Korea University, Seoul (International Summer Campus)
-        </Title>
-        <Paragraph>Jun 2019 - Aug 2019</Paragraph>
+        <Title level={5}>{t('experience.ku.title')}</Title>
+        <Paragraph>{t('experience.ku.date')}</Paragraph>
       </>
     ),
     color: 'red',
@@ -42,10 +40,8 @@ export const timelineItems = [
     ),
     children: (
       <>
-        <Title level={5}>
-          University of Strathclyde, Glasgow (Overseas Exchange)
-        </Title>
-        <Paragraph>Jan 2020 - May 2020</Paragraph>
+        <Title level={5}>{t('experience.us.title')}</Title>
+        <Paragraph>{t('experience.us.date')}</Paragraph>
       </>
     ),
     color: '#005eb8',
@@ -65,30 +61,18 @@ export const timelineItems = [
     ),
     children: (
       <>
-        <Title level={5}>Autodesk Asia Pte Ltd</Title>
+        <Title level={5}>{t('experience.adsk.company')}</Title>
         <Paragraph>
-          <Text strong>
-            Software Engineer Intern (Identity Access Management)
-          </Text>
+          <Text strong>{t('experience.adsk.role')}</Text>
         </Paragraph>
         <Paragraph>
           <ul>
-            <li>
-              Collaborated on developing and optimizing identity processes for
-              Autodesk's web products.
-            </li>
-            <li>
-              Migrated admin SSO app (.NET) with AWS secret manager to enhance
-              codebase security
-            </li>
-            <li>
-              Automated and optimized frontend CI/CD process for an account
-              management website (React), streamlining UI visualization in
-              staging through Jenkins and Docker.
-            </li>
+            <li>{t('experience.adsk.b1')}</li>
+            <li>{t('experience.adsk.b2')}</li>
+            <li>{t('experience.adsk.b3')}</li>
           </ul>
         </Paragraph>
-        <Paragraph>Jan 2021 - Dec 2021</Paragraph>
+        <Paragraph>{t('experience.adsk.date')}</Paragraph>
         <Badge color="grey" count="ASP.NET"></Badge>
         <Badge color="grey" count="C#"></Badge>
         <Badge color="grey" count="React"></Badge>
@@ -114,16 +98,16 @@ export const timelineItems = [
     ),
     children: (
       <>
-        <Title level={5}>Nanyang Technological University, Singapore</Title>
+        <Title level={5}>{t('experience.ntu.title')}</Title>
         <Paragraph>
-          <Text strong>Bachelor of Information Engineering & Media</Text>
+          <Text strong>{t('experience.ntu.degree')}</Text>
           <br />
-          <Text>Honours (Highest Distinction) CGPA: 4.66 / 5.00</Text>
+          <Text>{t('experience.ntu.honours')}</Text>
         </Paragraph>
         <Paragraph></Paragraph>
-        <Paragraph>Aug 2018 - May 2022</Paragraph>
-        <Badge color="darkorange" count="NTU S&E Scholarship"></Badge>
-        <Badge color="darkorange" count="MOE SM2 Scholarship"></Badge>
+        <Paragraph>{t('experience.ntu.date')}</Paragraph>
+        <Badge color="darkorange" count={t('experience.ntu.badge1')}></Badge>
+        <Badge color="darkorange" count={t('experience.ntu.badge2')}></Badge>
       </>
     ),
   },
@@ -142,39 +126,27 @@ export const timelineItems = [
     ),
     children: (
       <div>
-        <Title level={5}>Lazada South East Asia Pte Ltd</Title>
+        <Title level={5}>{t('experience.lzd.company')}</Title>
         <Paragraph>
-          <Text strong>Frontend Engineer (RedMart)</Text>
+          <Text strong>{t('experience.lzd.role')}</Text>
         </Paragraph>
         <Paragraph>
           <ul>
             <li>
-              Contributed to cross-platform front-end development (React) for
-              Lazada's <Link to={'https://redmart.lazada.sg/'}>RedMart</Link>,
-              delivering major projects like RedMart+ Membership, B2B (Corporate
-              Pantry), and Group Buy.
+              {t('experience.lzd.b1_prefix')}
+              <Link to={'https://redmart.lazada.sg/'}>RedMart</Link>
+              {t('experience.lzd.b1_suffix')}
             </li>
+            <li>{t('experience.lzd.b2')}</li>
             <li>
-              Designed and implemented a multi-functional popup component with
-              cross-platform support, enabling targeted user alerts, promotions,
-              and voucher distribution across RedMart.
+              {t('experience.lzd.b3_prefix')}
+              <Link to={'https://wpk.ucweb.com/product/web'}>iTrace</Link>
+              {t('experience.lzd.b3_suffix')}
             </li>
-            <li>
-              Integrated{' '}
-              <Link to={'https://wpk.ucweb.com/product/web'}>iTrace</Link> for
-              front-end monitoring, enabling real-time performance metrics,
-              custom error reporting, and automated alerts to enhance issue
-              detection and resolution.
-            </li>
-            <li>
-              Collaborated in constructing an internal business data platform
-              using a low-code approach, facilitating A/B experiments and user
-              behavior analysis, and providing customizable dashboards for
-              departmental operations.
-            </li>
+            <li>{t('experience.lzd.b4')}</li>
           </ul>
         </Paragraph>
-        <Paragraph>Jul 2022 - Sep 2024</Paragraph>
+        <Paragraph>{t('experience.lzd.date')}</Paragraph>
         <Badge color="#ee4054" count="React"></Badge>
         <Link to={'https://github.com/alibaba/ice'}>
           <Badge
@@ -211,11 +183,11 @@ export const timelineItems = [
     ),
     children: (
       <>
-        <Title level={5}>Sea Limited</Title>
+        <Title level={5}>{t('experience.sea.company')}</Title>
         <Paragraph>
-          <Text strong>Frontend Engineer</Text>
+          <Text strong>{t('experience.sea.role')}</Text>
         </Paragraph>
-        <Paragraph>Sep 2024 - current</Paragraph>
+        <Paragraph>{t('experience.sea.date')}</Paragraph>
         <Badge color="#468ef7" count="React"></Badge>
         <Badge color="#468ef7" count="TS/JS"></Badge>
         <Badge color="#468ef7" count="Rush"></Badge>

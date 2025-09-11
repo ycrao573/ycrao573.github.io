@@ -3,13 +3,15 @@ const { Title } = Typography;
 import 'devicon/devicon.min.css';
 import { Carousel, Tooltip, Typography } from 'antd';
 import './styles.scss';
-import { skillsData } from '../../assets/skills_data';
+import { skillsData } from './skills_data';
+import { useI18n } from '@/locale';
 
 const Skills: React.FC = () => {
+  const { t } = useI18n();
   return (
     <div className="skills-container" id="skills">
       <Title level={3} className="header">
-        My Skills
+        {t('skills.title')}
       </Title>
       <Carousel
         className="skills-carousel"

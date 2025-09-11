@@ -3,23 +3,21 @@ import { VectorMap } from '@react-jvectormap/core';
 import { worldMill } from '@react-jvectormap/world';
 import ReactCountryFlag from 'react-country-flag';
 import { Typography, Row, Col, theme } from 'antd';
-import {
-  extraMarkers,
-  visitedCountries,
-  visitedPlaces,
-} from '../../assets/travel_data';
+import { extraMarkers, visitedCountries, visitedPlaces } from './travel_data';
 import './styles.scss';
 import { TypeAnimation } from 'react-type-animation';
+import { useI18n } from '@/locale';
 
 const { Title, Paragraph } = Typography;
 
 const Map: React.FC = () => {
   const { useToken } = theme;
   const { token } = useToken();
+  const { t } = useI18n();
 
   return (
     <div className="map-container" id="map">
-      <Title level={3}>My Travel Map</Title>
+      <Title level={3}>{t('map.title')}</Title>
       <div className="map">
         <VectorMap
           key={token.colorBgContainer}
@@ -63,11 +61,11 @@ const Map: React.FC = () => {
         <Paragraph>
           <TypeAnimation
             sequence={[
-              "Here are the places I have visited and I'm excited to explore more!",
+              t('map.marquee.1'),
               3000,
-              'Life is short, and the world is wide.',
+              t('map.marquee.2'),
               1500,
-              "Once a year, go someplace you've never been before.",
+              t('map.marquee.3'),
               2000,
             ]}
             speed={40}

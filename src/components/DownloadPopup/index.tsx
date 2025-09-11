@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Modal, Form, Input, Button } from 'antd';
+import { useI18n } from '@/locale';
 
 const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
   visible,
   onClose,
 }) => {
+  const { t } = useI18n();
   const handleDownload = () => {
     const fileUrl =
       'https://raw.githubusercontent.com/ycrao573/ycrao573.github.io/master/src/assets/Rao_Yuchen_Resume.pdf';
@@ -28,7 +30,7 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
 
   return (
     <Modal
-      title="Please enter your email 📧 for resume download access 🔒*"
+      title={t('popup.title')}
       open={visible}
       onCancel={onClose}
       footer={null}
@@ -40,11 +42,11 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
             {
               required: true,
               type: 'email',
-              message: 'Come on, be serious please!',
+              message: t('popup.email.message'),
             },
           ]}
         >
-          <Input placeholder="Email" />
+          <Input placeholder={t('popup.email.placeholder')} />
         </Form.Item>
         <Form.Item style={{ marginBottom: 12 }}>
           <Button
@@ -53,15 +55,11 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
             htmlType="submit"
             loading={loading}
           >
-            Download
+            {t('popup.download')}
           </Button>
         </Form.Item>
       </Form>
-      <p style={{ fontSize: 11 }}>
-        * To ensure I'm connecting with genuine visitors, kindly provide your
-        email address below for verification. Your information will be kept
-        private and never shared. Thank you for your understanding and support!
-      </p>
+      <p style={{ fontSize: 11 }}>{t('popup.disclaimer')}</p>
     </Modal>
   );
 };
