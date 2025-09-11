@@ -10,17 +10,18 @@ import { Divider, theme, notification } from 'antd';
 import './styles.scss';
 import { Typography } from 'antd';
 import { NotificationPlacement } from 'antd/es/notification/interface';
+import { useI18n } from '@/locale';
 
 const { Paragraph } = Typography;
 
 const Footer: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();
+  const { t } = useI18n();
 
   const openNotification = (placement: NotificationPlacement) => {
     api.info({
-      message: `Well, for WeChat wise...`,
-      description:
-        'Please reach out to me on Instagram or LinkedIn first! Thank you :)',
+      message: t('footer.wechat.title'),
+      description: t('footer.wechat.desc'),
       placement,
       icon: <WechatOutlined />,
     });
@@ -81,7 +82,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="copyright">
-        <Paragraph>© RYC, 2025</Paragraph>
+        <Paragraph>{t('footer.copyright')}</Paragraph>
       </div>
     </footer>
   );

@@ -3,12 +3,14 @@ import { Typography, Button, theme } from 'antd';
 import { ThemeContext } from '../HomePage';
 import './styles.scss'; // Add a corresponding SCSS file
 import { TypeAnimation } from 'react-type-animation';
+import { useI18n } from '@/locale';
 const { Title, Paragraph } = Typography;
 
 const Hero: React.FC = () => {
   const { useToken } = theme;
   const { token } = useToken();
   const value = useContext(ThemeContext);
+  const { t } = useI18n();
 
   return (
     <div
@@ -42,7 +44,7 @@ const Hero: React.FC = () => {
             repeat={Infinity}
           />
         </Title>
-        <Paragraph>Bridging Creativity and Technology!</Paragraph>
+        <Paragraph>{t('hero.subtitle')}</Paragraph>
         <Button
           className="gradient-btn"
           type="primary"
@@ -54,7 +56,7 @@ const Hero: React.FC = () => {
             })
           }
         >
-          Contact Me
+          {t('hero.contact')}
         </Button>
       </div>
     </div>

@@ -3,12 +3,14 @@ import { Badge, Typography } from 'antd';
 import { ProjectCard } from './project-card';
 import './styles.scss';
 const { Title } = Typography;
+import { useI18n } from '@/locale';
 
 const Projects: React.FC = () => {
+  const { t } = useI18n();
   return (
     <div className="projects" id="projects">
       <Title level={3} className="header">
-        Projects
+        {t('projects.title')}
       </Title>
       <div className="projects-list">
         <ProjectCard
@@ -17,7 +19,7 @@ const Projects: React.FC = () => {
           }
           extraStyles={{ padding: '15%' }}
           prodLink="https://redmart.lazada.sg/"
-          title={'RedMart by Lazada'}
+          title={t('projects.redmart.title')}
           badges={
             <>
               <Badge color="#ee4054" count="React"></Badge>
@@ -33,10 +35,8 @@ const Projects: React.FC = () => {
             'https://github.com/ycrao573/ar-tour-guide-fyp/raw/master/assets/images/banner.png'
           }
           githubLink={'https://github.com/ycrao573/ar-tour-guide-fyp'}
-          title={'Final Year Project: Travelee'}
-          description={
-            "This final year project involves developing a mobile app using Flutter and Firebase, employing advanced technologies like Google's geolocation, image recognition, and Wikitude AR SDK. It aims to improve the experience of travelers when navigating local tourist attractions, providing them with seamless and intuitive guidance"
-          }
+          title={t('projects.fyp.title')}
+          description={t('projects.fyp.desc')}
           badges={
             <>
               <Badge color="aqua" count="Flutter"></Badge>
@@ -51,10 +51,8 @@ const Projects: React.FC = () => {
             'https://github.com/NTU-AY2020-DIP-Group-8/gogogoals/raw/master/resources/Poster.jpeg'
           }
           githubLink={'https://github.com/NTU-AY2020-DIP-Group-8/gogogoals'}
-          title={'Year 3 DIP: GoGoGoals'}
-          description={
-            'A group project for building an mobile app for tracking goals and manage personal productivity. It allow users to easily manage and view goals by category, with intelligent recommendation of to-dos.'
-          }
+          title={t('projects.dip.title')}
+          description={t('projects.dip.desc')}
           badges={
             <>
               <Badge color="orange" count="Flutter"></Badge>

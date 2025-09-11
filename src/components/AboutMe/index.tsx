@@ -11,14 +11,13 @@ import './styles.scss';
 import { DownloadOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import DownloadPopup from '../DownloadPopup';
-import aboutMeInfo from '../../assets/about_me.json';
+import { useI18n } from '@/locale';
 
 const { Meta } = Card;
 const { Title } = Typography;
 
 export default function AboutMe() {
-  const { name, position, introduction } = aboutMeInfo;
-  const { title, message } = introduction;
+  const { t } = useI18n();
   const [popupVisible, setPopupVisible] = useState<boolean>(false);
 
   const handleDownloadClick = () => {
@@ -32,7 +31,7 @@ export default function AboutMe() {
   return (
     <div className="aboutme-container" id="aboutme">
       <Title level={3} className="header">
-        About Me
+        {t('about.title')}
       </Title>
       <div className="content">
         <Row gutter={16} style={{ maxWidth: 980 }}>
@@ -50,7 +49,7 @@ export default function AboutMe() {
                 />
               }
             >
-              <Meta title={name} description={position} />
+              <Meta title={t('about.name')} description={t('about.position')} />
             </Card>
           </Col>
           <Col xs={24} sm={24} md={18} lg={18} xl={18}>
@@ -60,12 +59,12 @@ export default function AboutMe() {
               style={{ height: '100%', fontSize: 15, lineHeight: 1.7 }}
               title={
                 <Title level={4} style={{ margin: 0 }}>
-                  {title}
+                  {t('about.intro.title')}
                 </Title>
               }
             >
               <Space direction="vertical">
-                {message}
+                {t('about.intro.message')}
                 <Button
                   className="gradient-btn"
                   type="primary"
@@ -73,7 +72,7 @@ export default function AboutMe() {
                   icon={<DownloadOutlined />}
                   style={{ float: 'right' }}
                 >
-                  Download Resume
+                  {t('about.download')}
                 </Button>
               </Space>
             </Card>
