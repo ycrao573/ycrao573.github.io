@@ -60,6 +60,7 @@ const Map: React.FC = () => {
       <div className="flag-container">
         <Paragraph>
           <TypeAnimation
+            key={t('map.title')}
             sequence={[
               t('map.marquee.1'),
               3000,
