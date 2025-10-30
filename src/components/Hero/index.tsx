@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Typography, Button, theme } from 'antd';
-import { ThemeContext } from '../HomePage';
-import './styles.scss'; // Add a corresponding SCSS file
+import { ThemeContext } from '@/context';
+import './styles.scss';
 import { TypeAnimation } from 'react-type-animation';
 import { useI18n } from '@/locale';
 const { Title, Paragraph } = Typography;
