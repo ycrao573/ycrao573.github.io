@@ -1,17 +1,16 @@
-import React, { createContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Divider, FloatButton, Layout } from 'antd';
-import Header from '../Header';
-import Footer from '../Footer';
-import Hero from '../Hero';
-import WorldMap from '../WorldMap';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Hero from '@/components/Hero';
+import WorldMap from '@/components/WorldMap';
 import { ConfigProvider, theme } from 'antd';
-import Experience from '../Experience';
-import AboutMe from '../AboutMe';
-import Skills from '../Skills';
+import Experience from '@/components/Experience';
+import AboutMe from '@/components/AboutMe';
+import Skills from '@/components/Skills';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
-import Projects from '../Projects';
-
-export const ThemeContext = createContext<string | null>(null);
+import Projects from '@/components/Projects';
+import { ThemeContext } from '@/context';
 
 const HomePage: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(true);

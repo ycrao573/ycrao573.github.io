@@ -23,6 +23,8 @@ export const visitedPlaces = [
   'AU',
   'TR',
   'VN',
+  'BH',
+  'ES',
 ];
 
 export const visitedCountries = [
@@ -47,6 +49,7 @@ export const visitedCountries = [
   'TR',
   'TW',
   'VN',
+  'ES',
 ];
 
 export const extraMarkers = [
@@ -65,5 +68,9 @@ export const extraMarkers = [
   {
     latLng: [22.32, 114.17],
     name: 'Hong Kong',
+  },
+  {
+    latLng: [26, 50.55],
+    name: 'Bahrain',
   },
 ];
