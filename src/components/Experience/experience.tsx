@@ -7,14 +7,12 @@ export const createTimelineItems = (t: (key: string) => string) => [
   {
     dot: (
       <Avatar
-        icon={
-          <img
-            src={
-              'https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Korea_University_Global_Symbol.svg/1200px-Korea_University_Global_Symbol.svg.png'
-            }
-            alt="KU"
-          />
+        size={32}
+        src={
+          'https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Korea_University_Global_Symbol.svg/1200px-Korea_University_Global_Symbol.svg.png'
         }
+        alt="KU"
+        style={{ width: 32, height: 32, minWidth: 32 }}
       />
     ),
     children: (
@@ -28,14 +26,12 @@ export const createTimelineItems = (t: (key: string) => string) => [
   {
     dot: (
       <Avatar
-        icon={
-          <img
-            src={
-              'https://upload.wikimedia.org/wikipedia/en/thumb/2/21/University_of_Strathclyde_Coat_of_Arms.svg/1200px-University_of_Strathclyde_Coat_of_Arms.svg.png'
-            }
-            alt="USG"
-          />
+        size={32}
+        src={
+          'https://upload.wikimedia.org/wikipedia/en/thumb/2/21/University_of_Strathclyde_Coat_of_Arms.svg/1200px-University_of_Strathclyde_Coat_of_Arms.svg.png'
         }
+        alt="USG"
+        style={{ width: 32, height: 32, minWidth: 32 }}
       />
     ),
     children: (
@@ -49,14 +45,12 @@ export const createTimelineItems = (t: (key: string) => string) => [
   {
     dot: (
       <Avatar
-        icon={
-          <img
-            src={
-              'https://media.licdn.com/dms/image/v2/D560BAQGrSi2UOCdL5g/company-logo_200_200/company-logo_200_200/0/1719952472030/autodesk_logo?e=2147483647&v=beta&t=s_xK8MO7Uwf3KgN6lDll8-3vxPQQn3pzpt_RpGAhHHE'
-            }
-            alt="ADSK"
-          />
+        size={32}
+        src={
+          'https://media.licdn.com/dms/image/v2/D560BAQGrSi2UOCdL5g/company-logo_200_200/company-logo_200_200/0/1719952472030/autodesk_logo?e=2147483647&v=beta&t=s_xK8MO7Uwf3KgN6lDll8-3vxPQQn3pzpt_RpGAhHHE'
         }
+        alt="ADSK"
+        style={{ width: 32, height: 32, minWidth: 32 }}
       />
     ),
     children: (
@@ -86,14 +80,12 @@ export const createTimelineItems = (t: (key: string) => string) => [
   {
     dot: (
       <Avatar
-        icon={
-          <img
-            src={
-              'https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Nanyang_Technological_University_coat_of_arms_vector.svg/1200px-Nanyang_Technological_University_coat_of_arms_vector.svg.png'
-            }
-            alt="NTU"
-          />
+        size={32}
+        src={
+          'https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Nanyang_Technological_University_coat_of_arms_vector.svg/1200px-Nanyang_Technological_University_coat_of_arms_vector.svg.png'
         }
+        alt="NTU"
+        style={{ width: 32, height: 32, minWidth: 32 }}
       />
     ),
     children: (
@@ -114,14 +106,12 @@ export const createTimelineItems = (t: (key: string) => string) => [
   {
     dot: (
       <Avatar
-        icon={
-          <img
-            src={
-              'https://www.leceipt.com/wp-content/uploads/2021/11/lazada-logo.jpg'
-            }
-            alt="LZD"
-          />
+        size={32}
+        src={
+          'https://www.leceipt.com/wp-content/uploads/2021/11/lazada-logo.jpg'
         }
+        alt="LZD"
+        style={{ width: 32, height: 32, minWidth: 32 }}
       />
     ),
     children: (
@@ -171,14 +161,12 @@ export const createTimelineItems = (t: (key: string) => string) => [
   {
     dot: (
       <Avatar
-        icon={
-          <img
-            src={
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0I6DyRWMyQTiHQmn4GH5ATOFQlBNE5QPKpQ&s'
-            }
-            alt="SEA"
-          />
+        size={32}
+        src={
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0I6DyRWMyQTiHQmn4GH5ATOFQlBNE5QPKpQ&s'
         }
+        alt="SEA"
+        style={{ width: 32, height: 32, minWidth: 32 }}
       />
     ),
     children: (

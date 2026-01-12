@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { VectorMap } from '@react-jvectormap/core';
 import { worldMill } from '@react-jvectormap/world';
 import ReactCountryFlag from 'react-country-flag';
 import { Typography, Row, Col, theme } from 'antd';
-import { extraMarkers, visitedCountries, visitedPlaces } from './travel_data';
 import './styles.scss';
 import { TypeAnimation } from 'react-type-animation';
 import { useI18n } from '@/locale';
+import { api, TravelMarker } from '@/services/api';
 
 const { Title, Paragraph } = Typography;
 
@@ -14,6 +14,40 @@ const Map: React.FC = () => {
   const { useToken } = theme;
   const { token } = useToken();
   const { t } = useI18n();
+  const [visitedPlaces, setVisitedPlaces] = useState<string[]>([]);
+  const [visitedCountries, setVisitedCountries] = useState<string[]>([]);
+  const [extraMarkers, setExtraMarkers] = useState<TravelMarker[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [places, countries, markers] = await Promise.all([
+          api.getTravelPlaces(),
+          api.getTravelCountries(),
+          api.getTravelMarkers(),
+        ]);
+        setVisitedPlaces(places);
+        setVisitedCountries(countries);
+        setExtraMarkers(markers);
+      } catch (error) {
+        console.error('Failed to fetch travel data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="map-container" id="map">
+        <Title level={3}>{t('map.title')}</Title>
+        <div>Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="map-container" id="map">

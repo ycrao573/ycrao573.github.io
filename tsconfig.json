@@ -7,6 +7,9 @@
     "paths": {
       "@/*": ["*"]
     },
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
