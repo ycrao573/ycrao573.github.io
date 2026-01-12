@@ -1,13 +1,43 @@
-import React from 'react';
-const { Title } = Typography;
+import React, { useState, useEffect } from 'react';
 import 'devicon/devicon.min.css';
 import { Carousel, Tooltip, Typography } from 'antd';
 import './styles.scss';
-import { skillsData } from './skills_data';
 import { useI18n } from '@/locale';
+import { api, Skill } from '@/services/api';
+
+const { Title } = Typography;
 
 const Skills: React.FC = () => {
   const { t } = useI18n();
+  const [skillsData, setSkillsData] = useState<Skill[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const skills = await api.getSkills();
+        setSkillsData(skills);
+      } catch (error) {
+        console.error('Failed to fetch skills data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="skills-container" id="skills">
+        <Title level={3} className="header">
+          {t('skills.title')}
+        </Title>
+        <div>Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="skills-container" id="skills">
       <Title level={3} className="header">
