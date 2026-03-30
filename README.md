@@ -1,6 +1,6 @@
 In the project directory, run:
 
 ```
-yarn install
-yarn dev
+vp install
+vp dev
 ```

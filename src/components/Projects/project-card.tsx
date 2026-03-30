@@ -3,13 +3,13 @@ import {
   EyeOutlined,
   VerticalAlignMiddleOutlined,
   QuestionCircleOutlined,
-} from '@ant-design/icons';
-import { Card, Image, Typography } from 'antd';
+} from "@ant-design/icons";
+import { Card, Image, Typography } from "antd";
 
 const { Title } = Typography;
 const { Meta } = Card;
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export interface ProjectCardProps {
   imgUrl: string;
@@ -23,39 +23,23 @@ export interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = (props) => {
   const [showContent, setShowContent] = useState<boolean>(false);
-  const {
-    imgUrl,
-    githubLink,
-    title,
-    description,
-    extraStyles,
-    prodLink,
-    badges,
-  } = props;
+  const { imgUrl, githubLink, title, description, extraStyles, prodLink, badges } = props;
 
   const actionButtons = [];
   if (githubLink) {
     actionButtons.push(
-      <GithubOutlined
-        key="github"
-        onClick={() => window.open(githubLink, '_blank')}
-      />
+      <GithubOutlined key="github" onClick={() => window.open(githubLink, "_blank")} />,
     );
   }
   if (prodLink) {
-    actionButtons.push(
-      <EyeOutlined key="eye" onClick={() => window.open(prodLink, '_blank')} />
-    );
+    actionButtons.push(<EyeOutlined key="eye" onClick={() => window.open(prodLink, "_blank")} />);
   }
   actionButtons.push(
     showContent ? (
-      <VerticalAlignMiddleOutlined
-        key="more"
-        onClick={() => setShowContent(false)}
-      />
+      <VerticalAlignMiddleOutlined key="more" onClick={() => setShowContent(false)} />
     ) : (
       <QuestionCircleOutlined key="more" onClick={() => setShowContent(true)} />
-    )
+    ),
   );
 
   return (
@@ -67,7 +51,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = (props) => {
           style={{
             width: 300,
             height: 170,
-            objectFit: 'scale-down',
+            objectFit: "scale-down",
             ...extraStyles,
           }}
         />
@@ -81,7 +65,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = (props) => {
             {badges}
           </>
         }
-        description={showContent ? description : ''}
+        description={showContent ? description : ""}
       />
     </Card>
   );

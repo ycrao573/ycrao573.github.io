@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "ES2021",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": "./src",
-    "allowJs": true,
+    "jsx": "react-jsx",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./src/*"]
     },
+    "allowJs": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "removeComments": true,
@@ -20,10 +20,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx"
+    "isolatedModules": true
   },
-  "include": [
-    "src",
-  ]
+  "include": ["src"]
 }

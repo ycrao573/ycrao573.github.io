@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Modal, Form, Input, Button } from 'antd';
-import { useI18n } from '@/locale';
+import React, { useState } from "react";
+import { Modal, Form, Input, Button } from "antd";
+import { useI18n } from "@/locale";
 
 const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
   visible,
@@ -9,8 +9,8 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
   const { t } = useI18n();
   const handleDownload = () => {
     const fileUrl =
-      'https://raw.githubusercontent.com/ycrao573/ycrao573.github.io/master/src/assets/Rao_Yuchen_Resume.pdf';
-    window.open(fileUrl, '_blank');
+      "https://raw.githubusercontent.com/ycrao573/ycrao573.github.io/master/src/assets/Rao_Yuchen_Resume.pdf";
+    window.open(fileUrl, "_blank");
   };
 
   const [form] = Form.useForm();
@@ -29,37 +29,27 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
   };
 
   return (
-    <Modal
-      title={t('popup.title')}
-      open={visible}
-      onCancel={onClose}
-      footer={null}
-    >
+    <Modal title={t("popup.title")} open={visible} onCancel={onClose} footer={null}>
       <Form form={form} onFinish={onFinish}>
         <Form.Item
           name="email"
           rules={[
             {
               required: true,
-              type: 'email',
-              message: t('popup.email.message'),
+              type: "email",
+              message: t("popup.email.message"),
             },
           ]}
         >
-          <Input placeholder={t('popup.email.placeholder')} />
+          <Input placeholder={t("popup.email.placeholder")} />
         </Form.Item>
         <Form.Item style={{ marginBottom: 12 }}>
-          <Button
-            type="primary"
-            className="gradient-btn"
-            htmlType="submit"
-            loading={loading}
-          >
-            {t('popup.download')}
+          <Button type="primary" className="gradient-btn" htmlType="submit" loading={loading}>
+            {t("popup.download")}
           </Button>
         </Form.Item>
       </Form>
-      <p style={{ fontSize: 11 }}>{t('popup.disclaimer')}</p>
+      <p style={{ fontSize: 11 }}>{t("popup.disclaimer")}</p>
     </Modal>
   );
 };

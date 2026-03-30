@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import 'devicon/devicon.min.css';
-import { Carousel, Tooltip, Typography } from 'antd';
-import './styles.scss';
-import { useI18n } from '@/locale';
-import { api, Skill } from '@/services/api';
+import React, { useState, useEffect } from "react";
+import "devicon/devicon.min.css";
+import { Carousel, Tooltip, Typography } from "antd";
+import "./styles.scss";
+import { useI18n } from "@/locale";
+import { api, Skill } from "@/services/api";
 
 const { Title } = Typography;
 
@@ -18,7 +18,7 @@ const Skills: React.FC = () => {
         const skills = await api.getSkills();
         setSkillsData(skills);
       } catch (error) {
-        console.error('Failed to fetch skills data:', error);
+        console.error("Failed to fetch skills data:", error);
       } finally {
         setLoading(false);
       }
@@ -31,7 +31,7 @@ const Skills: React.FC = () => {
     return (
       <div className="skills-container" id="skills">
         <Title level={3} className="header">
-          {t('skills.title')}
+          {t("skills.title")}
         </Title>
         <div>Loading...</div>
       </div>
@@ -41,7 +41,7 @@ const Skills: React.FC = () => {
   return (
     <div className="skills-container" id="skills">
       <Title level={3} className="header">
-        {t('skills.title')}
+        {t("skills.title")}
       </Title>
       <Carousel
         className="skills-carousel"
@@ -56,14 +56,11 @@ const Skills: React.FC = () => {
         {skillsData.map((skill, index) => (
           <div key={index} className="skill-item">
             <Tooltip placement="top" title={skill.proficiency}>
-              <a
-                href={skill.jumpUrl}
-                style={{ cursor: skill.jumpUrl ? 'pointer' : 'default' }}
-              >
+              <a href={skill.jumpUrl} style={{ cursor: skill.jumpUrl ? "pointer" : "default" }}>
                 <i
                   className={`devicon-${skill.icon}-plain colored`}
                   style={{
-                    fontSize: '250%',
+                    fontSize: "250%",
                   }}
                 />
               </a>

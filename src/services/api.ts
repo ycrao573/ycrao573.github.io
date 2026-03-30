@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://ghpage.raoyuchenom.workers.dev';
+const API_BASE_URL = "https://ghpage.raoyuchenom.workers.dev";
 
 export interface TravelMarker {
   latLng: [number, number];
@@ -24,9 +24,7 @@ export const api = {
   async getTravelCountries(): Promise<string[]> {
     const response = await fetch(`${API_BASE_URL}/api/travel/countries`);
     if (!response.ok) {
-      throw new Error(
-        `Failed to fetch travel countries: ${response.statusText}`
-      );
+      throw new Error(`Failed to fetch travel countries: ${response.statusText}`);
     }
     return response.json();
   },
