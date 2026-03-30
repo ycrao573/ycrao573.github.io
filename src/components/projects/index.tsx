@@ -25,8 +25,8 @@ const Projects: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: false, amount: 0.2 }}
-          whileHover={{ y: -8, scale: 1.02 }}
+          viewport={{ amount: 0.2, once: false }}
+          whileHover={{ scale: 1.02, y: -8 }}
         >
           <ProjectCard
             imgUrl={'https://img.alicdn.com/tfs/TB1NbbEPqL7gK0jSZFBXXXZZpXa-564-250.png_.webp'}
@@ -47,9 +47,9 @@ const Projects: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: false, amount: 0.2 }}
-          whileHover={{ y: -8, scale: 1.02 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          viewport={{ amount: 0.2, once: false }}
+          whileHover={{ scale: 1.02, y: -8 }}
         >
           <ProjectCard
             imgUrl={
@@ -71,9 +71,9 @@ const Projects: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: false, amount: 0.2 }}
-          whileHover={{ y: -8, scale: 1.02 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          viewport={{ amount: 0.2, once: false }}
+          whileHover={{ scale: 1.02, y: -8 }}
         >
           <ProjectCard
             imgUrl={

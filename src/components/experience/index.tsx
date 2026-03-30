@@ -1,4 +1,4 @@
-import { createTimelineItems } from './experience';
+import { createTimelineItems } from './items';
 import { useI18n } from '@/locale';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 
 export default function Experience() {
   const { t } = useI18n();
-  const items = [...createTimelineItems(t)].reverse();
+  const items = [...createTimelineItems(t)].toReversed();
 
   return (
     <div
@@ -29,8 +29,8 @@ export default function Experience() {
             className="relative pl-12"
             initial={{ opacity: 0, x: index % 2 === 0 ? 28 : -28 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55, delay: index * 0.08 }}
-            viewport={{ once: false, amount: 0.25 }}
+            transition={{ delay: index * 0.08, duration: 0.55 }}
+            viewport={{ amount: 0.25, once: false }}
             whileHover={{ y: -6 }}
           >
             <span className="absolute top-6 left-4 h-full w-px bg-border" />
@@ -44,18 +44,18 @@ export default function Experience() {
                 <CardTitle className="text-lg">{item.title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
-                {item.role ? <p className="font-medium">{item.role}</p> : null}
+                {item.role && <p className="font-medium">{item.role}</p>}
                 {item.details ? (
                   <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
-                    {item.details.map((detail, detailIndex) => (
+                    {item.details.map((detail: string, detailIndex: number) => (
                       <li key={`${item.title}-detail-${detailIndex}`}>{detail}</li>
                     ))}
                   </ul>
-                ) : null}
+                ) : undefined}
                 <p className="text-muted-foreground">{item.date}</p>
-                {item.badges ? (
+                {item.badges && (
                   <div className="flex flex-wrap gap-1">
-                    {item.badges.map((badge) =>
+                    {item.badges.map((badge: any) =>
                       badge.href ? (
                         <a
                           href={badge.href}
@@ -74,7 +74,7 @@ export default function Experience() {
                       ),
                     )}
                   </div>
-                ) : null}
+                )}
               </CardContent>
             </Card>
           </motion.div>

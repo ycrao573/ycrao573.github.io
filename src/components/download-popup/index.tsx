@@ -10,6 +10,12 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
+const handleDownload = () => {
+  const fileUrl =
+    'https://raw.githubusercontent.com/ycrao573/ycrao573.github.io/master/src/assets/Rao_Yuchen_Resume.pdf';
+  window.open(fileUrl, '_blank');
+};
+
 const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
   visible,
   onClose,
@@ -17,12 +23,6 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
   const { t } = useI18n();
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
-
-  const handleDownload = () => {
-    const fileUrl =
-      'https://raw.githubusercontent.com/ycrao573/ycrao573.github.io/master/src/assets/Rao_Yuchen_Resume.pdf';
-    window.open(fileUrl, '_blank');
-  };
 
   const [loading, setLoading] = useState(false);
 
@@ -55,7 +55,7 @@ const DownloadPopup: React.FC<{ visible: boolean; onClose: () => void }> = ({
             placeholder={t('popup.email.placeholder')}
             type="email"
           />
-          {emailError ? <p className="text-xs text-destructive">{emailError}</p> : null}
+          {emailError && <p className="text-xs text-destructive">{emailError}</p>}
           <Button type="submit" disabled={loading}>
             {t('popup.download')}
           </Button>

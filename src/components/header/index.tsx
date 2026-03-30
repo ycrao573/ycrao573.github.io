@@ -14,15 +14,17 @@ interface Props {
   onChange?: () => void;
 }
 
+const jumpToSection = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: 'smooth',
+  });
+};
+
+const isSupportedLocale = (value: string): value is 'en' | 'zh' => value === 'en' || value === 'zh';
+
 const Header = (props: Props) => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const { t, locale, setLocale } = useI18n();
-
-  const jumpToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
 
   return (
     <header className="fixed top-0 left-0 z-[100] flex w-full items-center justify-between px-5 py-2.5">
@@ -34,7 +36,7 @@ const Header = (props: Props) => {
           onCheckedChange={props.onChange}
           aria-label={t('theme.dark')}
         />
-        <Select value={locale} onValueChange={(val) => setLocale(val as 'en' | 'zh')}>
+        <Select value={locale} onValueChange={(val) => isSupportedLocale(val) && setLocale(val)}>
           <SelectTrigger className="h-8 w-[112px]">
             <SelectValue />
           </SelectTrigger>

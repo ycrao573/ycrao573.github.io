@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useI18n } from '@/locale';
-import { api, Skill } from '@/services/api';
+import { api, type Skill } from '@/services/api';
 import { motion } from 'motion/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -22,15 +22,15 @@ const Skills: React.FC = () => {
       }
     };
 
-    fetchData();
+    void fetchData();
   }, []);
 
   const groupedSkills = useMemo(() => {
     const groups: Record<'frontend' | 'backend' | 'mobile' | 'cloudDevOps' | 'others', Skill[]> = {
-      frontend: [],
       backend: [],
-      mobile: [],
       cloudDevOps: [],
+      frontend: [],
+      mobile: [],
       others: [],
     };
 
@@ -60,15 +60,15 @@ const Skills: React.FC = () => {
     }
 
     return [
-      { key: 'frontend', label: t('skills.frontend'), items: groups.frontend },
-      { key: 'backend', label: t('skills.backend'), items: groups.backend },
-      { key: 'mobile', label: t('skills.mobile'), items: groups.mobile },
+      { items: groups.frontend, key: 'frontend', label: t('skills.frontend') },
+      { items: groups.backend, key: 'backend', label: t('skills.backend') },
+      { items: groups.mobile, key: 'mobile', label: t('skills.mobile') },
       {
+        items: groups.cloudDevOps,
         key: 'cloudDevOps',
         label: t('skills.cloudDevOps'),
-        items: groups.cloudDevOps,
       },
-      { key: 'others', label: t('skills.others'), items: groups.others },
+      { items: groups.others, key: 'others', label: t('skills.others') },
     ].filter((group) => group.items.length > 0);
   }, [skillsData, t]);
 
@@ -104,9 +104,9 @@ const Skills: React.FC = () => {
             key={group.key}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: groupIndex * 0.08 }}
-            viewport={{ once: false, amount: 0.2 }}
-            whileHover={{ y: -4, scale: 1.01 }}
+            transition={{ delay: groupIndex * 0.08, duration: 0.5 }}
+            viewport={{ amount: 0.2, once: false }}
+            whileHover={{ scale: 1.01, y: -4 }}
           >
             <Card className="h-full border-2 transition-all duration-300 hover:shadow-xl">
               <CardContent className="p-5">

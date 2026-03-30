@@ -1,3 +1,3 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-export const ThemeContext = createContext<string | null>(null);
+export const ThemeContext = createContext<string | undefined>(undefined);

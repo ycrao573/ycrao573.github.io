@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://ghpage.raoyuchenom.workers.dev";
+const API_BASE_URL = 'https://ghpage.raoyuchenom.workers.dev';
 
 export interface TravelMarker {
   latLng: [number, number];
@@ -13,10 +13,10 @@ export interface Skill {
 }
 
 export const api = {
-  async getTravelPlaces(): Promise<string[]> {
-    const response = await fetch(`${API_BASE_URL}/api/travel/places`);
+  async getSkills(): Promise<Skill[]> {
+    const response = await fetch(`${API_BASE_URL}/api/skills`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch travel places: ${response.statusText}`);
+      throw new Error(`Failed to fetch skills: ${response.statusText}`);
     }
     return response.json();
   },
@@ -37,10 +37,10 @@ export const api = {
     return response.json();
   },
 
-  async getSkills(): Promise<Skill[]> {
-    const response = await fetch(`${API_BASE_URL}/api/skills`);
+  async getTravelPlaces(): Promise<string[]> {
+    const response = await fetch(`${API_BASE_URL}/api/travel/places`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch skills: ${response.statusText}`);
+      throw new Error(`Failed to fetch travel places: ${response.statusText}`);
     }
     return response.json();
   },

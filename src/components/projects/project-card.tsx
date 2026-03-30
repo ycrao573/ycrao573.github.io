@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import type { CSSProperties, ReactNode } from 'react';
-import { Eye, ChevronUp, CircleHelp } from 'lucide-react';
+import { useState, type CSSProperties, type ReactNode } from 'react';
+import { ChevronUp, CircleHelp, Eye } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -30,19 +29,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = (props) => {
       <CardHeader className="flex-1 pb-2">
         <CardTitle className="text-base">{title}</CardTitle>
         <div className="flex flex-wrap gap-1">{badges}</div>
-        {showContent ? <CardDescription>{description}</CardDescription> : null}
+        {showContent && <CardDescription>{description}</CardDescription>}
       </CardHeader>
       <CardContent className="flex items-center gap-1 pt-0">
         {githubLink ? (
           <Button size="icon-sm" variant="ghost" onClick={() => window.open(githubLink, '_blank')}>
             <FaGithub className="text-base" />
           </Button>
-        ) : null}
+        ) : undefined}
         {prodLink ? (
           <Button size="icon-sm" variant="ghost" onClick={() => window.open(prodLink, '_blank')}>
             <Eye />
           </Button>
-        ) : null}
+        ) : undefined}
         <Button size="icon-sm" variant="ghost" onClick={() => setShowContent((prev) => !prev)}>
           {showContent ? <ChevronUp /> : <CircleHelp />}
         </Button>

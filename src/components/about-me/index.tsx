@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import DownloadPopup from '../DownloadPopup';
+import DownloadPopup from '../download-popup';
 import { useI18n } from '@/locale';
 import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -32,7 +32,7 @@ export default function AboutMe() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="h-full">
+            <Card className="h-full p-0">
               <CardContent className="flex h-full flex-col p-0">
                 <img
                   className="min-h-[220px] w-full flex-1 rounded-t-lg object-cover"
@@ -50,7 +50,7 @@ export default function AboutMe() {
             className="h-full md:col-span-9"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             viewport={{ once: true }}
           >
             <Card className="h-full">

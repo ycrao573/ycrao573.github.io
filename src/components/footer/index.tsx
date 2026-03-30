@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
           className="flex flex-col max-[600px]:flex-row"
           initial={{ opacity: 0, x: -18 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
           viewport={{ once: true }}
         >
           <a className="flex flex-row text-foreground" href="mailto:raoyuchenom@gmail.com">
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
           className="social-icons flex flex-row"
           initial={{ opacity: 0, x: 18 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
           viewport={{ once: true }}
         >
           <a
@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
         className="pt-[clamp(20px,3vw,32px)]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
         viewport={{ once: true }}
       >
         <p>{t('footer.copyright')}</p>

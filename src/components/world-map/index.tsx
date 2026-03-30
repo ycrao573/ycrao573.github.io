@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import { TypeAnimation } from 'react-type-animation';
 import { useI18n } from '@/locale';
-import { api, TravelMarker } from '@/services/api';
+import { api, type TravelMarker } from '@/services/api';
 import { motion } from 'motion/react';
 
 const Map: React.FC = () => {
@@ -31,7 +31,7 @@ const Map: React.FC = () => {
       }
     };
 
-    fetchData();
+    void fetchData();
   }, []);
 
   if (loading) {
@@ -64,7 +64,7 @@ const Map: React.FC = () => {
         className="w-full max-w-[980px]"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
+        transition={{ delay: 0.1, duration: 0.6 }}
         viewport={{ once: true }}
       >
         <motion.p className="text-muted-foreground">
@@ -90,8 +90,8 @@ const Map: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{
-                duration: 0.25,
                 delay: Math.min(index * 0.02, 0.4),
+                duration: 0.25,
               }}
               viewport={{ once: true }}
             >
@@ -99,8 +99,8 @@ const Map: React.FC = () => {
                 countryCode={place}
                 svg
                 style={{
-                  width: '2em',
                   height: '2em',
+                  width: '2em',
                 }}
               />
             </motion.div>

@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
         className="mt-4 text-muted-foreground"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
+        transition={{ delay: 0.1, duration: 0.6 }}
         viewport={{ once: true }}
       >
         {t('hero.subtitle')}
@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
         viewport={{ once: true }}
       >
         <Button
