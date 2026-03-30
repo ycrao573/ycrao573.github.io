@@ -1,108 +1,64 @@
-import { useState } from "react";
-import { Menu, Drawer, Button, Switch, Select } from "antd";
-import { useMediaQuery } from "react-responsive";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
-import "./styles.scss";
-import { useI18n } from "@/locale";
+import { useMediaQuery } from 'react-responsive';
+import { useI18n } from '@/locale';
+import { Button } from '@/components/ui/button';
+import { Switch } from '@/components/ui/switch';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 interface Props {
   onChange?: () => void;
 }
 
 const Header = (props: Props) => {
-  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
-  const [drawerVisible, setDrawerVisible] = useState(false);
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const { t, locale, setLocale } = useI18n();
-
-  const showDrawer = () => {
-    setDrawerVisible(true);
-  };
-
-  const closeDrawer = (id?: string) => {
-    return () => {
-      setDrawerVisible(false);
-      id && jumpToSection(id);
-    };
-  };
 
   const jumpToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   return (
-    <header>
-      {isMobile && (
-        <div className="mobile-header">
-          <Button
-            type="primary"
-            onClick={showDrawer}
-            className="custom-button"
-            icon={<FontAwesomeIcon icon={faBars} />}
-          />
-        </div>
-      )}
-      <div className="logo">
+    <header className="fixed top-0 left-0 z-[100] flex w-full items-center justify-between px-5 py-2.5">
+      <div className="flex items-center gap-2 text-2xl">
         🍊
         <Switch
-          checkedChildren={t("theme.dark")}
-          unCheckedChildren={t("theme.light")}
-          className="switch"
-          defaultChecked
-          onChange={props.onChange}
+          className="mx-1 shadow-[0_2px_2px_0_rgba(0,0,0,0.2),0_6px_20px_0_rgba(0,0,0,0.19)]"
+          defaultChecked={true}
+          onCheckedChange={props.onChange}
+          aria-label={t('theme.dark')}
         />
-        <Select
-          size="small"
-          style={{ width: 100, marginLeft: 8 }}
-          value={locale}
-          onChange={(val) => setLocale(val as any)}
-          options={[
-            { value: "en", label: "English" },
-            { value: "zh", label: "中文" },
-          ]}
-        />
+        <Select value={locale} onValueChange={(val) => setLocale(val as 'en' | 'zh')}>
+          <SelectTrigger className="h-8 w-[112px]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent position="popper" align="end" sideOffset={6}>
+            <SelectItem value="en">English</SelectItem>
+            <SelectItem value="zh">中文</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
-      {isMobile ? (
-        <Drawer
-          placement="left"
-          closable={true}
-          onClose={closeDrawer("")}
-          open={drawerVisible}
-          width="55%"
-          closeIcon={<FontAwesomeIcon icon={faArrowLeft} />}
-        >
-          <Menu mode="vertical">
-            <Menu.Item key="about" onClick={closeDrawer("aboutme")}>
-              {t("nav.about")}
-            </Menu.Item>
-            <Menu.Item key="skills" onClick={closeDrawer("skills")}>
-              {t("nav.skills")}
-            </Menu.Item>
-            <Menu.Item key="experience" onClick={closeDrawer("experience")}>
-              {t("nav.experience")}
-            </Menu.Item>
-            <Menu.Item key="projects" onClick={closeDrawer("projects")}>
-              {t("nav.projects")}
-            </Menu.Item>
-          </Menu>
-        </Drawer>
-      ) : (
-        <Menu mode="horizontal" className="horizontal-menu">
-          <Menu.Item key="about" onClick={() => jumpToSection("aboutme")}>
-            {t("nav.about")}
-          </Menu.Item>
-          <Menu.Item key="skills" onClick={() => jumpToSection("skills")}>
-            {t("nav.skills")}
-          </Menu.Item>
-          <Menu.Item key="experience" onClick={() => jumpToSection("experience")}>
-            {t("nav.experience")}
-          </Menu.Item>
-          <Menu.Item key="projects" onClick={() => jumpToSection("projects")}>
-            {t("nav.projects")}
-          </Menu.Item>
-        </Menu>
+      {!isMobile && (
+        <nav className="flex items-center rounded-lg border border-border bg-card p-1 shadow-[0_4px_4px_0_rgba(0,0,0,0.2),0_6px_20px_0_rgba(0,0,0,0.19)]">
+          <Button variant="ghost" onClick={() => jumpToSection('aboutme')}>
+            {t('nav.about')}
+          </Button>
+          <Button variant="ghost" onClick={() => jumpToSection('skills')}>
+            {t('nav.skills')}
+          </Button>
+          <Button variant="ghost" onClick={() => jumpToSection('experience')}>
+            {t('nav.experience')}
+          </Button>
+          <Button variant="ghost" onClick={() => jumpToSection('projects')}>
+            {t('nav.projects')}
+          </Button>
+        </nav>
       )}
     </header>
   );

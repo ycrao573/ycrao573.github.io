@@ -1,28 +1,34 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
-import { fileURLToPath } from "url";
+import { defineConfig } from 'vite-plus';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import tailwindcss from '@tailwindcss/vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  staged: {
-    "*": "vp check --fix",
+  staged: { '*': 'vp check --fix' },
+  plugins: [tailwindcss(), react()],
+  lint: {
+    ignorePatterns: ['dist/**'],
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
   },
-  plugins: [react()],
+  fmt: {
+    singleQuote: true,
+  },
   build: {
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("react")) {
-              return "react";
+          if (id.includes('node_modules')) {
+            if (id.includes('react')) {
+              return 'react';
             }
-            if (id.includes("antd") || id.includes("@ant-design")) {
-              return "antd";
-            }
-            if (id.includes("devicon")) {
-              return "devicon";
+            if (id.includes('devicon')) {
+              return 'devicon';
             }
           }
         },
@@ -31,14 +37,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        silenceDeprecations: ["legacy-js-api"],
-      },
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });

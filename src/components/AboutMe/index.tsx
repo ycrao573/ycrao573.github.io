@@ -1,12 +1,10 @@
-import { Typography, Row, Col, Card, Image, Button, Space } from "antd";
-import "./styles.scss";
-import { DownloadOutlined } from "@ant-design/icons";
-import { useState } from "react";
-import DownloadPopup from "../DownloadPopup";
-import { useI18n } from "@/locale";
-
-const { Meta } = Card;
-const { Title } = Typography;
+import { useState } from 'react';
+import DownloadPopup from '../DownloadPopup';
+import { useI18n } from '@/locale';
+import { Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion } from 'motion/react';
 
 export default function AboutMe() {
   const { t } = useI18n();
@@ -21,53 +19,56 @@ export default function AboutMe() {
   };
 
   return (
-    <div className="aboutme-container" id="aboutme">
-      <Title level={3} className="header">
-        {t("about.title")}
-      </Title>
-      <div className="content">
-        <Row gutter={16} style={{ maxWidth: 980 }}>
-          <Col xs={0} sm={0} md={6} lg={6} xl={6}>
-            <Card
-              hoverable
-              style={{ height: "auto" }}
-              cover={
-                <Image
-                  width="100%"
-                  src={new URL("../../assets/profile.jpg", import.meta.url).href}
-                  fallback="data:image/png;base64,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"
+    <div className="scroll-mt-20 px-[clamp(16px,4vw,32px)] py-[clamp(56px,8vw,128px)]" id="aboutme">
+      <h3 className="mb-[clamp(20px,4vw,48px)] text-center text-2xl font-semibold">
+        {t('about.title')}
+      </h3>
+      <div className="flex items-stretch justify-center">
+        <div className="grid w-full max-w-[980px] grid-cols-1 gap-4 md:grid-cols-12 md:items-stretch">
+          <motion.div
+            className="hidden h-full md:col-span-3 md:block"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Card className="h-full">
+              <CardContent className="flex h-full flex-col p-0">
+                <img
+                  className="min-h-[220px] w-full flex-1 rounded-t-lg object-cover"
+                  src={new URL('../../assets/profile.jpg', import.meta.url).href}
+                  alt={t('about.name')}
                 />
-              }
-            >
-              <Meta title={t("about.name")} description={t("about.position")} />
+                <div className="p-4">
+                  <p className="font-semibold">{t('about.name')}</p>
+                  <p className="text-sm text-muted-foreground">{t('about.position')}</p>
+                </div>
+              </CardContent>
             </Card>
-          </Col>
-          <Col xs={24} sm={24} md={18} lg={18} xl={18}>
-            <Card
-              type="inner"
-              hoverable
-              style={{ height: "100%", fontSize: 15, lineHeight: 1.7 }}
-              title={
-                <Title level={4} style={{ margin: 0 }}>
-                  {t("about.intro.title")}
-                </Title>
-              }
-            >
-              <Space direction="vertical">
-                {t("about.intro.message")}
-                <Button
-                  className="gradient-btn"
-                  type="primary"
-                  onClick={handleDownloadClick}
-                  icon={<DownloadOutlined />}
-                  style={{ float: "right" }}
-                >
-                  {t("about.download")}
-                </Button>
-              </Space>
+          </motion.div>
+          <motion.div
+            className="h-full md:col-span-9"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle>{t('about.intro.title')}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex h-full flex-col text-[15px] leading-7">
+                <p className="flex-1">{t('about.intro.message')}</p>
+                <div className="mt-4 flex justify-end">
+                  <Button onClick={handleDownloadClick}>
+                    <Download className="size-4" />
+                    {t('about.download')}
+                  </Button>
+                </div>
+              </CardContent>
             </Card>
-          </Col>
-        </Row>
+          </motion.div>
+        </div>
       </div>
       <DownloadPopup visible={popupVisible} onClose={handlePopupClose} />
     </div>

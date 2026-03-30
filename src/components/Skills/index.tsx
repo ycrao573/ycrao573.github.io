@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "devicon/devicon.min.css";
-import { Carousel, Tooltip, Typography } from "antd";
-import "./styles.scss";
-import { useI18n } from "@/locale";
-import { api, Skill } from "@/services/api";
-
-const { Title } = Typography;
+import React, { useEffect, useMemo, useState } from 'react';
+import { useI18n } from '@/locale';
+import { api, Skill } from '@/services/api';
+import { motion } from 'motion/react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 const Skills: React.FC = () => {
   const { t } = useI18n();
@@ -18,7 +16,7 @@ const Skills: React.FC = () => {
         const skills = await api.getSkills();
         setSkillsData(skills);
       } catch (error) {
-        console.error("Failed to fetch skills data:", error);
+        console.error('Failed to fetch skills data:', error);
       } finally {
         setLoading(false);
       }
@@ -27,50 +25,122 @@ const Skills: React.FC = () => {
     fetchData();
   }, []);
 
+  const groupedSkills = useMemo(() => {
+    const groups: Record<'frontend' | 'backend' | 'mobile' | 'cloudDevOps' | 'others', Skill[]> = {
+      frontend: [],
+      backend: [],
+      mobile: [],
+      cloudDevOps: [],
+      others: [],
+    };
+
+    const getGroup = (title: string): keyof typeof groups => {
+      const value = title.toLowerCase();
+      if (
+        /(react|typescript|javascript|html|css|webpack|module federation|antd|ant pro|tanstack|vite|rax)/.test(
+          value,
+        )
+      ) {
+        return 'frontend';
+      }
+      if (/(node|python|java|c#|c\+\+|sql|graphql|go|express|\.net|asp\.net)/.test(value)) {
+        return 'backend';
+      }
+      if (/(react native|flutter|android|ios|swift|kotlin)/.test(value)) {
+        return 'mobile';
+      }
+      if (/(docker|jenkins|aws|kubernetes|k8s|ci|cd|devops|monitor|cloud)/.test(value)) {
+        return 'cloudDevOps';
+      }
+      return 'others';
+    };
+
+    for (const skill of skillsData) {
+      groups[getGroup(skill.title)].push(skill);
+    }
+
+    return [
+      { key: 'frontend', label: t('skills.frontend'), items: groups.frontend },
+      { key: 'backend', label: t('skills.backend'), items: groups.backend },
+      { key: 'mobile', label: t('skills.mobile'), items: groups.mobile },
+      {
+        key: 'cloudDevOps',
+        label: t('skills.cloudDevOps'),
+        items: groups.cloudDevOps,
+      },
+      { key: 'others', label: t('skills.others'), items: groups.others },
+    ].filter((group) => group.items.length > 0);
+  }, [skillsData, t]);
+
   if (loading) {
     return (
-      <div className="skills-container" id="skills">
-        <Title level={3} className="header">
-          {t("skills.title")}
-        </Title>
+      <div
+        className="mx-auto w-full max-w-[980px] scroll-mt-20 px-[clamp(16px,4vw,32px)] py-[clamp(56px,8vw,128px)] text-center"
+        id="skills"
+      >
+        <h3 className="mb-[clamp(20px,4vw,48px)] text-2xl font-semibold">{t('skills.title')}</h3>
         <div>Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="skills-container" id="skills">
-      <Title level={3} className="header">
-        {t("skills.title")}
-      </Title>
-      <Carousel
-        className="skills-carousel"
-        dots={false}
-        infinite
-        speed={2500}
-        autoplay
-        autoplaySpeed={2500} // Adjust the auto-scroll speed in milliseconds
-        slidesToShow={8} // Adjust the number of items visible on screen
-        pauseOnHover // Pause autoplay on hover
+    <div
+      className="flex scroll-mt-20 flex-col items-center px-[clamp(16px,4vw,32px)] py-[clamp(56px,8vw,128px)]"
+      id="skills"
+    >
+      <motion.h3
+        className="mb-[clamp(20px,4vw,48px)] text-center text-2xl font-semibold"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
-        {skillsData.map((skill, index) => (
-          <div key={index} className="skill-item">
-            <Tooltip placement="top" title={skill.proficiency}>
-              <a href={skill.jumpUrl} style={{ cursor: skill.jumpUrl ? "pointer" : "default" }}>
-                <i
-                  className={`devicon-${skill.icon}-plain colored`}
-                  style={{
-                    fontSize: "250%",
-                  }}
-                />
-              </a>
-            </Tooltip>
-            <Title className="skill-name" level={5}>
-              {skill.title}
-            </Title>
-          </div>
+        {t('skills.title')}
+      </motion.h3>
+      <div className="mx-auto grid w-full max-w-[980px] grid-cols-1 gap-[clamp(12px,2.5vw,24px)] md:grid-cols-2 min-[1200px]:grid-cols-4">
+        {groupedSkills.map((group, groupIndex) => (
+          <motion.div
+            key={group.key}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: groupIndex * 0.08 }}
+            viewport={{ once: false, amount: 0.2 }}
+            whileHover={{ y: -4, scale: 1.01 }}
+          >
+            <Card className="h-full border-2 transition-all duration-300 hover:shadow-xl">
+              <CardContent className="p-5">
+                <h4 className="mb-4 text-left text-base font-semibold">{group.label}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((skill) =>
+                    skill.jumpUrl ? (
+                      <a
+                        key={`${group.key}-${skill.title}`}
+                        href={skill.jumpUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={skill.proficiency}
+                      >
+                        <Badge variant="secondary" className="underline">
+                          {skill.title}
+                        </Badge>
+                      </a>
+                    ) : (
+                      <Badge
+                        key={`${group.key}-${skill.title}`}
+                        variant="secondary"
+                        title={skill.proficiency}
+                      >
+                        {skill.title}
+                      </Badge>
+                    ),
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
-      </Carousel>
+      </div>
     </div>
   );
 };
