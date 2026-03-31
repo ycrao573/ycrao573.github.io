@@ -15,10 +15,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Vite+ (vp)
+        uses: voidzero-dev/setup-vp@v1
         with:
-          node-version: '20'
+          cache: true
 
       - name: Install dependencies
         run: vp install
