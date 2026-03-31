@@ -156,3 +156,66 @@ html {
     @apply font-sans;
   }
 }
+
+@keyframes globe-ring-expand {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes globe-dot-pulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.globe-loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.18), rgba(0, 0, 0, 0) 55%);
+}
+
+.globe-loading-ring {
+  position: absolute;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 9999px;
+  border: 2px solid rgba(125, 211, 252, 0.5);
+  animation: globe-ring-expand 1.6s ease-out infinite;
+}
+
+.globe-loading-ring-delay {
+  animation-delay: 0.8s;
+}
+
+.globe-loading-dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 9999px;
+  background: #67e8f9;
+  animation: globe-dot-pulse 1.3s ease-in-out infinite;
+}
+
+.globe-loading-text {
+  position: relative;
+  margin-top: 10rem;
+  font-size: 0.85rem;
+  color: rgba(186, 230, 253, 0.95);
+  letter-spacing: 0.03em;
+}

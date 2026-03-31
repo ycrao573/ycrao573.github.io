@@ -5,10 +5,26 @@ import { motion } from 'motion/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
+type SkillCategory = NonNullable<Skill['category']>;
+const SKILL_GROUP_ORDER: SkillCategory[] = [
+  'frontend',
+  'backend',
+  'mobile',
+  'cloudDevOps',
+  'others',
+];
+
 const Skills: React.FC = () => {
   const { t } = useI18n();
   const [skillsData, setSkillsData] = useState<Skill[]>([]);
   const [loading, setLoading] = useState(true);
+  const groupLabels: Record<SkillCategory, string> = {
+    backend: t('skills.backend'),
+    cloudDevOps: t('skills.cloudDevOps'),
+    frontend: t('skills.frontend'),
+    mobile: t('skills.mobile'),
+    others: t('skills.others'),
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,44 +49,21 @@ const Skills: React.FC = () => {
       mobile: [],
       others: [],
     };
-
-    const getGroup = (title: string): keyof typeof groups => {
-      const value = title.toLowerCase();
-      if (
-        /(react|typescript|javascript|html|css|webpack|module federation|antd|ant pro|tanstack|vite|rax)/.test(
-          value,
-        )
-      ) {
-        return 'frontend';
-      }
-      if (/(node|python|java|c#|c\+\+|sql|graphql|go|express|\.net|asp\.net)/.test(value)) {
-        return 'backend';
-      }
-      if (/(react native|flutter|android|ios|swift|kotlin)/.test(value)) {
-        return 'mobile';
-      }
-      if (/(docker|jenkins|aws|kubernetes|k8s|ci|cd|devops|monitor|cloud)/.test(value)) {
-        return 'cloudDevOps';
-      }
-      return 'others';
-    };
+    const validGroups = new Set<SkillCategory>(SKILL_GROUP_ORDER);
 
     for (const skill of skillsData) {
-      groups[getGroup(skill.title)].push(skill);
+      if (!skill.category || !validGroups.has(skill.category)) {
+        continue;
+      }
+      groups[skill.category].push(skill);
     }
 
-    return [
-      { items: groups.frontend, key: 'frontend', label: t('skills.frontend') },
-      { items: groups.backend, key: 'backend', label: t('skills.backend') },
-      { items: groups.mobile, key: 'mobile', label: t('skills.mobile') },
-      {
-        items: groups.cloudDevOps,
-        key: 'cloudDevOps',
-        label: t('skills.cloudDevOps'),
-      },
-      { items: groups.others, key: 'others', label: t('skills.others') },
-    ].filter((group) => group.items.length > 0);
-  }, [skillsData, t]);
+    return SKILL_GROUP_ORDER.map((key) => ({
+      items: groups[key],
+      key,
+      label: groupLabels[key],
+    })).filter((group) => group.items.length > 0);
+  }, [groupLabels, skillsData]);
 
   if (loading) {
     return (

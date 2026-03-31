@@ -5,7 +5,13 @@ export interface TravelMarker {
   name: string;
 }
 
+export interface VisitedEntry {
+  code: string;
+  marker?: TravelMarker;
+}
+
 export interface Skill {
+  category: 'frontend' | 'backend' | 'mobile' | 'cloudDevOps' | 'others';
   icon: string;
   title: string;
   proficiency: string;
@@ -14,7 +20,7 @@ export interface Skill {
 
 export const api = {
   async getSkills(): Promise<Skill[]> {
-    const response = await fetch(`${API_BASE_URL}/api/skills`);
+    const response = await fetch(`${API_BASE_URL}/api/skills:new`);
     if (!response.ok) {
       throw new Error(`Failed to fetch skills: ${response.statusText}`);
     }
@@ -41,6 +47,14 @@ export const api = {
     const response = await fetch(`${API_BASE_URL}/api/travel/places`);
     if (!response.ok) {
       throw new Error(`Failed to fetch travel places: ${response.statusText}`);
+    }
+    return response.json();
+  },
+
+  async getVisited(): Promise<VisitedEntry[]> {
+    const response = await fetch(`${API_BASE_URL}/api/visited`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch visited data: ${response.statusText}`);
     }
     return response.json();
   },

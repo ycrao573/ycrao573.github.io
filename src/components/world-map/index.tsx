@@ -1,49 +1,156 @@
-import React, { useEffect, useRef, useState } from 'react';
-import ReactCountryFlag from 'react-country-flag';
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { MapPin, Plane } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
 import { useI18n } from '@/locale';
-import { api, type TravelMarker } from '@/services/api';
+import { api, type VisitedEntry } from '@/services/api';
 import { motion } from 'motion/react';
+import {
+  buildContinentByCode,
+  buildVisitedSet,
+  countVisitedContinents,
+  fetchWorldPolygons,
+  markersToPoints,
+  type CountryFeature,
+  type GlobePoint,
+} from './utils';
+
+interface GlobeCanvasProps {
+  countryPolygons: CountryFeature[];
+  visitedSet: Set<string>;
+  points: GlobePoint[];
+}
+
+const LazyGlobeCanvas = React.lazy(async () => {
+  const module = await import('./globe-canvas');
+  return { default: module.default as React.ComponentType<GlobeCanvasProps> };
+});
+
+const getIsSmallScreen = () =>
+  typeof globalThis !== 'undefined' && 'matchMedia' in globalThis
+    ? globalThis.matchMedia('(max-width: 900px)').matches
+    : false;
+
+const StatsCards: React.FC<{
+  countriesVisited: number;
+  continentsVisited: number;
+}> = ({ countriesVisited, continentsVisited }) => (
+  <div className="mt-4 grid w-full grid-cols-1 gap-4 md:grid-cols-2">
+    <div className="rounded-3xl border border-border/70 bg-card/30 px-6 py-8 text-center">
+      <MapPin className="mx-auto mb-3 h-8 w-8 text-white" />
+      <div className="text-5xl font-bold text-white">{countriesVisited}+</div>
+      <div className="text-muted-foreground text-xl">Countries Visited</div>
+    </div>
+    <div className="rounded-3xl border border-border/70 bg-card/30 px-6 py-8 text-center">
+      <Plane className="mx-auto mb-3 h-8 w-8 text-white" />
+      <div className="text-5xl font-bold text-white">{continentsVisited}</div>
+      <div className="text-muted-foreground text-xl">Continents</div>
+    </div>
+  </div>
+);
+
+const LoadingState: React.FC<{ title: string }> = ({ title }) => (
+  <div
+    className="flex scroll-mt-20 flex-col items-center px-[clamp(16px,4vw,32px)] py-[clamp(56px,8vw,128px)] text-center"
+    id="map"
+  >
+    <h3 className="mb-[clamp(20px,4vw,48px)] text-2xl font-semibold">{title}</h3>
+    <div>Loading...</div>
+  </div>
+);
+
+const GlobeLoadingFallback: React.FC = () => (
+  <div className="relative h-[520px] w-full overflow-hidden rounded-2xl border border-border/60 bg-card/30">
+    <div className="globe-loading-overlay">
+      <div className="globe-loading-ring" />
+      <div className="globe-loading-ring globe-loading-ring-delay" />
+      <div className="globe-loading-text mt-6">Loading globe...</div>
+    </div>
+  </div>
+);
 
 const Map: React.FC = () => {
   const { t } = useI18n();
-  const [visitedPlaces, setVisitedPlaces] = useState<string[]>([]);
-  const travelMapDataRef = useRef<{
-    countries: string[];
-    markers: TravelMarker[];
-  }>({ countries: [], markers: [] });
+  const [visited, setVisited] = useState<VisitedEntry[]>([]);
+  const [countryPolygons, setCountryPolygons] = useState<CountryFeature[]>([]);
+  const [continentByCode, setContinentByCode] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
+  const [globeDataLoading, setGlobeDataLoading] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(getIsSmallScreen);
+  const [shouldLoadGlobe, setShouldLoadGlobe] = useState(false);
+  const globeViewportRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [places, countries, markers] = await Promise.all([
-          api.getTravelPlaces(),
-          api.getTravelCountries(),
-          api.getTravelMarkers(),
-        ]);
-        setVisitedPlaces(places);
-        travelMapDataRef.current = { countries, markers };
-      } catch (error) {
-        console.error('Failed to fetch travel data:', error);
-      } finally {
-        setLoading(false);
-      }
+    const mediaQuery = globalThis.matchMedia('(max-width: 900px)');
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsSmallScreen(event.matches);
     };
-
-    void fetchData();
+    setIsSmallScreen(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
   }, []);
 
-  if (loading) {
-    return (
-      <div
-        className="flex scroll-mt-20 flex-col items-center px-[clamp(16px,4vw,32px)] py-[clamp(56px,8vw,128px)] text-center"
-        id="map"
-      >
-        <h3 className="mb-[clamp(20px,4vw,48px)] text-2xl font-semibold">{t('map.title')}</h3>
-        <div>Loading...</div>
-      </div>
+  useEffect(() => {
+    if (loading || isSmallScreen || shouldLoadGlobe) {
+      return;
+    }
+    const currentRef = globeViewportRef.current;
+    if (!currentRef) {
+      setShouldLoadGlobe(true);
+      return;
+    }
+    if (!('IntersectionObserver' in globalThis)) {
+      setShouldLoadGlobe(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setShouldLoadGlobe(true);
+        }
+      },
+      { threshold: 0.1 },
     );
+    observer.observe(currentRef);
+    return () => {
+      observer.disconnect();
+    };
+  }, [loading, isSmallScreen, shouldLoadGlobe]);
+
+  useEffect(() => {
+    // eslint-disable-next-line max-statements
+    const fetchData = async () => {
+      try {
+        const [visitedData, polygons] = await Promise.all([api.getVisited(), fetchWorldPolygons()]);
+        setVisited(visitedData);
+        setLoading(false);
+        setGlobeDataLoading(false);
+        setContinentByCode(buildContinentByCode(polygons));
+        setCountryPolygons(isSmallScreen ? [] : polygons);
+      } catch (error) {
+        console.error('Failed to fetch travel data:', error);
+        setLoading(false);
+        setGlobeDataLoading(false);
+      }
+    };
+    setGlobeDataLoading(true);
+    void fetchData();
+  }, [isSmallScreen]);
+
+  const visitedSet = useMemo(() => buildVisitedSet(visited), [visited]);
+
+  const points = useMemo(() => markersToPoints(visited), [visited]);
+
+  const continentsVisited = useMemo(
+    () => countVisitedContinents(visitedSet, continentByCode),
+    [visitedSet, continentByCode],
+  );
+  const countriesVisitedCount = visitedSet.size - 3;
+  const canRenderGlobe = shouldLoadGlobe && !globeDataLoading && countryPolygons.length > 0;
+
+  if (loading) {
+    return <LoadingState title={t('map.title')} />;
   }
 
   return (
@@ -82,30 +189,28 @@ const Map: React.FC = () => {
             repeat={Infinity}
           />
         </motion.p>
-        <div className="mt-2 grid grid-cols-6 gap-1 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12">
-          {visitedPlaces.map((place, index) => (
-            <motion.div
-              key={place}
-              className="m-[6px] flex h-[30px] items-center justify-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: Math.min(index * 0.02, 0.4),
-                duration: 0.25,
-              }}
-              viewport={{ once: true }}
-            >
-              <ReactCountryFlag
-                countryCode={place}
-                svg
-                style={{
-                  height: '2em',
-                  width: '2em',
-                }}
-              />
-            </motion.div>
-          ))}
-        </div>
+        {isSmallScreen ? (
+          <StatsCards
+            continentsVisited={continentsVisited}
+            countriesVisited={countriesVisitedCount}
+          />
+        ) : (
+          <>
+            <div className="mt-4" ref={globeViewportRef}>
+              {!canRenderGlobe ? (
+                <GlobeLoadingFallback />
+              ) : (
+                <Suspense fallback={<GlobeLoadingFallback />}>
+                  <LazyGlobeCanvas
+                    countryPolygons={countryPolygons}
+                    points={points}
+                    visitedSet={visitedSet}
+                  />
+                </Suspense>
+              )}
+            </div>
+          </>
+        )}
       </motion.div>
     </div>
   );

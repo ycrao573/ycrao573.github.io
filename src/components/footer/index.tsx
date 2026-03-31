@@ -34,9 +34,12 @@ const Footer: React.FC = () => {
           transition={{ delay: 0.1, duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <a className="flex flex-row text-foreground" href="mailto:raoyuchenom@gmail.com">
+          <a
+            className="flex flex-row text-foreground gap-2 items-center"
+            href="mailto:raoyuchenom@gmail.com"
+          >
             <Mail className="size-7 text-primary" />
-            <p className="contact-text mt-2 max-[600px]:hidden">raoyuchenom@gmail.com</p>
+            <p className="contact-text max-[600px]:hidden">raoyuchenom@gmail.com</p>
           </a>
         </motion.div>
         <div className="footer-divider mx-4 h-16 w-px bg-border max-[600px]:hidden" />
