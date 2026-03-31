@@ -18,13 +18,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: vp install
 
       - name: Build
-        run: yarn build
+        run: vp build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

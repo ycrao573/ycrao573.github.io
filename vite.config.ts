@@ -1,31 +1,77 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite-plus';
 import react from '@vitejs/plugin-react';
-import path from 'path';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import tailwindcss from '@tailwindcss/vite';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  plugins: [react()],
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom', 'react-router-dom'],
-          antd: ['antd', '@ant-design/icons'],
-          devicon: ['devicon'],
+        manualChunks(id) {
+          if (id.includes('node_modules') && id.includes('react')) {
+            return 'react';
+          }
         },
       },
     },
   },
+
+  fmt: {
+    singleQuote: true,
+  },
+
+  lint: {
+    categories: {
+      correctness: 'error',
+      perf: 'warn',
+      style: 'warn',
+      suspicious: 'error',
+    },
+    ignorePatterns: ['dist/**'],
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+    plugins: ['typescript', 'unicorn', 'oxc'],
+    rules: {
+      curly: 'error',
+      'eslint/func-style': 'off',
+      'eslint/id-length': 'off',
+      'eslint/no-magic-numbers': 'off',
+      'eslint/no-ternary': 'off',
+      'eslint/sort-imports': 'off',
+      'max-statements': ['warn', { max: 20 }],
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-debugger': 'error',
+      'no-null': 'off',
+      'no-shadow': 'off',
+      'typescript/no-explicit-any': 'warn',
+      'typescript/no-unused-vars': 'error',
+      'unicorn/filename-case': [
+        'error',
+        {
+          case: 'kebabCase',
+        },
+      ],
+      'unicorn/folder-name-case': [
+        'error',
+        {
+          case: 'kebabCase',
+        },
+      ],
+    },
+  },
+
+  plugins: [tailwindcss(), react()],
+
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, './src'),
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler',
-        silenceDeprecations: ['legacy-js-api'],
-      },
-    },
-  },
+
+  staged: { '*': 'vp check --fix' },
 });
