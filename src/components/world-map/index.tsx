@@ -101,16 +101,16 @@ const Map: React.FC = () => {
 
   useEffect(() => {
     if (loading || isSmallScreen || shouldLoadGlobe) {
-      return;
+      return undefined;
     }
     const currentRef = globeViewportRef.current;
     if (!currentRef) {
       setShouldLoadGlobe(true);
-      return;
+      return undefined;
     }
     if (!('IntersectionObserver' in globalThis)) {
       setShouldLoadGlobe(true);
-      return;
+      return undefined;
     }
     const observer = new IntersectionObserver(
       (entries) => {

@@ -158,7 +158,7 @@ const BackgroundGradient = () => {
 
   useEffect(() => {
     if (reduceMotion) {
-      return;
+      return undefined;
     }
 
     const handlePointerMove = (event: PointerEvent) => {

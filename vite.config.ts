@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import tailwindcss from '@tailwindcss/vite';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   build: {
@@ -14,6 +14,7 @@ export default defineConfig({
           if (id.includes('node_modules') && id.includes('react')) {
             return 'react';
           }
+          return undefined;
         },
       },
     },
@@ -56,12 +57,6 @@ export default defineConfig({
           case: 'kebabCase',
         },
       ],
-      'unicorn/folder-name-case': [
-        'error',
-        {
-          case: 'kebabCase',
-        },
-      ],
     },
   },
 
@@ -69,7 +64,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(dirname, './src'),
     },
   },
 
