@@ -32,7 +32,7 @@ Build production-ready design systems with Tailwind CSS v4, including CSS-first 
 
 ```css
 /* app.css - Tailwind v4 CSS-first configuration */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Define your theme with @theme */
 @theme {
@@ -179,4 +179,3 @@ Example:
 ```
 Base styles → Variants → Sizes → States → Overrides
 ```
-

@@ -74,6 +74,7 @@ export default defineConfig({
   },
 
   staged: {
-    'src/**/*.{ts,tsx}': 'vp test',
+    'src/**/*.{test,spec}.{ts,tsx}': 'vp test',
+    'src/**/*.{ts,tsx}': 'vp test --passWithNoTests',
   },
 });

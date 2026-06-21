@@ -53,7 +53,10 @@ const StatsCards: React.FC<{
   </div>
 );
 
-const LoadingState: React.FC<{ loadingLabel: string; title: string }> = ({ loadingLabel, title }) => (
+const LoadingState: React.FC<{ loadingLabel: string; title: string }> = ({
+  loadingLabel,
+  title,
+}) => (
   <div
     className="flex scroll-mt-20 flex-col items-center px-[clamp(16px,4vw,32px)] py-[clamp(56px,8vw,128px)] text-center"
     id="map"

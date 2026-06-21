@@ -150,13 +150,13 @@ src/
 
 Base URL: `https://ghpage.raoyuchenom.workers.dev`
 
-| Endpoint | Returns | Used by |
-|---|---|---|
-| `GET /api/skills:new` | `Skill[]` | `skills/` section |
-| `GET /api/travel/countries` | `string[]` | `world-map/` |
-| `GET /api/travel/markers` | `TravelMarker[]` | `world-map/` |
-| `GET /api/travel/places` | `string[]` | `world-map/` |
-| `GET /api/visited` | `VisitedEntry[]` | `world-map/` |
+| Endpoint                    | Returns          | Used by           |
+| --------------------------- | ---------------- | ----------------- |
+| `GET /api/skills:new`       | `Skill[]`        | `skills/` section |
+| `GET /api/travel/countries` | `string[]`       | `world-map/`      |
+| `GET /api/travel/markers`   | `TravelMarker[]` | `world-map/`      |
+| `GET /api/travel/places`    | `string[]`       | `world-map/`      |
+| `GET /api/visited`          | `VisitedEntry[]` | `world-map/`      |
 
 Types are defined in `src/services/api.ts`. When changing API shapes, update types and all consuming components together.
 
@@ -197,11 +197,11 @@ Component lands in `src/components/ui/`. Import from `@/components/ui/<component
 
 Three focused skills from [skills.sh](https://www.skills.sh/) live in [`.cursor/skills/`](.cursor/skills/):
 
-| Skill | Source | Use when |
-|---|---|---|
+| Skill                    | Source          | Use when                                        |
+| ------------------------ | --------------- | ----------------------------------------------- |
 | `tailwind-design-system` | wshobson/agents | Tailwind v4 tokens, theming, component variants |
-| `shadcn` | shadcn/ui | Adding/customizing shadcn/ui components |
-| `git-workflow` | agno-agi/agno | Commits, branches, PRs (Conventional Commits) |
+| `shadcn`                 | shadcn/ui       | Adding/customizing shadcn/ui components         |
+| `git-workflow`           | agno-agi/agno   | Commits, branches, PRs (Conventional Commits)   |
 
 React, TypeScript, and Vite+ conventions are in `.cursor/rules/` and this file — avoid installing more skills unless needed.
 

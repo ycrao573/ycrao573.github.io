@@ -30,15 +30,15 @@ vp build    # production build to dist/
 
 ## Project Structure
 
-| Path | Purpose |
-|---|---|
-| `src/pages/home-page.tsx` | Main portfolio page |
-| `src/components/*.tsx` | Single-file section components (header, hero, skills, etc.) |
-| `src/components/experience/`, `projects/`, `world-map/` | Multi-file sections |
-| `src/components/ui/` | shadcn/ui primitives |
-| `src/locale/` | i18n JSON files + `useI18n()` hook |
-| `src/services/api.ts` | Cloudflare Workers API client |
-| `src/components/world-map/` | 3D globe (React Three Fiber) |
+| Path                                                    | Purpose                                                     |
+| ------------------------------------------------------- | ----------------------------------------------------------- |
+| `src/pages/home-page.tsx`                               | Main portfolio page                                         |
+| `src/components/*.tsx`                                  | Single-file section components (header, hero, skills, etc.) |
+| `src/components/experience/`, `projects/`, `world-map/` | Multi-file sections                                         |
+| `src/components/ui/`                                    | shadcn/ui primitives                                        |
+| `src/locale/`                                           | i18n JSON files + `useI18n()` hook                          |
+| `src/services/api.ts`                                   | Cloudflare Workers API client                               |
+| `src/components/world-map/`                             | 3D globe (React Three Fiber)                                |
 
 See [AGENTS.md](./AGENTS.md) for full architecture, conventions, and task recipes — especially useful for AI/agent contributors.
 

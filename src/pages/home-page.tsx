@@ -39,7 +39,10 @@ const HomePage: React.FC = () => {
           <Footer />
           <Button
             size="icon"
-            className={cn(glass, 'fixed right-8 bottom-8 z-50 rounded-full border-0 bg-transparent shadow-none')}
+            className={cn(
+              glass,
+              'fixed right-8 bottom-8 z-50 rounded-full border-0 bg-transparent shadow-none',
+            )}
             onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })}
             aria-label="Back to top"
           >

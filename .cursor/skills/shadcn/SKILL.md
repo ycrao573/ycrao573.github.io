@@ -37,11 +37,11 @@ After adding from a community registry, fix hardcoded `@/components/ui/...` impo
 
 ## Component Selection
 
-| Need | Use |
-| --- | --- |
-| Actions | `Button` |
-| Forms | `Input`, `Select`, `Checkbox`, `Switch`, `Textarea`, `Field` |
-| Layout | `Card`, `Separator`, `Tabs`, `ScrollArea` |
-| Overlays | `Dialog`, `Sheet`, `Drawer`, `AlertDialog` |
-| Feedback | `sonner`, `Alert`, `Skeleton`, `Spinner`, `Badge` |
-| Menus | `DropdownMenu`, `Tooltip`, `Popover` |
+| Need     | Use                                                          |
+| -------- | ------------------------------------------------------------ |
+| Actions  | `Button`                                                     |
+| Forms    | `Input`, `Select`, `Checkbox`, `Switch`, `Textarea`, `Field` |
+| Layout   | `Card`, `Separator`, `Tabs`, `ScrollArea`                    |
+| Overlays | `Dialog`, `Sheet`, `Drawer`, `AlertDialog`                   |
+| Feedback | `sonner`, `Alert`, `Skeleton`, `Spinner`, `Badge`            |
+| Menus    | `DropdownMenu`, `Tooltip`, `Popover`                         |
