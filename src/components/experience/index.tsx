@@ -1,4 +1,4 @@
-import { createTimelineItems } from './items';
+import { createTimelineItems, type ExperienceItem } from './items';
 import { useI18n } from '@/locale';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -55,7 +55,7 @@ export default function Experience() {
                 <p className="text-muted-foreground">{item.date}</p>
                 {item.badges && (
                   <div className="flex flex-wrap gap-1">
-                    {item.badges.map((badge: any) =>
+                    {item.badges.map((badge: NonNullable<ExperienceItem['badges']>[number]) =>
                       badge.href ? (
                         <a
                           href={badge.href}

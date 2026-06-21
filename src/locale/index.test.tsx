@@ -4,8 +4,8 @@ import zh from './zh.json';
 
 describe('locale files', () => {
   it('have matching keys in en and zh', () => {
-    const enKeys = Object.keys(en).sort();
-    const zhKeys = Object.keys(zh).sort();
+    const enKeys = Object.keys(en).toSorted();
+    const zhKeys = Object.keys(zh).toSorted();
     expect(zhKeys).toEqual(enKeys);
   });
 

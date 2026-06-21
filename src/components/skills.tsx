@@ -54,12 +54,11 @@ const Skills: React.FC = () => {
     };
     const validGroups = new Set<SkillCategory>(SKILL_GROUP_ORDER);
 
-    for (const skill of skillsData) {
-      if (!skill.category || !validGroups.has(skill.category)) {
-        continue;
+    skillsData.forEach((skill) => {
+      if (skill.category && validGroups.has(skill.category)) {
+        groups[skill.category].push(skill);
       }
-      groups[skill.category].push(skill);
-    }
+    });
 
     return SKILL_GROUP_ORDER.map((key) => ({
       items: groups[key],

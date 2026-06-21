@@ -131,9 +131,10 @@ const ParallaxLayer = ({
   const x = useTransform(mouseX, (value) => value * 42 * mouseFactor);
   const mouseYOffset = useTransform(mouseY, (value) => value * 30 * mouseFactor);
   const scrollYOffset = useTransform(scrollProgress, (value) => value * -140 * scrollFactor);
-  const y = useTransform([mouseYOffset, scrollYOffset], ([mouseYValue, scrollYValue]) => {
-    return (mouseYValue ?? 0) + (scrollYValue ?? 0);
-  });
+  const y = useTransform(
+    [mouseYOffset, scrollYOffset],
+    ([mouseYValue, scrollYValue]: number[]) => mouseYValue + scrollYValue,
+  );
 
   return (
     <motion.div className={className} style={{ x, y }}>
@@ -161,33 +162,34 @@ const BackgroundGradient = () => {
     }
 
     const handlePointerMove = (event: PointerEvent) => {
-      pointerX.set((event.clientX / window.innerWidth - 0.5) * 2);
-      pointerY.set((event.clientY / window.innerHeight - 0.5) * 2);
+      pointerX.set((event.clientX / globalThis.innerWidth - 0.5) * 2);
+      pointerY.set((event.clientY / globalThis.innerHeight - 0.5) * 2);
     };
 
     const handleScroll = () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      scrollProgress.set(maxScroll > 0 ? window.scrollY / maxScroll : 0);
+      const maxScroll = document.documentElement.scrollHeight - globalThis.innerHeight;
+      scrollProgress.set(maxScroll > 0 ? globalThis.scrollY / maxScroll : 0);
     };
 
     handleScroll();
-    window.addEventListener('pointermove', handlePointerMove, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
+    globalThis.addEventListener('pointermove', handlePointerMove, { passive: true });
+    globalThis.addEventListener('scroll', handleScroll, { passive: true });
+    globalThis.addEventListener('resize', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('pointermove', handlePointerMove);
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      globalThis.removeEventListener('pointermove', handlePointerMove);
+      globalThis.removeEventListener('scroll', handleScroll);
+      globalThis.removeEventListener('resize', handleScroll);
     };
   }, [pointerX, pointerY, reduceMotion, scrollProgress]);
 
   const conicX = useTransform(springX, (value) => value * 28);
   const conicMouseY = useTransform(springY, (value) => value * 20);
   const conicScrollY = useTransform(springScroll, (value) => value * -90);
-  const conicY = useTransform([conicMouseY, conicScrollY], ([mouseYValue, scrollYValue]) => {
-    return (mouseYValue ?? 0) + (scrollYValue ?? 0);
-  });
+  const conicY = useTransform(
+    [conicMouseY, conicScrollY],
+    ([mouseYValue, scrollYValue]: number[]) => mouseYValue + scrollYValue,
+  );
 
   return (
     <div
