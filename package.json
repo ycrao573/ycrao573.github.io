@@ -39,7 +39,7 @@
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
     "@tailwindcss/vite": "^4.2.2",
-    "@types/node": "^16.18.52",
+    "@types/node": "^20.19.0",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/three": "^0.183.1",
@@ -49,12 +49,11 @@
     "shadcn": "^4.1.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.14",
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vite-plus": "latest"
   },
   "resolutions": {
-    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest"
   },
   "lint-staged": {
     "src/**/*.{test,spec}.{ts,tsx}": "vp test",
