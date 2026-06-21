@@ -9,6 +9,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { glass } from '@/lib/glass';
+import { cn } from '@/lib/utils';
 
 interface Props {
   onChange?: () => void;
@@ -47,7 +49,7 @@ const Header = (props: Props) => {
         </Select>
       </div>
       {!isMobile && (
-        <nav className="flex items-center rounded-lg border border-border bg-card p-1 shadow-[0_4px_4px_0_rgba(0,0,0,0.2),0_6px_20px_0_rgba(0,0,0,0.19)]">
+        <nav className={cn(glass, 'flex items-center rounded-2xl p-1')}>
           <Button variant="ghost" onClick={() => jumpToSection('aboutme')}>
             {t('nav.about')}
           </Button>

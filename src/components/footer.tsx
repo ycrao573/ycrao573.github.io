@@ -35,16 +35,16 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
         >
           <a
-            className="flex flex-row text-foreground gap-2 items-center"
+            className="flex flex-row items-center gap-2 text-foreground"
             href="mailto:raoyuchenom@gmail.com"
           >
             <Mail className="size-7 text-primary" />
-            <p className="contact-text max-[600px]:hidden">raoyuchenom@gmail.com</p>
+            <p className="max-[600px]:hidden">raoyuchenom@gmail.com</p>
           </a>
         </motion.div>
-        <div className="footer-divider mx-4 h-16 w-px bg-border max-[600px]:hidden" />
+        <div className="mx-4 h-16 w-px bg-border max-[600px]:hidden" />
         <motion.div
-          className="social-icons flex flex-row"
+          className="flex flex-row"
           initial={{ opacity: 0, x: 18 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.15, duration: 0.5 }}

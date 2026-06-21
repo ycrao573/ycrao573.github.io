@@ -13,6 +13,9 @@ import {
   type CountryFeature,
   type GlobePoint,
 } from './utils';
+import styles from './world-map.module.css';
+import { glassSubtle } from '@/lib/glass';
+import { cn } from '@/lib/utils';
 
 interface GlobeCanvasProps {
   countryPolygons: CountryFeature[];
@@ -31,39 +34,41 @@ const getIsSmallScreen = () =>
     : false;
 
 const StatsCards: React.FC<{
+  countriesLabel: string;
+  continentsLabel: string;
   countriesVisited: number;
   continentsVisited: number;
-}> = ({ countriesVisited, continentsVisited }) => (
+}> = ({ countriesLabel, continentsLabel, countriesVisited, continentsVisited }) => (
   <div className="mt-4 grid w-full grid-cols-1 gap-4 md:grid-cols-2">
-    <div className="rounded-3xl border border-border/70 bg-card/30 px-6 py-8 text-center">
+    <div className={cn(glassSubtle, 'rounded-3xl px-6 py-8 text-center')}>
       <MapPin className="mx-auto mb-3 h-8 w-8 text-white" />
       <div className="text-5xl font-bold text-white">{countriesVisited}+</div>
-      <div className="text-muted-foreground text-xl">Countries Visited</div>
+      <div className="text-muted-foreground text-xl">{countriesLabel}</div>
     </div>
-    <div className="rounded-3xl border border-border/70 bg-card/30 px-6 py-8 text-center">
+    <div className={cn(glassSubtle, 'rounded-3xl px-6 py-8 text-center')}>
       <Plane className="mx-auto mb-3 h-8 w-8 text-white" />
       <div className="text-5xl font-bold text-white">{continentsVisited}</div>
-      <div className="text-muted-foreground text-xl">Continents</div>
+      <div className="text-muted-foreground text-xl">{continentsLabel}</div>
     </div>
   </div>
 );
 
-const LoadingState: React.FC<{ title: string }> = ({ title }) => (
+const LoadingState: React.FC<{ loadingLabel: string; title: string }> = ({ loadingLabel, title }) => (
   <div
     className="flex scroll-mt-20 flex-col items-center px-[clamp(16px,4vw,32px)] py-[clamp(56px,8vw,128px)] text-center"
     id="map"
   >
     <h3 className="mb-[clamp(20px,4vw,48px)] text-2xl font-semibold">{title}</h3>
-    <div>Loading...</div>
+    <div>{loadingLabel}</div>
   </div>
 );
 
-const GlobeLoadingFallback: React.FC = () => (
-  <div className="relative h-[520px] w-full overflow-hidden rounded-2xl border border-border/60 bg-card/30">
-    <div className="globe-loading-overlay">
-      <div className="globe-loading-ring" />
-      <div className="globe-loading-ring globe-loading-ring-delay" />
-      <div className="globe-loading-text mt-6">Loading globe...</div>
+const GlobeLoadingFallback: React.FC<{ loadingLabel: string }> = ({ loadingLabel }) => (
+  <div className={cn(glassSubtle, 'relative h-[520px] w-full overflow-hidden rounded-2xl')}>
+    <div className={styles.loadingOverlay}>
+      <div className={styles.loadingRing} />
+      <div className={styles.loadingRingDelay} />
+      <div className={styles.loadingText}>{loadingLabel}</div>
     </div>
   </div>
 );
@@ -150,7 +155,7 @@ const Map: React.FC = () => {
   const canRenderGlobe = shouldLoadGlobe && !globeDataLoading && countryPolygons.length > 0;
 
   if (loading) {
-    return <LoadingState title={t('map.title')} />;
+    return <LoadingState loadingLabel={t('common.loading')} title={t('map.title')} />;
   }
 
   return (
@@ -191,16 +196,18 @@ const Map: React.FC = () => {
         </motion.p>
         {isSmallScreen ? (
           <StatsCards
+            continentsLabel={t('map.continents')}
             continentsVisited={continentsVisited}
+            countriesLabel={t('map.countriesVisited')}
             countriesVisited={countriesVisitedCount}
           />
         ) : (
           <>
             <div className="mt-4" ref={globeViewportRef}>
               {!canRenderGlobe ? (
-                <GlobeLoadingFallback />
+                <GlobeLoadingFallback loadingLabel={t('map.loadingGlobe')} />
               ) : (
-                <Suspense fallback={<GlobeLoadingFallback />}>
+                <Suspense fallback={<GlobeLoadingFallback loadingLabel={t('map.loadingGlobe')} />}>
                   <LazyGlobeCanvas
                     countryPolygons={countryPolygons}
                     points={points}

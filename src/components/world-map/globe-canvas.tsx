@@ -12,6 +12,8 @@ import {
   type GlobePoint,
 } from './utils';
 import { ThemeContext } from '@/context';
+import { glassSubtle } from '@/lib/glass';
+import { cn } from '@/lib/utils';
 
 interface GlobeCanvasProps {
   countryPolygons: CountryFeature[];
@@ -118,7 +120,7 @@ const GlobeCanvas: React.FC<GlobeCanvasProps> = ({ countryPolygons, visitedSet, 
 
   return (
     <div
-      className="relative h-[520px] w-full overflow-hidden rounded-2xl border border-border/60 bg-card/30"
+      className={cn(glassSubtle, 'relative h-[520px] w-full overflow-hidden rounded-2xl')}
       onPointerMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
         setMouse({ x: event.clientX - rect.left, y: event.clientY - rect.top });

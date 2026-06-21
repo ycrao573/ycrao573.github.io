@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
               <>
                 <Badge variant="secondary">React</Badge>
                 <Badge variant="secondary">TypeScript</Badge>
-                <Badge variant="secondary">CSS/SCSS</Badge>
+                <Badge variant="secondary">Tailwind CSS</Badge>
                 <Badge variant="secondary">Rax</Badge>
               </>
             }
