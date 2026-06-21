@@ -1,22 +1,16 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '@/context';
+import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { useI18n } from '@/locale';
 import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';
 
 const Hero: React.FC = () => {
-  const value = useContext(ThemeContext);
   const { t } = useI18n();
 
   return (
     <div
       className="relative flex min-h-[100svh] max-w-[100vw] flex-col items-center justify-center gap-3 px-[clamp(16px,4vw,32px)] pt-[clamp(88px,10vw,120px)] pb-[clamp(56px,8vw,96px)] text-center"
       id="hero"
-      style={{
-        backgroundBlendMode: 'multiply',
-        backgroundColor: value === 'dark' ? '#00000008' : '#FFFFFF04',
-      }}
     >
       <motion.h1
         className="text-4xl font-bold sm:text-5xl"

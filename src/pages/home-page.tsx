@@ -7,10 +7,13 @@ import Experience from '@/components/experience';
 import AboutMe from '@/components/about-me';
 import Skills from '@/components/skills';
 import Projects from '@/components/projects';
+import BackgroundGradient from '@/components/background-gradient';
 import { ThemeContext } from '@/context';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { ArrowUp } from 'lucide-react';
+import { glass } from '@/lib/glass';
+import { cn } from '@/lib/utils';
 
 const HomePage: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -18,7 +21,8 @@ const HomePage: React.FC = () => {
   return (
     <ThemeContext.Provider value={darkMode ? 'dark' : 'light'}>
       <div className={darkMode ? 'dark' : ''}>
-        <main className="min-h-screen bg-background text-foreground">
+        <BackgroundGradient />
+        <main className="relative min-h-screen text-foreground">
           <Header onChange={() => setDarkMode(!darkMode)} />
           <Hero />
           <Separator />
@@ -35,7 +39,7 @@ const HomePage: React.FC = () => {
           <Footer />
           <Button
             size="icon"
-            className="fixed right-8 bottom-8 z-50 rounded-full"
+            className={cn(glass, 'fixed right-8 bottom-8 z-50 rounded-full border-0 bg-transparent shadow-none')}
             onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })}
             aria-label="Back to top"
           >

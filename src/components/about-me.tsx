@@ -1,22 +1,9 @@
-import { useState } from 'react';
-import DownloadPopup from '../download-popup';
 import { useI18n } from '@/locale';
-import { Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { motion } from 'motion/react';
 
 export default function AboutMe() {
   const { t } = useI18n();
-  const [popupVisible, setPopupVisible] = useState<boolean>(false);
-
-  const handleDownloadClick = () => {
-    setPopupVisible(true);
-  };
-
-  const handlePopupClose = () => {
-    setPopupVisible(false);
-  };
 
   return (
     <div className="scroll-mt-20 px-[clamp(16px,4vw,32px)] py-[clamp(56px,8vw,128px)]" id="aboutme">
@@ -36,7 +23,7 @@ export default function AboutMe() {
               <CardContent className="flex h-full flex-col p-0">
                 <img
                   className="min-h-[220px] w-full flex-1 rounded-t-lg object-cover"
-                  src={new URL('../../assets/profile.jpg', import.meta.url).href}
+                  src={new URL('../assets/profile.jpg', import.meta.url).href}
                   alt={t('about.name')}
                 />
                 <div className="p-4">
@@ -57,20 +44,13 @@ export default function AboutMe() {
               <CardHeader>
                 <CardTitle>{t('about.intro.title')}</CardTitle>
               </CardHeader>
-              <CardContent className="flex h-full flex-col text-[15px] leading-7">
-                <p className="flex-1">{t('about.intro.message')}</p>
-                <div className="mt-4 flex justify-end">
-                  <Button onClick={handleDownloadClick}>
-                    <Download className="size-4" />
-                    {t('about.download')}
-                  </Button>
-                </div>
+              <CardContent className="text-[15px] leading-7">
+                <p>{t('about.intro.message')}</p>
               </CardContent>
             </Card>
           </motion.div>
         </div>
       </div>
-      <DownloadPopup visible={popupVisible} onClose={handlePopupClose} />
     </div>
   );
 }

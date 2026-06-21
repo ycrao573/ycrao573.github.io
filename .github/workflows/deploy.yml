@@ -23,6 +23,12 @@ jobs:
       - name: Install dependencies
         run: vp install
 
+      - name: Check
+        run: vp check
+
+      - name: Test
+        run: vp test
+
       - name: Build
         run: vp build
 

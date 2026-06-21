@@ -11,7 +11,7 @@ export interface VisitedEntry {
 }
 
 export interface Skill {
-  category: 'frontend' | 'backend' | 'mobile' | 'cloudDevOps' | 'others';
+  category: 'languages' | 'frontend' | 'backend' | 'mobile' | 'cloudDevOps' | 'monitoring';
   icon: string;
   title: string;
   proficiency: string;

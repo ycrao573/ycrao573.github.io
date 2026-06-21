@@ -57,7 +57,7 @@
     "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
   },
   "lint-staged": {
-    "*": "vp check --fix"
+    "src/**/*.{ts,tsx}": "vp test"
   },
   "browserslist": {
     "production": [

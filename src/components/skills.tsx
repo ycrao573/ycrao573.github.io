@@ -7,11 +7,12 @@ import { Badge } from '@/components/ui/badge';
 
 type SkillCategory = NonNullable<Skill['category']>;
 const SKILL_GROUP_ORDER: SkillCategory[] = [
+  'languages',
   'frontend',
   'backend',
   'mobile',
   'cloudDevOps',
-  'others',
+  'monitoring',
 ];
 
 const Skills: React.FC = () => {
@@ -22,8 +23,9 @@ const Skills: React.FC = () => {
     backend: t('skills.backend'),
     cloudDevOps: t('skills.cloudDevOps'),
     frontend: t('skills.frontend'),
+    languages: t('skills.languages'),
     mobile: t('skills.mobile'),
-    others: t('skills.others'),
+    monitoring: t('skills.monitoring'),
   };
 
   useEffect(() => {
@@ -42,12 +44,13 @@ const Skills: React.FC = () => {
   }, []);
 
   const groupedSkills = useMemo(() => {
-    const groups: Record<'frontend' | 'backend' | 'mobile' | 'cloudDevOps' | 'others', Skill[]> = {
+    const groups: Record<SkillCategory, Skill[]> = {
       backend: [],
       cloudDevOps: [],
       frontend: [],
+      languages: [],
       mobile: [],
-      others: [],
+      monitoring: [],
     };
     const validGroups = new Set<SkillCategory>(SKILL_GROUP_ORDER);
 
@@ -72,7 +75,7 @@ const Skills: React.FC = () => {
         id="skills"
       >
         <h3 className="mb-[clamp(20px,4vw,48px)] text-2xl font-semibold">{t('skills.title')}</h3>
-        <div>Loading...</div>
+        <div>{t('common.loading')}</div>
       </div>
     );
   }
