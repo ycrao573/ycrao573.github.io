@@ -34,7 +34,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.19",
+    "@babel/core": "^7.29.6",
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
