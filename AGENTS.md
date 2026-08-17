@@ -73,6 +73,7 @@ src/
 - **shadcn:** add components via `vp dlx shadcn@latest add <component>`; config in `components.json` (style: `radix-nova`, aliases: `@/components/ui`, `@/lib/utils`)
 - **3D globe:** keep Three.js logic in `world-map/globe-canvas.tsx` and `world-map/utils.ts`; lazy-load with `React.lazy`
 - **Theme:** dark mode toggled via `ThemeContext` on `home-page`; wrap sections in `className={darkMode ? 'dark' : ''}`
+- **Pre-commit:** `.vite-hooks/pre-commit` runs `vp staged` → `vp check --fix` on staged files. Enable locally with `vp config` (also run by `prepare` after `vp install`)
 
 ## External API
 

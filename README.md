@@ -20,7 +20,9 @@ Open the URL printed in the terminal (default Vite dev server).
 
 ## Quality Gates
 
-Run these before committing or opening a PR:
+Pre-commit runs `vp staged` → `vp check --fix` on staged files (format + lint). After `vp install`, Vite+ enables the hook via `vp config`.
+
+CI and PRs still run the full suite:
 
 ```bash
 vp check    # format, lint, and TypeScript checks

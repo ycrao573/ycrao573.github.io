@@ -49,9 +49,7 @@ export default function Experience() {
                 {item.details ? (
                   <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
                     {item.details.map((detail: string, detailIndex: number) => (
-                      <li key={`${item.title}-detail-${detailIndex}`}>
-                        {renderRichText(detail)}
-                      </li>
+                      <li key={`${item.title}-detail-${detailIndex}`}>{renderRichText(detail)}</li>
                     ))}
                   </ul>
                 ) : undefined}
