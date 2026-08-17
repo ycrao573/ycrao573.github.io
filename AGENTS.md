@@ -190,6 +190,7 @@ Component lands in `src/components/ui/`. Import from `@/components/ui/<component
 
 ## Deployment
 
+- **PR CI:** pull requests to `master` → `.github/workflows/ci.yml` runs `vp check`, `vp test`, `vp build` (no deploy)
 - **Automatic:** push to `master` → `.github/workflows/deploy.yml` runs `vp check`, `vp test`, `vp build`, deploys `dist/` to GitHub Pages
 - **Manual:** `vp run deploy` (runs `vp build` then `gh-pages -d dist`)
 
