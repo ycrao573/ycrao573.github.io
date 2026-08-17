@@ -29,25 +29,70 @@ const Projects: React.FC = () => {
           whileHover={{ scale: 1.02, y: -8 }}
         >
           <ProjectCard
-            imgUrl={'https://img.alicdn.com/tfs/TB1NbbEPqL7gK0jSZFBXXXZZpXa-564-250.png_.webp'}
-            extraStyles={{ padding: '15%' }}
-            prodLink="https://redmart.lazada.sg/"
-            title={t('projects.redmart.title')}
+            imgUrl="https://framerusercontent.com/images/WDIpmeGA3MqBH3Ia63OX0VeQSw8.jpg"
+            prodLink="https://nas.com/"
+            title={t('projects.nas.title')}
+            description={t('projects.nas.desc')}
+            badges={
+              <>
+                <Badge variant="secondary">Next.js</Badge>
+                <Badge variant="secondary">TypeScript</Badge>
+                <Badge variant="secondary">Tailwind CSS</Badge>
+                <Badge variant="secondary">AI</Badge>
+              </>
+            }
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.05, duration: 0.6 }}
+          viewport={{ amount: 0.2, once: false }}
+          whileHover={{ scale: 1.02, y: -8 }}
+        >
+          <ProjectCard
+            imgUrl="/projects/nas-agents.png"
+            prodLink="https://agents.nas.com/"
+            title={t('projects.agents.title')}
+            description={t('projects.agents.desc')}
             badges={
               <>
                 <Badge variant="secondary">React</Badge>
-                <Badge variant="secondary">TypeScript</Badge>
-                <Badge variant="secondary">Tailwind CSS</Badge>
-                <Badge variant="secondary">Rax</Badge>
+                <Badge variant="secondary">Express.js</Badge>
+                <Badge variant="secondary">MongoDB</Badge>
+                <Badge variant="secondary">LangGraph</Badge>
+                <Badge variant="secondary">AI</Badge>
               </>
             }
-            description={''}
           />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
+          viewport={{ amount: 0.2, once: false }}
+          whileHover={{ scale: 1.02, y: -8 }}
+        >
+          <ProjectCard
+            imgUrl={'https://img.alicdn.com/tfs/TB1NbbEPqL7gK0jSZFBXXXZZpXa-564-250.png_.webp'}
+            imgFit="contain"
+            prodLink="https://redmart.lazada.sg/"
+            title={t('projects.redmart.title')}
+            badges={
+              <>
+                <Badge variant="secondary">React</Badge>
+                <Badge variant="secondary">TypeScript</Badge>
+                <Badge variant="secondary">ICE</Badge>
+                <Badge variant="secondary">Rax</Badge>
+              </>
+            }
+            description={t('projects.redmart.desc')}
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.6 }}
           viewport={{ amount: 0.2, once: false }}
           whileHover={{ scale: 1.02, y: -8 }}
         >

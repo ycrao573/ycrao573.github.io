@@ -1,8 +1,9 @@
-import { useState, type CSSProperties, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { ChevronUp, CircleHelp, Eye } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 export interface ProjectCardProps {
   imgUrl: string;
@@ -10,20 +11,23 @@ export interface ProjectCardProps {
   prodLink?: string;
   title: string;
   description: string;
-  extraStyles?: CSSProperties;
   badges?: ReactNode;
+  /** Use `contain` for logo-style artwork that should not be cropped. */
+  imgFit?: 'contain' | 'cover';
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = (props) => {
   const [showContent, setShowContent] = useState<boolean>(false);
-  const { imgUrl, githubLink, title, description, extraStyles, prodLink, badges } = props;
+  const { imgUrl, githubLink, title, description, prodLink, badges, imgFit = 'cover' } = props;
 
   return (
     <Card className="flex h-full w-[300px] flex-col overflow-hidden border-2 transition-all duration-300 hover:shadow-xl">
       <img
         src={imgUrl}
-        className="h-[170px] w-[300px] object-scale-down"
-        style={{ ...extraStyles }}
+        className={cn(
+          'h-[170px] w-[300px]',
+          imgFit === 'contain' ? 'bg-white object-contain p-6' : 'object-cover',
+        )}
         alt={title}
       />
       <CardHeader className="flex-1 pb-2">
