@@ -1,4 +1,5 @@
 import { createTimelineItems, type ExperienceItem } from './items';
+import { renderRichText } from './rich-text';
 import { useI18n } from '@/locale';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -48,16 +49,17 @@ export default function Experience() {
                 {item.details ? (
                   <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
                     {item.details.map((detail: string, detailIndex: number) => (
-                      <li key={`${item.title}-detail-${detailIndex}`}>{detail}</li>
+                      <li key={`${item.title}-detail-${detailIndex}`}>{renderRichText(detail)}</li>
                     ))}
                   </ul>
                 ) : undefined}
                 <p className="text-muted-foreground">{item.date}</p>
                 {item.badges && (
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap items-center gap-1">
                     {item.badges.map((badge: NonNullable<ExperienceItem['badges']>[number]) =>
                       badge.href ? (
                         <a
+                          className="inline-flex"
                           href={badge.href}
                           target="_blank"
                           rel="noopener noreferrer"
